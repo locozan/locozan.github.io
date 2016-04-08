@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>个人简历</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+      list-style-type: none;
+    }
+    @media screen and (min-width: 1000px) {
+      body{ 
+        background: #E1E1E1;
+        padding: 0 200px; 
+      }
+      .top{
+        position: relative;
+        width: 100%;
+        height: 200px;
+        float: left;
+        background: url(../resume/ligting.png);
+    }
+      .header{
+        border-radius: 50%;
+        width: 17%;
+        height: 150px;
+        margin: 20px 70px;
+        border: 5px solid #A9F1CB;
+        background-image: url(../resume/pic.jpg);
+        background-size: cover;
+        position: relative;
+        float: right;
+    }
+      .top ul{
+        position: relative;
+        width: 50%;
+        height: 200px;
+        padding: 25px;
+        float: left;
+        line-height: 45px;
+      }
+      .bar-a{
+        font-weight: 900;
+        font-size: 1.5em;
+      }
+      .bar-b{
+        text-indent: 3em;
+        color: #4C4BF1;
+        font-weight: 900;
+        font-size: 2em;
+      }
+      .bar-c{
+        height: 30px;
+        margin-top: 20px;
+      }
+      .bar-d{
+        height: 30px;
+      }
+      .brief{
+        position: relative;
+        width: 68%;
+        height: 650px;
+        background: #E4FBCD;
+        float: left;
+      }  
+      .education{
+        width: 76%;
+        padding: 0px;
+        text-indent: 1.5em;
+        line-height: 2em;
+        margin-top: 20px;
+      }
+      .education li{
+        float: left;
+        width: 33%;
+
+      }
+      .education li{
+        text-indent: 2em;
+      }
+      .education-a li{
+        float: none;
+        width: 105%; 
+      }
+      .data{
+        position: relative;
+        float: right;
+        width: 32%;
+        height: 650px;
+        background: #D2E8FB;
+      }
+      .data li{
+        padding: 5px;
+        text-indent: 2em;
+      }
+      .data li:first-child{
+        text-indent: 3em;
+        font-size: 1.3em;
+        font-weight: 900;
+        line-height: 45px;
+      }
+      .data li:nth-of-type(16){
+        font-size: 1.3em;
+        text-indent: 3em;
+        font-weight: 900;
+        line-height: 45px;
+      }
+    }
+    @media screen and (max-width: 850px){
+      body{ 
+        background: #E1E1E1;
+        padding: 0 2px; 
+      }
+      .top{
+        position: relative;
+        width: 100%;
+        height: 100px;
+        float: left;
+        background: url(../resume/ligting.png);
+    }
+      .header{
+        border-radius: 50%;
+        width: 17%;
+        height: 60px;
+        margin: 5px 20px;
+        border: 2px solid #A9F1CB;
+        background-image: url(../resume/pic.jpg);
+        background-size: cover;
+        position: relative;
+        float: right;
+    }
+      .top ul{
+        position: relative;
+        width: 68%;
+        height: 120px;
+        float: left;
+        line-height: 20px;
+        font-size: 8px;
+      }
+      .bar-a{
+        font-weight: 900;
+        font-size: .2em;
+        text-indent: .5em;
+      }
+      .bar-b{
+        text-indent: .5em;
+        color: #4C4BF1;
+        font-weight: 900;
+        font-size: 2.5em;
+      }
+      .bar-c{
+        height: 13px;
+        margin-bottom: 27px;
+        text-indent: .5em;
+      }
+      .bar-d{
+        height: 30px;
+        text-indent: .5em;
+      }
+      .brief{
+        font-size: 9px;
+        position: relative;
+        width: 60%;
+        height: 450px;
+        background: #E4FBCD;
+        float: left;
+      }  
+      .education{
+        width: 99%;
+        padding: 0px;
+        text-indent: 3px;
+        line-height: 22px;
+        margin-top: 10px;
+        word-wrap: break-word;
+      }
+      .education li{
+        float: left;
+        width: 31%;
+        height: 44px;
+
+      }
+      .education p{
+        text-indent: -1em;
+      }
+      .education li{
+        text-indent: 1px;
+      }
+      .education-a li{
+        float: none;
+        width: 99%; 
+      }
+      .data{
+        position: relative;
+        float: right;
+        width: 40%;
+        height: 450px;
+        background: #D2E8FB;
+      }
+      .data li{
+        font-size: .1em;
+        padding: 1px;
+        text-indent: .3em;
+      }
+      .data li:first-child{
+        text-indent: .3em;
+        font-size: .8em;
+        font-weight: 900;
+        line-height: 3em;
+      }
+      .data li:nth-of-type(16){
+        font-size: .8em;
+        text-indent: .3em;
+        font-weight: 900;
+        line-height: 3em;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="top">
+      <div>
+        <ul>
+          <li class="bar-a">个人简历&nbsp;<span>RESUME</span></li>
+          <li class="bar-b">淘宝前端工程师</li>
+          <li class="bar-c">地址：杭州省余杭区西溪北苑（310023）</li>
+          <li class="bar-d">手机：123456789101</li>
+        </ul>
+        <div class="header"></div>
+      </div>
+    </div>
+    <div class="brief">
+      <div class="education">
+        <h2>教育经历</h2>
+        <ul>
+          <li>2006.9-2009.6</li>
+          <li>陈埭民族中学</li>
+          <li>高中</li>
+        </ul>
+      </div>
+      <div class="education">
+        <ul>
+          <li>2013.1-2016.3</li>
+          <li>闽江学院</li>
+          <li>大专</li>
+        </ul>
+      </div>
+      <div class="education">
+        <h2>语言能力</h2>
+        <p>&nbsp; &nbsp;有较强的文字功底</p>
+        <p>&nbsp; &nbsp;表达能力强，善于与人沟通，人际交往能力强</p>
+      </div>
+      <div class="education">
+        <h2>工作经历</h2>
+        <ul class="education-a">
+          <li>&bull;2009年9月至2016年3月</li>
+          <li>就职于厦门市邮政局投递部，从开始的投递员到内部管理员。</li>
+        </ul>
+      </div>
+      <div class="education">
+        <h2>自我评价及定位:</h2>
+        <h3>相信你的直觉， 对没错 就是我</h3>
+      </div>
+    </div>
+    <div class="data">
+      <ul>
+        <li>个人概况</li>
+        <li>姓&nbsp; &nbsp; &nbsp; &nbsp;名：黄祯展</li>
+        <li>性&nbsp; &nbsp; &nbsp; &nbsp;别：男</li>
+        <li>民&nbsp; &nbsp; &nbsp; &nbsp;族：汉</li> 
+        <li>籍&nbsp; &nbsp; &nbsp; &nbsp;贯: &nbsp;福建省</li> 
+        <li>出生年月：1989.04.11</li>
+        <li>婚姻状况：已婚</li>
+        <li>身&nbsp; &nbsp; &nbsp; &nbsp;高：172cm</li>
+        <li>体&nbsp; &nbsp; &nbsp; &nbsp;重: &nbsp; &nbsp;80kg</li>
+        <li>健康状况：良好</li>
+        <li>邮&nbsp; &nbsp; &nbsp; &nbsp;箱：275345465@qq.com</li>
+        <li>政治面貌: &nbsp;共青团员</li> 
+        <li>专&nbsp; &nbsp; &nbsp; &nbsp;业：html5&nbsp;css3&nbsp;js</li>
+        <li>专业方向: &nbsp;编程语言</li>
+        <li>特&nbsp; &nbsp; &nbsp; &nbsp;长：交际</li>
+        <li>各类作品</li>
+        <li><a href=""><img src="../resume/gexing.png" width="50" height="60"></li>
+        <li><a href=""><img src="../resume/gexing.png" width="50" height="60"></li>
+      </ul>
+    </div>
+</body>
+</html>
+      
