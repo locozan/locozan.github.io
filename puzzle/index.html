@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>拼图</title>
+  <meta charset="utf-8">
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  #box{
+    position: relative;
+    width:300px;
+    height: 300px;
+    border: 1px solid #000; 
+  }
+  #box img{
+    width: 100px;
+    height: 100px;
+    float: left;
+    position: relative;
+  }
+  #out{
+    position: relative;
+    float: left;
+    left: 310px;
+    height: 100px;
+    width: 100px;
+    background: url(imags/q1.png) round;
+    }
+  .p{
+    margin-left: 300px;
+  }
+  #button {
+    font-size: 25px;
+    font-weight: 20px;
+    float: left;
+    position: absolute;
+    top: 400px;
+    left: 100px;
+  }
+
+  </style>
+  <script>
+    var src = Array();
+    src.push("imags/ps00.png");
+    src.push("imags/ps02.png");
+    src.push("imags/ps03.png");
+    src.push("imags/ps04.png");
+    src.push("imags/ps05.png");
+    src.push("imags/ps06.png");
+    src.push("imags/ps07.png");
+    src.push("imags/ps08.png");
+    src.push("imags/ps09.png");
+
+
+    function addLoadEvent( func ){
+      
+      window.onload = function(){
+        func();
+      };
+    }
+
+    //点击按钮
+    function star(){
+      var btn = document.getElementById("button");
+      btn.onclick = function(){
+        Upset();//打乱
+        Init();//替换图片
+      };
+    }
+
+    // 点击图片替换
+    function Init(){
+      var box = document.getElementById("box");
+      var ARR = box.getElementsByTagName("img");
+
+      for( var i = 0; i < ARR.length; i ++ ){
+        ARR[i].onclick = function(){
+          if(this.getAttribute("src") == "imags/ps00.png" );
+          change(this,ARR);
+        };
+      }
+    }
+      //图片替换current=当前 target=目标
+    function change(obj, arrs){
+      var current = 0;
+      var target = 0;
+      for( var i = 0; i < arrs.length; i ++ ){
+        if( arrs[i] == obj ){
+          current = i ;
+        }
+        if( arrs[i].getAttribute("src") == "imags/ps00.png" ){
+          target = i;
+        }
+      }
+      //上下位置
+      if( Math.abs(current - target) == 3 ){
+        var newObj = obj.getAttribute("src");
+        obj.setAttribute("src","imags/ps00.png");
+        arrs[target].setAttribute("src", newObj);
+      //点击向右
+      }else if( (current - target) == 1 && (current % 3) != 0 ){
+        var newObj = obj.getAttribute("src");
+        obj.setAttribute("src","imags/ps00.png");
+        arrs[target].setAttribute("src", newObj);
+      //点击向左
+      }else if( (current - target) == -1 && (current % 3) != 2 ){
+        var newObj = obj.getAttribute("src");
+        obj.setAttribute("src", "imags/ps00.png");
+        arrs[target].setAttribute("src", newObj);
+      }
+    }
+
+    //打乱图片
+    function Upset(){
+      var ARR = document.getElementsByTagName("img");
+      var newSrc = new Array();
+
+      for( var i = 0; i < src.length; i ++ ){
+        newSrc[i] = src[i];
+
+      }
+
+      var newArry = new Array();
+      for( var i = 0; i < ARR.length; i ++ ){
+        newArry.push(newSrc.splice(Math.floor(Math.random()*newSrc.length),1));
+        ARR[i].setAttribute("src",String(newArry[i]))
+      }
+
+    }
+
+    addLoadEvent(star);
+  </script>
+</head>
+<body>
+<div id="box">
+  <img class="pj" src="imags/ps00.png">
+  <img class="p2" src="imags/ps02.png">
+  <img class="p3" src="imags/ps03.png">
+  <img class="p4" src="imags/ps04.png">
+  <img class="p5" src="imags/ps05.png">
+  <img class="p6" src="imags/ps06.png">
+  <img class="p7" src="imags/ps07.png">
+  <img class="p8" src="imags/ps08.png">
+  <img class="p9" src="imags/ps09.png">
+</div>
+<p class="p">原图形:</p>
+<div id="out"></div>
+<input type="button" id="button" value="开始新游戏">
+</body>
+</html>
