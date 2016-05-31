@@ -3,150 +3,99 @@
 <head>
   <title>拼图</title>
   <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <style>
   *{
     margin: 0;
     padding: 0;
   }
-  #box{
+  #game-container{
     position: relative;
-    width:300px;
-    height: 300px;
-    border: 1px solid #000; 
+    margin: 20px auto;
+    border: 1px solid #1A13C5;
+
   }
-  #box img{
-    width: 100px;
-    height: 100px;
-    float: left;
-    position: relative;
-  }
-  #out{
-    position: relative;
-    float: left;
-    left: 310px;
-    height: 100px;
-    width: 100px;
-    background: url(imags/q1.png) round;
-    }
-  .p{
-    margin-left: 300px;
-  }
-  #button {
-    font-size: 25px;
-    font-weight: 20px;
-    float: left;
+  #game{
     position: absolute;
-    top: 400px;
-    left: 100px;
+    width: 77px;
+    height: 40px;
+    left: 37%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+    font-weight: 900;
+    border: 3px solid #C52535;
+    background: #F4FDFF;
+    cursor:pointer;
+    border-radius: 10px;
   }
+  #refresh{
+    position: absolute;
+    width: 77px;
+    height: 40px;
+    left: 29%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+    font-weight: 900;
+    border: 3px solid #C52535;
+    background: #F4FDFF;
+    cursor:pointer;
+    border-radius: 10px;
+  }
+  #game-container .cell,#Original{
+    background-repeat: no-repeat;
+    position: absolute;
+  /*  background-image: url(imges/girl-001.jpg);*/
+    cursor:pointer;
 
+  }
+  #game-container .cell:hover{
+    z-index: 2;
+    box-shadow: 0 0 3px 2px #74FF65 inset;
+    transition: all .25s ease;
+
+  }
+  #Original{
+    width: 100px;
+    height: 100px;
+    background-repeat: round;
+    border: 1px solid #1A13C5;
+    margin-top: -1.55%;
+    margin-left: 62.2%;
+
+  }
+  #times{
+    position: absolute;
+    font-style: normal;
+    color: #F00;
+  }
+  .time{
+    font-style: normal;
+    position: relative;
+    width: 130px;
+    height: 50px;
+    left: 45%;
+    float: left;
+  }
   </style>
-  <script>
-    var src = Array();
-    src.push("imags/ps00.png");
-    src.push("imags/ps02.png");
-    src.push("imags/ps03.png");
-    src.push("imags/ps04.png");
-    src.push("imags/ps05.png");
-    src.push("imags/ps06.png");
-    src.push("imags/ps07.png");
-    src.push("imags/ps08.png");
-    src.push("imags/ps09.png");
-
-
-    function addLoadEvent( func ){
-      
-      window.onload = function(){
-        func();
-      };
-    }
-
-    //点击按钮
-    function star(){
-      var btn = document.getElementById("button");
-      btn.onclick = function(){
-        Upset();//打乱
-        Init();//替换图片
-      };
-    }
-
-    // 点击图片替换
-    function Init(){
-      var box = document.getElementById("box");
-      var ARR = box.getElementsByTagName("img");
-
-      for( var i = 0; i < ARR.length; i ++ ){
-        ARR[i].onclick = function(){
-          if(this.getAttribute("src") == "imags/ps00.png" );
-          change(this,ARR);
-        };
-      }
-    }
-      //图片替换current=当前 target=目标
-    function change(obj, arrs){
-      var current = 0;
-      var target = 0;
-      for( var i = 0; i < arrs.length; i ++ ){
-        if( arrs[i] == obj ){
-          current = i ;
-        }
-        if( arrs[i].getAttribute("src") == "imags/ps00.png" ){
-          target = i;
-        }
-      }
-      //上下位置
-      if( Math.abs(current - target) == 3 ){
-        var newObj = obj.getAttribute("src");
-        obj.setAttribute("src","imags/ps00.png");
-        arrs[target].setAttribute("src", newObj);
-      //点击向右
-      }else if( (current - target) == 1 && (current % 3) != 0 ){
-        var newObj = obj.getAttribute("src");
-        obj.setAttribute("src","imags/ps00.png");
-        arrs[target].setAttribute("src", newObj);
-      //点击向左
-      }else if( (current - target) == -1 && (current % 3) != 2 ){
-        var newObj = obj.getAttribute("src");
-        obj.setAttribute("src", "imags/ps00.png");
-        arrs[target].setAttribute("src", newObj);
-      }
-    }
-
-    //打乱图片
-    function Upset(){
-      var ARR = document.getElementsByTagName("img");
-      var newSrc = new Array();
-
-      for( var i = 0; i < src.length; i ++ ){
-        newSrc[i] = src[i];
-
-      }
-
-      var newArry = new Array();
-      for( var i = 0; i < ARR.length; i ++ ){
-        newArry.push(newSrc.splice(Math.floor(Math.random()*newSrc.length),1));
-        ARR[i].setAttribute("src",String(newArry[i]))
-      }
-
-    }
-
-    addLoadEvent(star);
-  </script>
 </head>
 <body>
-<div id="box">
-  <img class="pj" src="imags/ps00.png">
-  <img class="p2" src="imags/ps02.png">
-  <img class="p3" src="imags/ps03.png">
-  <img class="p4" src="imags/ps04.png">
-  <img class="p5" src="imags/ps05.png">
-  <img class="p6" src="imags/ps06.png">
-  <img class="p7" src="imags/ps07.png">
-  <img class="p8" src="imags/ps08.png">
-  <img class="p9" src="imags/ps09.png">
-</div>
-<p class="p">原图形:</p>
-<div id="out"></div>
-<input type="button" id="button" value="开始新游戏">
+  <div id="game-container"></div>
+  <input id="game" type="button" value="开始游戏">
+  <input id="refresh" type="button" value="重载游戏">
+  <div id="Original"></div>
+  <div class="time">
+    耗时：<input name="showtime" style="color:#ff0000;width:65px;" id="showtime" type="text" value="">
+    图片：<input type="button" id="pickMap" style="color:#ff0000;width:65px;" value="可选图哦">
+    难度：<select id="mode">
+          <option value="2">入门级别</option>
+          <option value="3" selected>经典模式</option>
+          <option value="4">中等模式</option>
+          <option value="5">困难模式</option>
+          <option value="8">地狱级别</option>
+         </select>
+  </div>
+<script src="index.js"></script>
 </body>
 </html>
