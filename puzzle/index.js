@@ -10,7 +10,7 @@ void function () {
       func();
     };
   }
-  //点击按钮
+  //点击按钮开始游戏
   function star() {
     var game = document.getElementById("game");
     game.onmousedown = function () {
