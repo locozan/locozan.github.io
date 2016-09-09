@@ -1,64 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>博客</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    *{
-      margin: 0;
-      padding: 0;
-      text-decoration:none;
-      list-style-type: none;
-    }
-    .site-nav{
-      background: #F2F2F2;
-      position: fixed;
-      width: 1280px;
-      height: 34px;
-      border-bottom: 1px solid #EEE;
-      z-index: 1000;
-    }
-    .u-a{
-      margin-left: 50px;
-      margin-top: 10px;
-      width: 300px;
-      height: 20px;
-
-    }
-    .u-a li{
-      float: left;
-    }
-    .site-nava{
-      background: #F2F2F2;
-      width: 1280px;
-      height: 50px;
-      border-bottom: 1px solid #EEE;
-      position: relative;
-      top: 35px;
-
-    }
-    .u-aa li{
-      float: left;
-      text-align: 30px;
-      margin-left: 50px;
-    }
-    .u-aa span{
-      color: #24262A;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-  <div class="site-nav">
-    <ul class="u-a">
-      <li><span>亲，请点击：</span></li>
-      <li><a href="http://www.uxhzz.com/resume/resume.html">个人简历</li>
-    </ul>
+  <div id="title">关于我</div>
+  <div id="top">
+    <li><a href="http://www.uxhzz.com/resume/resume.html">个人简历</a><span class="p-dy">(可打印)</span></li>
+    <li><a href="http://www.uxhzz.com/resume/resume.html">个人简历</a><span class="p-dy">(可打印)</span></li>
   </div>
-  <div class="site-nava">
-    <ul class="u-aa">
-      <li><span>拼图游戏：</span><a href="http://www.uxhzz.com/puzzle/index.html">欢迎进入😊</li>
-    </ul>
+  <div id="content">
+    <div class="container">
+      <h1>展</h1>
+      <p>擅长：css3, 原生JavaScript, jQueri, Bootstrap</p>  
+    </div>
+    <div id="carbonads"></div>
+  </div>
+  <div id="list">
+    <li class="active"><a href="#over">Overview</a></li>
+    <li><a href="#html">HTML5 doctype</a></li>
+    <li><a href="#mobi1">Mobile first</a></li>
+    <li><a href="#typo">Typography and links</a></li>
+    <li><a href="#norm">Normalize.css</a></li>
+    <li><a href="#cont">Containers</a></li>
+    <li><a href="#grid1">Grid system</a></li>
+    <li><a href="#intr">Introduction</a></li>
+    <li><a href="#medi">Media queries</a></li>
+    <li><a href="#grid2">Grid options</a></li>
+  </div>
+  <div id="text">
+    <div id="textContent">
+      <hi>个人作品</hi>  
+      <h1 id="over">Overview</h1>
+      <p>Get the lowdown on the key pieces of <span>Bootstrap's</span> infrastructure, including our approach to better, faster, stronger web development.</p>
+      <div class="" style="width: 100%;height: 100px;background: #C0F1FF;"></div>
+      <h1 id="html">HTML5 doctype</h1>
+      <p>Bootstrap makes use of certain <span>HTML</span> elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.</p>
+      <div class="" style="width: 100%;height: 50px;background: #C0F1FF;"></div>
+      <h1 id="mobi1">Mobile first</h1>
+      <p>With <span>Bootstrap 2</span>, we added optional mobile friendly styles for key aspects of the framework. With Bootstrap 3, we've rewritten the project to be mobile friendly from the start. <span>Instead</span> of adding on optional mobile styles, they're baked right into the core. In fact, Bootstrap is mobile first. Mobile first styles can be found throughout the entire library instead of in separate files.
+      To ensure proper rendering and touch zooming, add the viewport meta tag to your。
+      <p>You can disable zooming capabilities on <span>mobile</span> devices by adding user-scalable=no to the <span>viewport</span> meta tag. This disables zooming, meaning users are only able to scroll, and results in your site feeling a bit more like a native application. Overall, we don't recommend this on every site, so use caution!</p>
+      <div class="" style="width: 100%;height: 100px;background: #C0F1FF;"></div>
+      <h1 id="typo">Typography and links</h1>
+      <p>Bootstrap sets basic global display, typography, and <span>link</span> styles. Specifically, we:</p>
+      <div class="" style="width: 100%;height: 100px;background: #C0F1FF;"></div>
+      <h1 id="norm">Normalize.css</h1>
+      <p>For improved cross-browser rendering, we use <span>Normalize.css</span>, a project by Nicolas Gallagher and Jonathan Neal.</p>
+      <div class="" style="width: 100%;height: 100px;background: #C0F1FF;"></div>
+      <h1 id="cont">Containers</h1>
+      <p>Bootstrap requires a containing element to wrap site contents and house our grid system. You may choose one of two containers to use in your projects. Note that, due to padding and more, neither <span>container is nestable.
+      Use .container for a responsive fixed width container.</span></p>
+      <div class="" style="width: 100%;height: 300px;background: #C0F1FF;"></div>
+      <h1 id="grid1">Grid system</h1>
+      <p>Bootstrap includes a <span>responsive</span>, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. It includes predefined classes for easy layout options, as well as powerful mixins for generating more semantic layouts.</p>
+      <div class="" style="width: 100%;height: 160px;background: #C0F1FF;"></div>
+      <h1 id="intr">Introduction</h1>
+      <p>Grid systems are used for creating page layouts through a series of rows and columns that house your content. Here's how the <span>Bootstrap</span> grid system works:</p>
+      <div class="" style="width: 100%;height: 100px;background: #C0F1FF;"></div>
+      <h1 id="medi">Media queries</h1>
+      <p>We use the following media queries in our Less files to create the key <span>breakpoints</span> in our grid system.</p>
+      <h1 id="grid2">Grid options</h1>
+      <p>See how aspects of the <span>Bootstrap</span> grid system work across multiple devices with a handy table.</p>
+      <div class="" style="width: 100%;height: 300px;background: #C0F1FF;"></div>
+    </div>
   </div>
 </body>
+<script src="main.js"></script>
 </html>
