@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>飞行鸟</title>
+  <meta charset="utf-8">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #game-container{
+      width: 620px;
+      height: 440px;
+      border: 10px solid #575559;
+      position: relative;
+      margin: 0 auto;
+      background: url(images/anim-001.png) round;
+      overflow: hidden;
+    }
+
+    .bird{
+      border-radius: 50%;
+      position: absolute;
+      /*border: 1px solid #17A81E;*/
+      background-image: url(images/niao.png);
+      background-position: 0px 0px;
+    }
+
+    .pillar{
+      height: 100%;
+      position: absolute;
+    }
+
+    .pillar .part1, .pillar .part2{
+      position: absolute;
+      width: 100%;
+      background-image: url(images/pillar-001.png);
+
+    }
+
+    .pillar .part1{
+      transform: rotate(-180deg);
+      top: 0;
+    }
+
+    .pillar .part2{
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+<div id="game-container"></div>
+<script src="bird.js"></script>
+</body>
+</html>

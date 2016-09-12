@@ -22,7 +22,7 @@ void function() {
       list.style.left = configs.post[0] + '%';
     }
 
-    var listLi = list.getElementsByTagName('li');
+    var listLi = list.getElementsByTagName('li'); 
     var listA = list.getElementsByTagName('a');
     var textH1 = text.getElementsByTagName('h1');
 
