@@ -6,7 +6,7 @@
   #content{
     border: 1px solid #17D325;
     width: 99.9%;
-    // height: 1500px;
+    height: 1590px;
     margin: 0 auto;
     // background: rgba(100,100,100,0.5);
     overflow: hidden;
@@ -257,6 +257,9 @@
     z-index: 10;
     text-decoration:underline;
   }
+  em{
+    display: none;
+  }
 }
 @media print {
   *{
@@ -414,5 +417,8 @@
     color: #B46667;
     z-index: 10;
     text-decoration:underline;
+  }
+  em{
+    display: none;
   }
 }
