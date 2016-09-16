@@ -8,7 +8,6 @@
   <script type="text/javascript" src="./bootstrap-3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./bootstrap-3.3.7/css/bootstrap.min.css">
   <style type="text/css">
-    /*@media (max-width: @screen-xs-max) {  }*/
     html {
       font-size: 20px;
     }
@@ -89,12 +88,12 @@
       position: relative;
       top: 10px;
       float: left;
-      width: 65%;
+      width: 58%;
       height: 3000px;
       background: #FFFFFF;
     }
     #textContent {
-      width: 85%;
+      width: 88%;
       position: relative;
       padding: 15px;
       background: #FFFFFF;
@@ -157,6 +156,11 @@
     }
     #list li:hover {
       border-left: 2px solid #412666;
+    }
+    @media screen and (max-width: 550px){/*小*/
+      #list{
+        display: none;
+      }
     }
   </style>
 </head>
