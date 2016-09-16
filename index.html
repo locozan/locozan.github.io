@@ -90,6 +90,7 @@
       top: 10px;
       float: left;
       width: 65%;
+      height: 3000px;
       background: #FFFFFF;
     }
     #textContent {
@@ -118,7 +119,7 @@
       width: 20%;
       height: 480px;
       margin-right: 15%;
-      margin-top: 8px;
+      margin-top: 8%;
       position: relative;
       float: right;
     }
@@ -267,10 +268,10 @@
       <div class=""style="width: 100%;height: 100px;background: #C0F1FF;"></div>
       <h1 id="list-a"></h1>
       <p></p>
-      <div class="" style="width: 100%;height: 50px;background: #C0F1FF;"></div>
+      <div class=""style="width: 100%;height: 50px;background: #C0F1FF;"></div>
       <h1 id="list-b"></h1>
       <p></p>
-      <div class="" style="width: 100%;height: 100px;background: #C0F1FF;"></div>
+      <div class=""style="width: 100%;height: 100px;background: #C0F1FF;"></div>
     </div>
   </div>
 </nav>
@@ -300,9 +301,9 @@
     }
   }, false);
   var configs = {
-    post: [66, 140],
+    post: [65, 97],
     size: [25, 400],
-    post2: [66, 10]
+    post2: [65, 0]
   }
 
   document.querySelector('#list li').className = 'active';
@@ -312,11 +313,11 @@
     var text = document.getElementById('text');
     var textTop = text.getBoundingClientRect().top;
 
-    if (textTop < -80) {
+    if (textTop < -30) {
       list.style = 'position:fixed;'
       list.style.top = configs.post2[1] + '%';
       list.style.left = configs.post2[0] + '%';
-    } else if (textTop > -80) {
+    } else if (textTop > -30) {
       list.style = 'position:absolute;'
       list.style.top = configs.post[1] + '%';
       list.style.left = configs.post[0] + '%';
