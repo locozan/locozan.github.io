@@ -8,6 +8,7 @@
   <script type="text/javascript" src="./bootstrap-3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./bootstrap-3.3.7/css/bootstrap.min.css">
   <style type="text/css">
+    /*@media (max-width: @screen-xs-max) {  }*/
     html {
       font-size: 20px;
     }
@@ -49,10 +50,10 @@
       margin-right: 1rem;
       float: right;
     }
-    .col-xs-3{
+    .col-md-3{
       text-indent: 7px;
     }
-    .col-xs-3 ul{
+    .col-md-3 ul{
       margin-left: -36px;
     }
     
@@ -165,7 +166,7 @@
     <div class="col-xs-12 col-sm-12 header">
       <div class="btn-group" role="group" aria-label="...">
         <button type="button" class="btn btn-primary"><a style="color: #F5FCFF" href="http://www.uxhzz.com">首页</a></button>
-        <button type="button" class="btn btn-info">文章</button>
+        <!-- <button type="button" class="btn btn-info">文章</button> -->
         <button type="button" class="btn btn-success"><a style="color: #F5FCFF" href="http://www.uxhzz.com/resume/resume.html">个人简历</a><small>(可打印)</small></button>
         <button type="button" class="btn btn-warning"><a style="color: #F5FCFF" href="http://www.uxhzz.com/works.html">历来作品</a></button>
       </div><!--按钮组-->
@@ -184,7 +185,7 @@
 </div>
 <nav class="content nav-content">
   <div class="row">
-    <div class="col-xs-3 front">
+    <div class="col-md-3 col-sm-3 front">
       <ul><h3 style="color: #6680FF">个人技能</h3>
         <ol>
           <li><h4>HTML5</h4></li>
@@ -197,7 +198,7 @@
         </ol>
       </ul>
     </div>
-    <div class="col-xs-6 colxs6">
+    <div class="col-xs-6 col-sm-6 colxs6">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -211,31 +212,31 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <img src="images/dragInsert.png" width="400px" height="300" alt="...">
+            <img src="images/dragInsert.png" width="400" height="300" alt="...">
             <div class="carousel-caption" style="display: none;">实现原理就是每个元素都来一个定位符用来撑开位置，点击目标元素之后，创建一个占位元素，然后拖动目标元素，找到相应的位置之后，插入目标元素，清除占位元素</div>
             <div class="carousel-caption">drag-insert
             </div>
           </div>
           <div class="item">
-            <img src="images/flappy.png" width="400px" height="300" alt="...">
+            <img src="images/flappy.png" width="400" height="300" alt="...">
             <div class="carousel-caption" style="display: none;">flappy bird：一夜爆红的胖鸟更多这是一款简单又困难的手机游戏，游戏中玩家必须控制一只胖乎乎的小鸟，跨越由各种不同长度水管所组成的障碍。上手容易，但是想通关可不简单。Flappy bird 于2013年5月在苹果App Store上线，2014年2月份在100多个国家/地区的榜单一跃登顶，尽管没有精细的动画效果，没有有趣的游戏规则，没有众多的关卡，却突然大火了一把，下载量突破5000万次。</div>
             <div class="carousel-caption">flappy-bird
             </div>
           </div>
           <div class="item">
-            <img src="images/ipad.png" width="400px" height="300" alt="...">
+            <img src="images/ipad.png" width="400" height="300" alt="...">
             <div class="carousel-caption" style="display: none;">模拟ipad界面写的，目前还没全部写好，只实现了一些简单功能，如图标放大·缩小·拖拽·翻页·抖动·排序</div>
             <div class="carousel-caption">ipad
             </div>
           </div>
           <div class="item">
-            <img src="images/puzzle.png" width="400px" height="300" alt="...">
+            <img src="images/puzzle.png" width="400" height="300" alt="...">
             <div class="carousel-caption" style="display: none;">大家熟悉的拼图游戏，难度可以自己选，图片也可以自己选。</div>
             <div class="carousel-caption">puzzle
             </div>
           </div>
           <div class="item">
-            <img src="images/todo.png" width="400px" height="300" alt="...">
+            <img src="images/todo.png" width="400" height="300" alt="...">
             <div class="carousel-caption" style="display: none;">用原生js实现的TODO应用，实现了添·删·改·差的功能</div>
             <div class="carousel-caption">TODO
           </div>
@@ -253,7 +254,7 @@
       </a>
       </div>
     </div>
-    <div class="col-xs-3 behind" ></div>
+    <div class="col-md-3 col-sm-3 behind" ></div>
   </div>
   <div id="list">
     <li class="active"><a href="#over">Locozan</a></li>
@@ -286,7 +287,7 @@
     }
     return el.tagName ? el : null;
   };
-  document.querySelector( '.col-xs-3.behind' ).innerHTML = document.querySelector( '.carousel-caption' ).innerText;
+  document.querySelector( '.col-md-3.behind' ).innerHTML = document.querySelector( '.carousel-caption' ).innerText;
   contentNavContent.addEventListener("mousemove", function( event ){
     var target = event.target;
     var targetParend = closest( target, 'row' );
@@ -349,7 +350,7 @@
   function mainloop() { //主循环自调用一次
         if( document.querySelector('.item.next.left') ){
           var a = document.querySelector('.item.next.left');
-          var b = document.querySelector( '.col-xs-3.behind' );
+          var b = document.querySelector( '.col-md-3.behind' );
           b.innerHTML = a.querySelector( '.carousel-caption' ).innerText;
         }
       requestAnimationFrame(mainloop); //每秒60桢，使主循环一直在刷新  
