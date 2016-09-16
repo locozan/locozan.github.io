@@ -6,14 +6,14 @@
   #content{
     border: 1px solid #17D325;
     width: 99.9%;
-    height: 1590px;
+    // height: 1590px;
     margin: 0 auto;
     // background: rgba(100,100,100,0.5);
     overflow: hidden;
   }
   #summary{
     width: 99.9%;
-    height: 488px;
+    height: 495px;
     border-bottom: 1px solid #8A8D8A;
     // background: rgba(82,204,156,0.5);
   }
@@ -41,6 +41,7 @@
     text-indent: 0px;
   }
   .photo + h1{
+    width: 10px;
     line-height: 40px;
     text-indent: 14px;
     font-size: 30px;
@@ -84,7 +85,7 @@
  #works ul{
     position: relative;
     float: left;
-    margin: 0px 10px 40px 10px;
+    margin: 0px 10px 50px 10px;
     width: 150px;
     height: 100px;
     border: .5px solid #000000;
