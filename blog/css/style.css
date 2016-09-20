@@ -231,7 +231,7 @@ a {
   margin: 3px;
 }
 #container .left-col {
-  background: rgba(255,255,255,0.85);
+  background: rgba(22,22,22,0.85);
   width: 300px;
   position: fixed;
   opacity: 1;
@@ -245,7 +245,7 @@ a {
 #container .left-col .overlay {
   width: 100%;
   height: 180px;
-  background-color: #000;
+  background-color: #c26f68;
   position: absolute;
   opacity: 0.7;
 }
@@ -262,7 +262,7 @@ a {
   position: absolute;
   right: 0;
   min-height: 100%;
-  background: rgba(255,255,255,0.8);
+  background: #cfcbb2;
   left: 300px;
   width: auto;
 }
@@ -577,7 +577,7 @@ a {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  background: #88acdb;
+  background: #1d634f;
   -webkit-box-orient: horizontal;
   -webkit-box-pack: center;
   -webkit-box-align: center;
@@ -600,9 +600,9 @@ a {
 }
 #header .profilepic:hover {
   background: #fff;
-  border: 5px solid #88acdb;
-  -webkit-box-shadow: 0 0 1.5em #88acdb;
-  box-shadow: 0 0 1.5em #88acdb;
+  border: 5px solid #88dbc7;
+  -webkit-box-shadow: 0 0 1.5em #88dbc7;
+  box-shadow: 0 0 1.5em #88dbc7;
   -webkit-animation: profilepic 0.15s linear infinite alternate;
   -moz-animation: profilepic 0.15s linear infinite alternate;
   -ms-animation: profilepic 0.15s linear infinite alternate;
@@ -737,7 +737,7 @@ a {
   padding: 5px;
 }
 #header .switch-part3 .switch-friends-link:hover {
-  background: #88acdb;
+  background: #88dbc7;
   color: #fff;
 }
 #header .switch-part4 {
@@ -773,109 +773,109 @@ a {
   transform: scale(1.1);
 }
 #header .header-nav .social .新浪微博 {
-  background: url("/img/新浪微博.png") center no-repeat #ecc260;
+  background: url("./img/新浪微博.png") center no-repeat #ecc260;
   -webkit-background-size: 80%;
   -moz-background-size: 80%;
   background-size: 80%;
 }
 #header .header-nav .social .知乎 {
-  background: url("/img/知乎.png") center no-repeat #0078d8;
+  background: url("./img/知乎.png") center no-repeat #0078d8;
   -webkit-background-size: 90%;
   -moz-background-size: 90%;
   background-size: 90%;
 }
 #header .header-nav .social .豆瓣 {
-  background: url("/img/豆瓣.png") center no-repeat #06c611;
+  background: url("./img/豆瓣.png") center no-repeat #06c611;
   -webkit-background-size: 88%;
   -moz-background-size: 88%;
   background-size: 88%;
 }
 #header .header-nav .social .V2EX {
-  background: url("/img/V2EX.png") center no-repeat #e4cdb4;
+  background: url("./img/V2EX.png") center no-repeat #e4cdb4;
   -webkit-background-size: 78%;
   -moz-background-size: 78%;
   background-size: 78%;
 }
 #header .header-nav .social .TiddlyWiki {
-  background: url("/img/TiddlyWiki.png") center no-repeat #6283dd;
+  background: url("./img/TiddlyWiki.png") center no-repeat #6283dd;
   -webkit-background-size: 82%;
   -moz-background-size: 82%;
   background-size: 82%;
 }
 #header .header-nav .social .简书 {
-  background: url("/img/简书.png") center no-repeat #e99888;
+  background: url("./img/简书.png") center no-repeat #e99888;
   -webkit-background-size: 82%;
   -moz-background-size: 82%;
   background-size: 82%;
 }
 #header .header-nav .social .SegmentFault {
-  background: url("/img/SegmentFault.png") center no-repeat #018f56;
+  background: url("./img/SegmentFault.png") center no-repeat #018f56;
   -webkit-background-size: 80%;
   -moz-background-size: 80%;
   background-size: 80%;
 }
 #header .header-nav .social .网易云音乐 {
-  background: url("/img/网易云音乐.png") center no-repeat #e51e02;
+  background: url("./img/网易云音乐.png") center no-repeat #e51e02;
   -webkit-background-size: 80%;
   -moz-background-size: 80%;
   background-size: 80%;
 }
 #header .header-nav .social .虾米音乐 {
-  background: url("/img/虾米音乐.png") center no-repeat #ff6a00;
+  background: url("./img/虾米音乐.png") center no-repeat #ff6a00;
   -webkit-background-size: 82%;
   -moz-background-size: 82%;
   background-size: 82%;
 }
 #header .header-nav .social .CSDN {
-  background: url("/img/CSDN.png") center no-repeat #f00;
+  background: url("./img/CSDN.png") center no-repeat #f00;
   -webkit-background-size: 82%;
   -moz-background-size: 82%;
   background-size: 82%;
 }
 #header .header-nav .social .博客园 {
-  background: url("/img/博客园.png") center no-repeat #217ed4;
+  background: url("./img/博客园.png") center no-repeat #217ed4;
   -webkit-background-size: 95%;
   -moz-background-size: 95%;
   background-size: 95%;
 }
 #header .header-nav .social .Plunker {
-  background: url("/img/Plunker.png") center no-repeat #000;
+  background: url("./img/Plunker.png") center no-repeat #000;
   -webkit-background-size: 90%;
   -moz-background-size: 90%;
   background-size: 90%;
 }
 #header .header-nav .social .LOFTER {
-  background: url("/img/LOFTER.png") center no-repeat #316061;
+  background: url("./img/LOFTER.png") center no-repeat #316061;
   -webkit-background-size: 75%;
   -moz-background-size: 75%;
   background-size: 75%;
 }
 #header .header-nav .social .Coding {
-  background: url("/img/Coding.png") center no-repeat #fff;
+  background: url("./img/Coding.png") center no-repeat #fff;
   -webkit-background-size: 88%;
   -moz-background-size: 88%;
   background-size: 88%;
 }
 #header .header-nav .social .bilibili {
-  background: url("/img/bilibili.png") center no-repeat #f589a0;
+  background: url("./img/bilibili.png") center no-repeat #f589a0;
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
   background-size: 100%;
 }
 #header .header-nav .social .AcFun {
-  background: url("/img/AcFun.png") center no-repeat #fbc054;
+  background: url("./img/AcFun.png") center no-repeat #fbc054;
   -webkit-background-size: 90%;
   -moz-background-size: 90%;
   background-size: 90%;
 }
 #header .header-nav .social .niconico {
-  background: url("/img/niconico.png") center no-repeat #fff;
+  background: url("./img/niconico.png") center no-repeat #fff;
   -webkit-background-size: 70%;
   -moz-background-size: 70%;
   background-size: 70%;
 }
 #header .header-nav .social .Quora {
-  background: url("/img/Quora.png") center no-repeat #b92b27;
+  background: url("./img/Quora.png") center no-repeat #b92b27;
   -webkit-background-size: 103%;
   -moz-background-size: 103%;
   background-size: 103%;
@@ -1011,10 +1011,10 @@ a {
   width: 29px;
   height: 42px;
   font-size: 28px;
-  background: rgba(215,216,215,0.4);
+  background: rgba(88,88,88,0.4);
 }
 .scroll a .fa {
-  color: rgba(255,255,255,0.8);
+  color: rgba(27,127,127,0.8);
 }
 .scroll a:hover {
   background: rgba(147,181,224,0.3) !important;
@@ -1076,7 +1076,7 @@ color
   text-decoration: none;
 }
 .post-list li:hover a {
-  color: #88acdb;
+  color: #88dbc7;
 }
 .pace .pace-progress {
   background: #77b6ff;
@@ -1370,7 +1370,7 @@ color
   padding: 0.4em 20px;
   margin: 0.5em auto;
   border-left: 4px solid rgba(147,181,224,0.4);
-  background: rgba(255,255,255,0.4);
+  background: rgba(50,50,50,0.4);
   -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
   box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
@@ -1514,7 +1514,7 @@ color
 .article-entry h3 {
   margin: 0.5em auto;
   color: #438aac;
-  background: rgba(243,248,253,0.6);
+  background: rgba(243,217,147,0.6);
   border: 1px solid #d2e8fa;
   padding: 0.2em 0.6em;
   -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.15);
@@ -2758,10 +2758,10 @@ pre .javascript .function {
   font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei" "Lucida Grande", Verdana, "Helvetica Neue", Arial;
 }
 .tagcloud a.color0 {
-  background: #88acdb;
+  background: #9cf0ef;
 }
 .tagcloud a.color0::before {
-  border-right-color: #88acdb;
+  border-right-color: #9cf0ef;
 }
 .tagcloud a.color1 {
   background: #ffa07a;
@@ -3009,43 +3009,4 @@ pre .javascript .function {
   padding: 0;
   height: 100%;
   overflow: hidden;
-}
-body {
-  background: #d3d3d3;
-}
-#container .left-col {
-  background: #fff;
-}
-.article {
-  background: #fff;
-}
-.article .article-inner {
-  margin-bottom: 1em;
-}
-.article .article-more-link a {
-  opacity: 0.9;
-}
-.tagcloud a {
-  opacity: 0.9;
-}
-#header .header-nav .social li {
-  opacity: 0.8;
-}
-.archives-wrap {
-  background: #fff;
-}
-.scroll a .fa {
-  color: #fff;
-}
-.post-nav-button {
-  background: #ececec;
-}
-#post-nav-button a {
-  background: rgba(215,216,215,0.5);
-}
-.post-list {
-  background: #fff;
-}
-#article-nav {
-  background: rgba(158,188,226,0.9);
 }

@@ -4,6 +4,7 @@ void function() {
     size: [25, 400],
     post2: [76, 0]
   }
+  
 
   document.querySelector('#list li').className = 'active';
 
