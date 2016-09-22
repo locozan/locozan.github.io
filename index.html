@@ -8,6 +8,9 @@
   <script type="text/javascript" src="./bootstrap-3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./bootstrap-3.3.7/css/bootstrap.min.css">
   <style type="text/css">
+    *{
+     list-style: none; 
+    }
     html {
       font-size: 20px;
     }
@@ -171,7 +174,7 @@
         <button type="button" class="btn btn-primary"><a style="color: #F5FCFF" href="http://www.uxhzz.com">首页</a></button>
         <!-- <button type="button" class="btn btn-info">文章</button> -->
         <button type="button" class="btn btn-success"><a style="color: #F5FCFF" href="http://www.uxhzz.com/resume/resume.html">个人简历</a><small>(可打印)</small></button>
-        <button type="button" class="btn btn-warning"><a style="color: #F5FCFF" href="http://www.uxhzz.com/works.html">历来作品</a></button>
+        <button type="button" class="btn btn-warning"><a style="color: #F5FCFF" href="http://www.uxhzz.com/blog/">我的博客</a></button>
       </div><!--按钮组-->
       <div class="btn-group about-me">
         <button class="btn default dropdown-toggle btn-warning" data-toggle="dropdown">关于我</button>
@@ -188,19 +191,7 @@
 </div>
 <nav class="content nav-content">
   <div class="row">
-    <div class="col-md-3 col-sm-3 front">
-      <ul><h3 style="color: #6680FF">个人技能</h3>
-        <ol>
-          <li><h4>HTML5</h4></li>
-          <li><h4>CSS3</h4></li>
-          <li><h4>原生JavaScript</h4></li>
-          <li><h4>jQuery</h4></li>
-          <li><h4>CSS·Bootstrap</h4></li>
-          <li><h4>React·js在学</h4></li>
-          <li><h4>ES6在学</h4></li>
-        </ol>
-      </ul>
-    </div>
+    <div class="col-md-3 col-sm-3 behind" ></div>
     <div class="col-md-6 col-sm-6 colxs6">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -244,8 +235,7 @@
             <div class="carousel-caption">TODO
           </div>
         </div>
-      </div>
-
+    </div>
       <!-- Controls -->
       <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" style="display: none" aria-hidden="true"></span>
@@ -257,18 +247,33 @@
       </a>
       </div>
     </div>
-    <div class="col-md-3 col-sm-3 behind" ></div>
+    <div class="col-md-3 col-sm-3 front">
+      <ul><h3 style="color: #6680FF">个人技能</h3>
+        <ol>
+          <li><h4>HTML5</h4></li>
+          <li><h4>CSS3</h4></li>
+          <li><h4>原生JavaScript</h4></li>
+          <li><h4>jQuery</h4></li>
+          <li><h4>CSS·Bootstrap</h4></li>
+          <li><h4>React·js</h4></li>
+          <li><h4>ES6</h4></li>
+        </ol>
+      </ul>
+    </div>
   </div>
   <div id="list">
-    <li class="active"><a href="#over">Locozan</a></li>
+    <li class="active"><a href="#one">getBCR()</a></li>
     <li><a href="#list-a"></a></li>
     <li><a href="#list-b"></a></li>
   </div>
   <div id="text">
     <div id="textContent">
-      <h1 id="over">Locozan</h1>
-      <p></p>
-      <div class=""style="width: 100%;height: 100px;background: #C0F1FF;"></div>
+      <h1 id="one">Locozan</h1>
+      <li><spen class="glyphicon glyphicon-arrow-right"></spen><a style="color: #D91521;" href="http://www.uxhzz.com/blog/2016/09/21/%E6%9C%89%E8%B6%A3%E7%9A%84-getBoundingClientRect/">README.md</a></li>
+      <div class=""style="width: 100%;background: #3ACCD9;"><hr>
+
+        <p class="muted" style="line-height: 37px;">一次无意中发现的getBoundingClientRect()的强大功能: 竟然可以强制停止代码渲染<p>
+      </div>
       <h1 id="list-a"></h1>
       <p></p>
       <div class=""style="width: 100%;height: 50px;background: #C0F1FF;"></div>
@@ -360,7 +365,5 @@
 
   }
   mainloop(); //调用主循环
-  
-
 </script>
 </html>

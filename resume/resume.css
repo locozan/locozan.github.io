@@ -2,6 +2,7 @@
   *{
     text-indent: 14px;
     line-height: 23px;
+    list-style: none;
   }
   #content{
     border: 1px solid #17D325;
