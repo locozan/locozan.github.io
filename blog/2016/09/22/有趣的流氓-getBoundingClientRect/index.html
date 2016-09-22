@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://www.uxhzz.com/2016/09/22/有趣的流氓-getBoundingClientRect/index.html">
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="一次意外的使用发现getBoundingClientRect()的另一个强大功能，而不是简单地取坐标；">
-<meta property="og:updated_time" content="2016-09-22T04:53:23.000Z">
+<meta property="og:updated_time" content="2016-09-22T17:40:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="有趣的流氓:getBoundingClientRect()">
 <meta name="twitter:description" content="一次意外的使用发现getBoundingClientRect()的另一个强大功能，而不是简单地取坐标；">
@@ -309,21 +309,21 @@
 <p>如果你想看它在浏览器的支持程度：<br>src = <a href="http://caniuse.com/#search=getBoundingClientRect(" target="_blank" rel="external">http://caniuse.com/#search=getBoundingClientRect(</a>)</p>
 <p>好了重点来：</p>
 <p>首先你先定义一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;box&quot;&gt;&lt;div&gt;</div></pre></td></tr></table></figure></p>
-<p>css样式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">     transition: all ease 2s;</div><div class="line">   &#125;</div><div class="line">   #box&#123;</div><div class="line">     position: absolute;</div><div class="line">     width: 100px;</div><div class="line">     height: 100px;</div><div class="line">     left: 0px;</div><div class="line">     top: 0px;</div><div class="line">     background: #49C21E;</div><div class="line">     display: none;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>然后css样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">    <span class="attribute">transition</span>: all ease <span class="number">2s</span>;</div><div class="line"> &#125;</div><div class="line"><span class="selector-id">#box</span>&#123;</div><div class="line">     <span class="attribute">position</span>: absolute;</div><div class="line">     <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">     <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">     <span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">     <span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">     <span class="attribute">background</span>: <span class="number">#49C21E</span>;</div><div class="line">     <span class="attribute">display</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>然后来个简单的注册事件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">  var box = document.querySelector( &apos;#box&apos; );</div><div class="line">  </div><div class="line">      box.style.left = 0 + &apos;px&apos;;</div><div class="line">      </div><div class="line">  document.addEventListener(&apos;click&apos;, function(event)&#123;</div><div class="line">  </div><div class="line">    box.style.display = &apos;block&apos;</div><div class="line">    box.style.left = 1000 + &apos;px&apos;;</div><div class="line">    </div><div class="line">  &#125;, false);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>运行上面代码方块<strong>box</strong>会直接出现在1000px的位置，因为js解析完直接把结果交给浏览器显示出来，所以你看到的只是运行完的结果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">  <span class="keyword">var</span> box = <span class="built_in">document</span>.querySelector( <span class="string">'#box'</span> );</div><div class="line">  </div><div class="line">      box.style.left = <span class="number">0</span> + <span class="string">'px'</span>;</div><div class="line">      </div><div class="line">  <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">  </div><div class="line">    box.style.display = <span class="string">'block'</span></div><div class="line">    box.style.left = <span class="number">1000</span> + <span class="string">'px'</span>;</div><div class="line">    </div><div class="line">  &#125;, <span class="literal">false</span>);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>运行上面代码方块<strong>box</strong>会直接出现在1000px的位置，因为js解析完直接把结果交给浏览器显示出来，所以你看到的只是执行完的结果。</p>
 <p>老一辈的大神一般会用个setTimeout() 方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setTimeout( function()&#123;</div><div class="line">   box.style.left = 1000 + &apos;px&apos;;</div><div class="line">&#125;, 1)</div></pre></td></tr></table></figure>
-<p>这样就有动画效果：<strong>box</strong>会显示然后飘到1000px的位置，代码的运行就变成先display=”block” <strong>-&gt;</strong> 在style.left.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setTimeout( <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   box.style.left = <span class="number">1000</span> + <span class="string">'px'</span>;</div><div class="line">&#125;, <span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p>这样就有动画效果：<strong>box</strong>会显示然后飘到1000px的位置，代码的执行就变成先display=”block” <strong>-&gt;</strong> 在style.left.</p>
 <p>因为javascript提供了setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式;</p>
 <p>这样写的话，setTimeout内部代码会变成异步的。</p>
-<h2 id="然而不用setTimeout-的话："><a href="#然而不用setTimeout-的话：" class="headerlink" title="然而不用setTimeout()的话："></a>然而不用setTimeout()的话：</h2><p>直接加一条无关的<strong>box.getBoundingClientRect();</strong><br>变成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">box.style.display = &apos;block&apos;</div><div class="line">var a = box.getBoundingClientRect();</div><div class="line">box.style.left = 1000 + &apos;px&apos;;</div></pre></td></tr></table></figure>
-<p>然后运行出来也是有动画的跟setTimeout()效果是一样的,<br>因为getBoundingClientRect()会去获取元素个边与的距离，所以会强行的中断代码先渲染出来，然后获取完距离在继续走下面的代码。所以运行就变成 先display=”block”，然后在到页面渲染出来，在获取<strong>box</strong>坐标，在在style.left;</p>
+<h3 id="然而不用setTimeout-的话："><a href="#然而不用setTimeout-的话：" class="headerlink" title="然而不用setTimeout()的话："></a>然而不用setTimeout()的话：</h3><p>直接加一条无关的<strong>box.getBoundingClientRect();</strong><br>变成：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">box.style.display = <span class="string">'block'</span></div><div class="line"><span class="keyword">var</span> a = box.getBoundingClientRect();</div><div class="line">box.style.left = <span class="number">1000</span> + <span class="string">'px'</span>;</div></pre></td></tr></table></figure>
+<p>然后执行出来也是有动画的跟setTimeout()效果是一样的,<br>因为getBoundingClientRect()会去获取元素个边与的距离，所以会强行的执行代码先渲染出来，然后获取完距离在继续执行下面的代码。所以运行就变成 先display=”block”，然后在到页面渲染出来，在获取<strong>box</strong>坐标，在在style.left;</p>
 <p>而这一类在IE \ Safari \ Chrome -&gt; 效果都是一样的;</p>
-<p>还有像这类效果比如<strong>clientHeight,clientWidth</strong>也是有这类效果；</p>
+<p>还有像这类效果比如<strong>clientHeight,clientWidth</strong>也是有这类效果；<br>也有个大神文章写到<br><a href="http://jinlong.github.io/2015/09/30/what-forces-layout-reflow/" target="_blank" rel="external">http://jinlong.github.io/2015/09/30/what-forces-layout-reflow/</a></p>
 <h3 id="如不对大神请勿喷。。。。"><a href="#如不对大神请勿喷。。。。" class="headerlink" title="如不对大神请勿喷。。。。"></a>如不对大神请勿喷。。。。</h3>
       
     </div>
@@ -335,7 +335,7 @@
         <p><span>本文标题:</span><a href="/blog/2016/09/22/有趣的流氓-getBoundingClientRect/">有趣的流氓:getBoundingClientRect()</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">locozan</a></p>
         <p><span>发布时间:</span>2016-09-22, 12:52:12</p>
-        <p><span>最后更新:</span>2016-09-22, 12:53:23</p>
+        <p><span>最后更新:</span>2016-09-23, 01:40:03</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/blog/2016/09/22/有趣的流氓-getBoundingClientRect/" title="有趣的流氓:getBoundingClientRect()">http://www.uxhzz.com/blog/2016/09/22/有趣的流氓-getBoundingClientRect/</a>
             <span class="copy-path" data-clipboard-text="原文: http://www.uxhzz.com/blog/2016/09/22/有趣的流氓-getBoundingClientRect/　　作者: locozan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -365,7 +365,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript中getBoundingClientRect-方法详解"><span class="toc-number">1.</span> <span class="toc-text">JavaScript中getBoundingClientRect()方法详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#然而不用setTimeout-的话："><span class="toc-number"></span> <span class="toc-text">然而不用setTimeout()的话：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如不对大神请勿喷。。。。"><span class="toc-number">1.</span> <span class="toc-text">如不对大神请勿喷。。。。</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript中getBoundingClientRect-方法详解"><span class="toc-number">1.</span> <span class="toc-text">JavaScript中getBoundingClientRect()方法详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#然而不用setTimeout-的话："><span class="toc-number">2.</span> <span class="toc-text">然而不用setTimeout()的话：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如不对大神请勿喷。。。。"><span class="toc-number">3.</span> <span class="toc-text">如不对大神请勿喷。。。。</span></a></li></ol>
         
     </div>
     <style>
