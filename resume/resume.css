@@ -33,8 +33,8 @@
   }
   .photo{
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     float: right;
     border-radius: 50%;
     margin-top: -50px;
@@ -84,13 +84,13 @@
     margin: 10px 0 10px 0;
   }
   .first:nth-child(1){
-    width: 145px;
+    width: 146px;
   }
  #works ul{
     position: relative;
     float: left;
     margin: 0px 10px 50px 10px;
-    width: 145px;
+    width: 146px;
     height: 100px;
     border: .5px solid #000000;
     z-index: 1;
@@ -141,18 +141,18 @@
   }
   #leftColumn{
     width: 200px;
-    height: 694px;
+    height: 826px;
     background: #DFE3E3;
   }
   .photo{
     position: relative;
     float: left;
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background: url(images/pic.jpg) round;
     border: 3px solid #A1A5A2;
-    margin: 20px 0 10px 6px;
+    margin: 20px 0 10px 22px;
   }
   .photo + h1{
     display: block;
@@ -311,12 +311,12 @@
   .photo{
     position: relative;
     float: left;
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background: url(images/pic.jpg) round;
     border: 3px solid #A1A5A2;
-    margin: 20px 0 10px 6px;
+    margin: 20px 0 10px 22px;
   }
   .photo + h1{
     display: block;
