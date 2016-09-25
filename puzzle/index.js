@@ -10,7 +10,7 @@ void function () {
       func();
     };
   }
-  //点击按钮开始游戏
+  //点击按钮
   function star() {
     var game = document.getElementById("game");
     game.onmousedown = function () {
@@ -32,20 +32,22 @@ void function () {
   var space = [ -1, 0 ];
   var timer = null;
   var bushu = null;
-  container.style.cssText = "width: " + configs.mapSize + "px; height: " + configs.mapSize + "px;";
+
+    container.style.cssText = "width: " + configs.mapSize + "px; height: " + configs.mapSize + "px;";
+  
   var refresh = document.getElementById("refresh");
-  refresh.addEventListener("click", function (event) {
+    refresh.addEventListener("click", function (event) {
     location.reload();
   }, false);
   //时间
   function DurationTime() {
     var lastTime = Date.now();
-    clearInterval(timer);
-    timer = setInterval(function () {
-      var nowTime = Date.now();
-      document.querySelector("#showtime").value = parseInt((nowTime - lastTime) / 1000) + "秒";
-    }, 1000);
-  };
+      clearInterval(timer);
+      timer = setInterval(function () {
+        var nowTime = Date.now();
+          document.querySelector("#showtime").value = parseInt((nowTime - lastTime) / 1000) + "秒";
+      }, 1000);
+    };
   //换图
   var pickMap = document.getElementById("pickMap");
   var Original = document.getElementById("Original");
@@ -61,18 +63,18 @@ void function () {
     "url(imges/girl-009.jpg)"
   ];
   var i = 0;
-  pickMap.addEventListener("click", function (event) {
-    Original.style.backgroundImage = arr[i % 9];
-    imageSrc = arr[i % 9];
-    i++;
-  }, false);
+    pickMap.addEventListener("click", function (event) {
+      Original.style.backgroundImage = arr[i % 9];
+      imageSrc = arr[i % 9];
+      i++;
+    }, false);
   //难度
   var level = 3;
   var mode = document.getElementById("mode");
   var options = document.getElementsByTagName("option");
-  mode.addEventListener("change", function () {
-    level = Number(this.value);
-  }, false);
+    mode.addEventListener("change", function () {
+      level = Number(this.value);
+    }, false);
   var imageSrc = "url(imges/girl-001.jpg)";
   var sign = function (x, y) {
     return y + "," + x;
@@ -112,10 +114,7 @@ void function () {
           continue;
         if (sx == x && sy == y)
           continue;
-        result.push([
-          x,
-          y
-        ]);
+        result.push([ x, y ]);
       }
     }
     return result;

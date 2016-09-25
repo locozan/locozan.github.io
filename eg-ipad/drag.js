@@ -4,7 +4,7 @@
 *@author  locozan 
 *@createAt 2016-6-12
 */
-                  
+
 
 var eventHelper = {
   //添加句柄
