@@ -432,4 +432,7 @@
   em{
     display: none;
   }
+  .navToggle{
+    display: none;
+  }
 }
