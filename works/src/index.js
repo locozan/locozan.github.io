@@ -58,7 +58,7 @@ var sort = function(){
       item.style.left = Number( index % 2  ) * screenWidth / 2 + 15 + 'px';
       item.style.top = Number( index / 2 | 0 ) * 140 + 'px';
     } )
-  } 
+  };
 };
 sort();
 
