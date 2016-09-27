@@ -388,6 +388,7 @@ void function() {
     document.querySelector('.p').style.display = 'none';
     var iconLastChild = target.lastChild; //阴影
     iconLastChild.style.display = 'block';
+    iconLastChild.innerHTML = "请点：home键";
     target.parentNode.style.zIndex = 1000;
     target.querySelector('.title').style.display = "none";
     target.parentNode.parentNode.style.zIndex = 1500;
@@ -395,6 +396,8 @@ void function() {
     dock.style.backgroundColor = 'rgba( 0, 0, 0, 0)';
 
     if (target.parentNode.parentNode.parentNode.className === 'container') {
+      document.querySelector( '.leftBar' ).style.display = "none";
+      document.querySelector( '.rightBar' ).style.display = "none";
       container.style.overflowX = 'hidden';
       container.style.overflowY = 'hidden';
       container.style.height = 498 + 'px';
@@ -465,11 +468,12 @@ void function() {
     }
 
     if (document.querySelector('.original')) { //放大后还原
+      document.querySelector( '.leftBar' ).style.display = "block";
+      document.querySelector( '.rightBar' ).style.display = "block";
       // console.log( abc );
       container.style.overflowX = 'hidden';
       container.style.overflowY = 'hidden';
       container.style.height = 498 + 'px';
-      dock.style.top = -105 + 'px';
       dock.style.top = -105 + 'px';
       document.querySelector('.nav').style.top = -105 + 'px';
       container.style.transform = 'translate( ' + 0 + 'px, ' + 0 + 'px ) scale( ' + 1 + ', ' + 1 + ' )';

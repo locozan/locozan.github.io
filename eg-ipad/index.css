@@ -12,7 +12,7 @@
 
 .container{
   height: 434px;
-  width: 390px;
+  width: 400px;
   position: relative; 
   transition: transform .3s;
   /*overflow: hidden;*/
