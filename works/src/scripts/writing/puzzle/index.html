@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>拼图</title>
+  <script type="text/javascript" src="http://www.uxhzz.com/nav-bar/nav-bar.min.js"></script>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  #game-container{
+    position: relative;
+    margin: 40px auto;
+    border: 1px solid #1A13C5;
+
+  }
+  #game{
+    position: absolute;
+    width: 84px;
+    height: 40px;
+    left: 36%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+    font-weight: 900;
+    border: 3px solid #C52535;
+    background: #F4FDFF;
+    cursor:pointer;
+    border-radius: 10px;
+  }
+  #refresh{
+    position: absolute;
+    width: 83px;
+    height: 40px;
+    left: 28%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+    font-weight: 900;
+    border: 3px solid #C52535;
+    background: #F4FDFF;
+    cursor:pointer;
+    border-radius: 10px;
+  }
+  #game-container .cell,#Original{
+    background-repeat: no-repeat;
+    position: absolute;
+  /*  background-image: url(imges/girl-001.jpg);*/
+    cursor:pointer;
+
+  }
+  #game-container .cell:hover{
+    z-index: 2;
+    box-shadow: 0 0 3px 2px #74FF65 inset;
+    transition: all .25s ease;
+
+  }
+  #Original{
+    width: 100px;
+    height: 100px;
+    background-repeat: round;
+    border: 1px solid #1A13C5;
+    margin-top: -1.55%;
+    margin-left: 62.2%;
+
+  }
+  #times{
+    position: absolute;
+    font-style: normal;
+    color: #F00;
+  }
+  .time{
+    font-style: normal;
+    position: relative;
+    width: 130px;
+    height: 50px;
+    left: 45%;
+    float: left;
+  }
+  </style>
+</head>
+<body>
+  <div id="game-container"></div>
+  <input id="game" type="button" value="开始游戏">
+  <input id="refresh" type="button" value="重载游戏">
+  <div id="Original"></div>
+  <div class="time">
+    耗时：<input name="showtime" style="color:#ff0000;width:65px;" id="showtime" type="text" value="">
+    图片：<input type="button" id="pickMap" style="color:#ff0000;width:65px;" value="可选图哦">
+    难度：<select id="mode">
+          <option value="2">入门级别</option>
+          <option value="3" selected>经典模式</option>
+          <option value="4">中等模式</option>
+          <option value="5">困难模式</option>
+          <option value="8">地狱级别</option>
+         </select>
+  </div>
+<script src="index.js"></script>
+</body>
+</html>

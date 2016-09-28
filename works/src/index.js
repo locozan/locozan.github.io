@@ -15,7 +15,6 @@ var render = function(HTML, model) {
     return [
       '<div class=" '+ 'box box-' + index +' " data-index=" '+ index +' ">',
         '<ul>',
-          // '<li style=" background-image: url(' + item.img + '); ">',
           '<li>',
             '<a class="link-a" href=" ' + item.src + ' ">',
             '<img src=" '+ item.img +' " width="145" height="100">',
@@ -28,6 +27,7 @@ var render = function(HTML, model) {
 };
 
 render( container, worksModel );
+
 var screenWidth = document.documentElement.clientWidth - 20;
 var linkA = document.querySelectorAll('.link-a');
 
