@@ -41,7 +41,7 @@ var worksModel = [
 },
 {
   'title': 'magnifier2',
-  'img': 'images/magnifier.png',
+  'img': 'images/magnifier2.png',
   'src': '../src/scripts/writing/magnifier2/index.html'
 }
 ]
