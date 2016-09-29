@@ -264,7 +264,7 @@
   height: 40px;
   /*background-color: rgba( 150, 0, 0, .6); */
   z-index: 1000;
-  /*overflow: hidden;*/
+  /*overflow: hidden;*/ 
 } 
 .small-pages{
   position: absolute;
