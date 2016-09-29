@@ -290,7 +290,7 @@
 .boxLoading {
   width: 50px;
   height: 50px;
-  margin: auto;
+  margin: 200px auto;
   position: absolute;
   left: 0;
   right: 0;
