@@ -1,7 +1,7 @@
 var worksModel = [
 {
   'title': 'flappy-bird',
-  'img': 'http://ucren.com/static/locozan/images/flappy.png',
+  'img': 'http://ucren.com/static/locozan/works/src/images/flappy.png',
   'src': '../src/scripts/writing/flappy-bird/index.html'
 },
 {
