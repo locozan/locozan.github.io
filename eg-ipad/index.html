@@ -12,12 +12,12 @@
   <script src="model.js"></script>
   <script src="wheel.js"></script>
 </head> 
-<body onload="winload()">
+<body>
 <div id="disp">页面加载中,请等待...</div> 
 <div id="wrapper"> 
   <div class="ipad">
     <div class="ipad-camera"><span></span></div>
-    <div class="ipad-display">
+    <div class="ipad-display" onload="winload()">
       <p class="p">iPad&Xi; <span>9:40am</span> 100%&equiv;</p>
       <div class="leftBar"></div>
       <div class="container"></div>
