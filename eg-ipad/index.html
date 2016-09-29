@@ -13,7 +13,7 @@
   <script src="wheel.js"></script>
 </head> 
 <body onload="winload()">
-<tr><td><span id="disp">页面加载中,请等待...</span></td></tr> 
+<div id="disp">页面加载中,请等待...</div> 
 <div id="wrapper"> 
   <div class="ipad">
     <div class="ipad-camera"><span></span></div>
@@ -40,7 +40,7 @@
 <script type="text/javascript">
       document.querySelector( '#wrapper' ).style.display = 'none'
   function winload(){
-      document.querySelector( '#ld' ).style.display="none";
+      document.querySelector( '#disp' ).style.display="none";
        document.querySelector( '#wrapper' ).style.display = 'block'
     } 
 </script>
