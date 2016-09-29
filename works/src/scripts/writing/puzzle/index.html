@@ -13,8 +13,10 @@
   #game-container{
     position: relative;
     margin: 40px auto;
-    border: 1px solid #1A13C5;
-
+    border: 1px solid #1A13C5; 
+  }
+  #game-container{
+    background: url(imges/girl-001.jpg);
   }
   #game{
     position: absolute;
@@ -56,9 +58,6 @@
     box-shadow: 0 0 3px 2px #74FF65 inset;
     transition: all .25s ease;
 
-  }
-  #game-container{
-    background-image: url(imges/girl-001.jpg);
   }
   #Original{
     width: 100px;
@@ -165,15 +164,15 @@
           <option value="8">地狱级别</option>
          </select>
   </div>
-  <script src="index.js"></script>
-  <script type="text/javascript">
+<script type="text/javascript">
   var y = document.documentElement.clientHeight;
   var disp = document.querySelector( '#disp' );
       disp.style.height = y + 'px';
       disp.style.lineHeight = y + 'px';
-  function winload(){ 
-      document.body.removeChild( disp );
-  } 
+      setTimeout( function(){
+        disp.style.display = 'none';
+      }, 1500 );
 </script>
+<script src="index.js"></script>
 </body>
 </html>
