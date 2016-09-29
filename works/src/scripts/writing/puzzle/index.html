@@ -169,9 +169,9 @@
   var disp = document.querySelector( '#disp' );
       disp.style.height = y + 'px';
       disp.style.lineHeight = y + 'px';
-  function winload(){ 
-      document.body.removeChild( disp );
-  } 
+      setTimeout( function(){
+        disp.style.display = 'none';
+      }, 2000 );
 </script>
 <script src="index.js"></script>
 </body>
