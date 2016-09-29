@@ -13,7 +13,7 @@
   <script src="wheel.js"></script>
 </head> 
 <body onload="winload()">
-<div id="disp">页面加载中,请等待...</div> 
+<div id="disp" style="width: 100%;position:absolute;text-align: center;line-height: 100px; z-index: 9999;">页面加载中,请等待...</div>  
 <div id="wrapper"> 
   <div class="ipad">
     <div class="ipad-camera"><span></span></div>
@@ -38,10 +38,13 @@
   </div>
 </div>
 <script type="text/javascript">
-  function winload(){
-      document.querySelector( '#disp' ).style.display="none";
-      
-    } 
+  var y = document.documentElement.clientHeight;
+  var disp = document.querySelector( '#disp' );
+      disp.style.height = y + 'px';
+      disp.style.lineHeight = y + 'px';
+  function winload(){ 
+      disp.style.display="none";
+  } 
 </script>
 <script src="index.js"></script>
 </body>
