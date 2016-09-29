@@ -13,7 +13,8 @@
   <script src="wheel.js"></script>
 </head> 
 <body>
-<div id="wrapper"> 
+<tr><td><span id="disp">页面加载中,请等待...</span></td></tr> 
+<div id="wrapper" onload="winload()"> 
   <div class="ipad">
     <div class="ipad-camera"><span></span></div>
     <div class="ipad-display">
@@ -36,6 +37,11 @@
     <div class="ipad-home-button"><span></span></div>
   </div>
 </div>
+<script type="text/javascript">
+  function winload(){
+          ld.style.display="block";
+    } 
+</script>
 <script src="index.js"></script>
 </body>
 </html>

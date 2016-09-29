@@ -7,8 +7,7 @@
   <link rel="stylesheet" type="text/css" href="todo.css">
 </head>
 <body>
-<tr><td><span id="disp">页面加载中,请等待...</span></td></tr> 
-<div id="content" data-index="100" onload="winload()">
+<div id="content" data-index="100">
   <div id="dost">
     <li type="checkbox" class="switch xa"></li>
     <li type="checkbox" class="switch xb"></li>
@@ -54,9 +53,6 @@
 </body>
 <script src="switch.js"></script>
 <script>
-    function winload(){
-          ld.style.display="block";
-    } 
    void function(){
      var content = document.getElementById('content');
      var container = document.getElementById('container');
