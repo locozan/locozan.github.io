@@ -2,12 +2,12 @@ var worksModel = [
 {
   'title': 'flappy-bird',
   'img': 'images/flappy.png',
-  'src': '../src/scripts/writing/eg-ipad/index.html'
+  'src': '../src/scripts/writing/flappy-bird/index.html'
 },
 {
   'title':'puzzle',
   'img': 'images/puzzle.png',
-  'src': '../src/scripts/writing/eg-ipad/index.html'
+  'src': '../src/scripts/writing/puzzle/index.html'
 },
 {
   'title': 'dragInsert',
@@ -42,6 +42,6 @@ var worksModel = [
 {
   'title': 'magnifier2',
   'img': 'images/magnifier2.png',
-  'src': '../src/scripts/writing/eg-ipad/index.html'
+  'src': '../src/scripts/writing/magnifier2/index.html'
 }
 ]
