@@ -12,7 +12,12 @@
   <script src="model.js"></script>
   <script src="wheel.js"></script>
 </head> 
-<body>
+<body onload="winload()">
+<div id="disp" style="width: 100%;position:absolute;background:#FFFFFF; z-index: 9999;font-size: 20px;">
+  <div class="boxLoading">
+  <p style="width: 300px;margin: 85px 0 0 -90px;line-height:0px;">数据加载中，请耐心等待。。。。</p>
+  </div>
+</div>  
 <div id="wrapper"> 
   <div class="ipad">
     <div class="ipad-camera"><span></span></div>
@@ -22,7 +27,7 @@
       <div class="container"></div>
       <div class="rightBar"></div>
       <div class="nav">
-        <ul>
+        <ul>;;
           <li><a></a></li>
           <li><a></a></li>
           <li><a></a></li>
@@ -36,6 +41,15 @@
     <div class="ipad-home-button"><span></span></div>
   </div>
 </div>
+<script type="text/javascript">
+  var y = document.documentElement.clientHeight;
+  var disp = document.querySelector( '#disp' );
+      disp.style.height = y + 'px';
+      disp.style.lineHeight = y + 'px';
+  function winload(){ 
+      document.body.removeChild( disp );
+  } 
+</script>
 <script src="index.js"></script>
 </body>
 </html>
