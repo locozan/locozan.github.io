@@ -5,11 +5,11 @@ void function () {
     pageButtonHeight: 80,//页按键高
     shuffleCount: 1000
   };
-  function addLoadEvent(func) {
-    window.onload = function () {
-      func();
-    };
-  }
+  // function addLoadEvent(func) {
+  //   window.onload = function () {
+  //     func();
+  //   };
+  // } 
   //点击按钮
   function star() {
     var game = document.getElementById("game");
@@ -213,5 +213,6 @@ void function () {
       endAlert();
     }
   }, false);
-  addLoadEvent(star);
+  // addLoadEvent(star);
+  star();
 }();
