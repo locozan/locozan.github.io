@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="index.css">
   <script type="text/javascript" src="http://www.uxhzz.com/nav-bar/nav-bar.min.js"></script>
+
+  <link rel="stylesheet" type="text/javascript" href="https://locozan.github.io/Semantic-UI-CSS-master/components/loader.min.css"></script>
+  <script type="text/javascript" src="https://locozan.github.io/jquery-3.1.0.min.js"></script>
+  <link rel="stylesheet" type="text/javascript" href="https://locozan.github.io/Semantic-UI-CSS-master/semantic.min.css"></script>
+  <script type="text/javascript" src="https://locozan.github.io/Semantic-UI-CSS-master/semantic.min.js"></script>
+ 
   <script src="eventHelper.js"></script>
   <script src="inserHTML.js"></script>
   <script src="drag.js"></script>
@@ -13,7 +19,12 @@
   <script src="wheel.js"></script>
 </head> 
 <body onload="winload()">
-<div id="disp" style="width: 100%;position:absolute;background:#FEFFF6;text-align: center;line-height: 100px; z-index: 9999;">页面加载中,请等待...</div>  
+<div class="ui segment" id="disp" style="width: 100%;position:absolute;background:#FEFFF6;text-align: center;line-height: 100px; z-index: 9999;">
+  <div class="ui active inverted dimmer">
+    <div class="ui text loader">Loading</div>
+  </div>
+  <p></p>
+</div>  
 <div id="wrapper"> 
   <div class="ipad">
     <div class="ipad-camera"><span></span></div>
