@@ -15,9 +15,9 @@
 <body>
 <div id="disp">页面加载中,请等待...</div> 
 <div id="wrapper"> 
-  <div class="ipad">
+  <div class="ipad" onload="winload()">
     <div class="ipad-camera"><span></span></div>
-    <div class="ipad-display" onload="winload()">
+    <div class="ipad-display">
       <p class="p">iPad&Xi; <span>9:40am</span> 100%&equiv;</p>
       <div class="leftBar"></div>
       <div class="container"></div>
@@ -38,11 +38,11 @@
   </div>
 </div>
 <script type="text/javascript">
-      document.querySelector( '.ipad-display' ).style.display = 'none'
+      document.querySelector( '.ipad' ).style.display = 'none'
   function winload(){
     setTimeout( function(){
       document.querySelector( '#disp' ).style.display="none";
-      document.querySelector( '.ipad-display' ).style.display = 'block'
+      document.querySelector( '.ipad' ).style.display = 'block'
     }, 2000 );
       
     } 
