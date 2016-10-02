@@ -114,7 +114,7 @@
     width: 770px;
     height: 866px;
     margin: 0 auto;
-    /*background: url(images/background.png) round;*/
+    /*background: url(http://ucren.com/static/locozan/resume/images/background.png) round;*/
   }
   #summary{
     position: relative;
@@ -150,7 +150,7 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: url(images/pic.jpg) round;
+    background: url(http://ucren.com/static/locozan/resume/images/pic.jpg) round;
     border: 3px solid #A1A5A2;
     margin: 20px 0 10px 22px;
   }
@@ -278,7 +278,7 @@
     width: 770px;
     height: 866px;
     margin: 0 auto;
-    /*background: url(images/background.png) round;*/
+    /*background: url(http://ucren.com/static/locozan/resume/images/background.png) round;*/
   }
   #summary{
     position: relative;
@@ -314,7 +314,7 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: url(images/pic.jpg) round;
+    background: url(http://ucren.com/static/locozan/resume/images/pic.jpg) round;
     border: 3px solid #A1A5A2;
     margin: 20px 0 10px 22px;
   }
