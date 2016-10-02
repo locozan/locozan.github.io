@@ -1,47 +1,47 @@
 var worksModel = [
 {
   'title': 'flappy-bird',
-  'img': 'http://ucren.com/static/locozan/works/src/images/flappy.png',
-  'src': '../src/scripts/writing/flappy-bird/index.html'
+  'img': 'http://ucren.com/static/locozan/images/flappy.png',
+  'src': 'http://ucren.com/static/locozan/flappy-bird/index.html'
 },
 {
   'title':'puzzle',
-  'img': 'http://ucren.com/static/locozan/works/src/images/puzzle.png',
-  'src': '../src/scripts/writing/puzzle/index.html'
+  'img': 'http://ucren.com/static/locozan/images/puzzle.png',
+  'src': 'http://ucren.com/static/locozan/puzzle/index.html'
 },
 {
   'title': 'dragInsert',
-  'img': 'http://ucren.com/static/locozan/works/src/images/dragInsert.png',
-  'src': '../src/scripts/writing/dragInsert/index.html'
+  'img': 'http://ucren.com/static/locozan/images/dragInsert.png',
+  'src': 'http://ucren.com/static/locozan/dragInsert/index.html'
 },
 {
   'title': 'eg-ipad',
-  'img': 'http://ucren.com/static/locozan/works/src/images/ipad.png',
-  'src': '../src/scripts/writing/eg-ipad/index.html'
+  'img': 'http://ucren.com/static/locozan/images/ipad.png',
+  'src': 'http://ucren.com/static/locozan/eg-ipad/index.html'
 },
 {
   'title': 'todo',
-  'img': 'http://ucren.com/static/locozan/works/src/images/todo.png',
-  'src': '../src/scripts/writing/todo/index.html'
+  'img': 'http://ucren.com/static/locozan/images/todo.png',
+  'src': 'http://ucren.com/static/locozan/todo/index.html'
 },
 {
   'title': 'myalert',
-  'img': 'http://ucren.com/static/locozan/works/src/images/myalert.png',
-  'src': '../src/scripts/writing/alert/index.html'
+  'img': 'http://ucren.com/static/locozan/images/myalert.png',
+  'src': 'http://ucren.com/static/locozan/alert/index.html'
 },
 {
   'title':'collision',
-  'img': 'http://ucren.com/static/locozan/works/src/images/collision.png',
-  'src': '../src/scripts/writing/collision/index.html'
+  'img': 'http://ucren.com/static/locozan/images/collision.png',
+  'src': 'http://ucren.com/static/locozan/collision/index.html'
 },
 {
   'title': 'knob',
-  'img': 'http://ucren.com/static/locozan/works/src/images/knob.png',
-  'src': '../src/scripts/writing/knob/index.html'
+  'img': 'http://ucren.com/static/locozan/images/knob.png',
+  'src': 'http://ucren.com/static/locozan/knob/index.html'
 },
 {
   'title': 'magnifier2',
-  'img': 'http://ucren.com/static/locozan/works/src/images/magnifier2.png',
-  'src': '../src/scripts/writing/magnifier2/index.html'
+  'img': 'http://ucren.com/static/locozan/images/magnifier2.png',
+  'src': 'http://ucren.com/static/locozan/magnifier2/index.html'
 }
 ]
