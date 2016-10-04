@@ -20,6 +20,7 @@ void function () {
       }
       shuffle();
       //打乱
+      document.querySelector("#game-container").style.backgroundImage = "url()";
       Original.style.backgroundImage = imageSrc;
       DurationTime();
       pickMap.style.visibility = "hidden";
