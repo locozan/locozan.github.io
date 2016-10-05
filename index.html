@@ -1,380 +1,171 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>个人主页</title>
+  <title></title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script type="text/javascript" src="http://ucren.com/static/locozan/jquery/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="http://ucren.com/static/locozan/bootstrap-3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://ucren.com/static/locozan/bootstrap-3.3.7/css/bootstrap.min.css">
-  <style type="text/css">
-    *{
-     list-style: none; 
-    }
-    html {
-      font-size: 20px;
-    }
-    header {
-      width: 100%;
-      position: fixed;
-      left: 0px;
-      top: 0px;
-      z-index: 999;
-    }
-    .header {
-      line-height: 3rem;
-      background-color: #2FB5C3;
-      height: 3rem;
-    }
-    .nav-content {
-      position: relative;
-      padding: 5px 20px 5px 30px;
-      top: 60px;
-      border: 5px solid #CBD7E1;
-    }
-    .insertion {
-      width: 5rem;
-      height: 5rem;
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      z-index: 999;
-    }
-    .carousel-inner {
-      height: 300px;
-      padding: 0px;
-    }
-    .btn-group {
-      margin-left: 1rem;
-    }
-    .about-me {
-      margin-top: 0.6rem;
-      margin-right: 1rem;
-      float: right;
-    }
-    .col-md-3{
-      text-indent: 7px;
-    }
-    .col-md-3 ul{
-      margin-left: -36px;
-    }
-    
-    .col-md-6{
-      border: 2px solid #C8D3DE;
-      padding: 0px;
-    }
-    .carousel-caption {
-      color: #2C2E31;
-      top: 244px;
-      padding-top: 16px;
-    }
-    .carousel-inner .item img {
-      height: 300px;
-      margin: 0 auto;
-    }
-    .carousel-indicators {
-      bottom: -9px;
-    }
-    /*.active{
-        background: #BCE2C7;
-      }*/
-    .carousel-indicators li {
-      background: #E2BD31;
-    }
-    .carousel-indicators .active {
-      background: #E21F1E;
-    }
-    small {
-      color: #EB071D;
-    }
-    #text {
-      position: relative;
-      top: 10px;
-      float: left;
-      width: 58%;
-      background: #FFFFFF;
-    }
-    #textContent {
-      width: 88%;
-      position: relative;
-      padding: 15px;
-      background: #FFFFFF;
-    }
-    #textContent h1 {
-      display: block;
-      width: 100%;
-      height: 45px;
-      font-weight: 900;
-      border-bottom: 1px solid #E7E7E7;
-      margin-top: 20px;
-      margin-bottom: 45px;
-      padding-top: 0px;
-    }
-    #textContent p {
-      display: block;
-      margin-bottom: 50px;
-      font-weight: 300;
-      line-height: 20px;
-    }
-    #list {
-      width: 20%;
-      height: 480px;
-      margin-right: 15%;
-      margin-top: 8%;
-      position: relative;
-      float: right;
-    }
-    span {
-      color: red;
-    }
-    #list li {
-      width: 100%;
-      height: 25px;
-      list-style: none;
-      cursor: pointer;
-      text-align: center;
-      line-height: 26px;
-      color: #262626;
-      text-align: left;
-      text-indent: 4px;
-    }
-    #list li.active {
-      border-left: 2px solid #412666;
-    }
-    #list li.active a {
-      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-      color: #412666;
-    }
-    #list a {
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 900;
-      color: #636363;
-      margin-left: 20px;
-    }
-    #list a:hover {
-      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-      color: #412666;
-    }
-    #list li:hover {
-      border-left: 2px solid #412666;
-    }   
-    @media screen and (max-width: 550px){/*小*/
-      #list{
+  <style>
+  @media screen and (min-width: 765px){
+      body {
+          overflow: hidden;
+          margin: 0;
+          padding: 0;
+      }
+
+      img {
+          width: 1281px;
+          height: 961px;
+      }
+      .container{
+        width: 100%;
+        height: 250px;
+        position: absolute;
+        margin-top: -532px;
+        z-index: 1;
+        text-align: center;
+        line-height: 0px;
+        padding: 70px 0 0 0;
+      }
+      .btn{
+        width: 100px;
+        height: 30px;
+        margin-left: 15px;
+      }
+      button a{
+        color: #FFF7F3;
+      }
+      .progress{
+        position: absolute;
+        width: 200px;
+        height: 12px;
+        left: 0px;
+        right: 0px;
+        margin: 20px auto;
+      }
+      span{
+        margin-top: -10px;
+      }
+      .colxs{
+        position: relative;
+        height: 25px;
+        margin-top: 15px;
+        text-align: center;
+        margin-bottom: 26px;
+      }
+      .row{
+        background: #293125;
+        color: #CAC7D7;
+      }
+      .row-a{
+        margin-top: 16px;
+      }
+      .row:hover{
+        color: #CAC7D7;
+      }
+  }
+   @media screen and (max-width: 764px){
+      body{
+          overflow: hidden;
+          margin: 0;
+          padding: 0;
+          background: #85FF8C;
+      }
+      #div{
         display: none;
       }
-      #textContent{
-        width: 180%;
-      }
-    }
-
-    .glyphicon.glyphicon-chevron-left.chevron:before{
-      content: '◄';
-    }
-
-    .glyphicon.glyphicon-chevron-right.chevron:before{
-      content: '►';
-    }
+  }
   </style>
 </head>
-<body>
-<header class="content">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 header">
-      <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-primary"><a style="color: #F5FCFF" href="http://www.uxhzz.com">首页</a></button>
-        <button type="button" class="btn btn-success"><a style="color: #F5FCFF" href="http://www.uxhzz.com/resume/index.html">个人简历</a></button>
-        <button type="button" class="btn btn-warning"><a style="color: #F5FCFF" href="http://www.uxhzz.com/blog/">我的博客</a></button>
-      </div>
-      <!--按钮组-->
-      <div class="btn-group about-me">
-        <button class="btn default dropdown-toggle btn-warning" data-toggle="dropdown">关于我</button>
-        <ul class="dropdown-menu" role="menu">
-          <li><a href="http://www.uxhzz.com/resume/index.html">个人简历</a></li>
-          <li><a href="http://www.uxhzz.com/works/dist/index.html">作品栏</a></li>
-        </ul>
-      </div>
-    </div>
+<script src="http://ucren.com/static/locozan/rainyday/rainyday.min.js"></script>
+<script>
+    
+  function run() {
+    var image = document.getElementById('background');
+      image.onload = function() {
+        var engine = new RainyDay({
+        image: this
+      });
+      engine.rain([ [3, 2, 2] ], 100);
+    };
+      image.crossOrigin = 'anonymous';
+      image.src = 'images/road.jpg';
+  }
+        
+</script>
+<body onload="run();">
+  <div id="div">
+    <canvas width"1281" height="961" style="position: absolute;top: 0px;left: 0px;"></canvas>
+    <img id="background" alt="background" src="images/road.jpg" crossOrigin="anonymous">
   </div>
-</header>
-<div class="insertion">
-  <img src="http://ucren.com/static/locozan/images/code.png" width="100" height="100">
-</div>
-<nav class="content nav-content">
-  <div class="row">
-    <div class="col-md-3 col-sm-3 behind" ></div>
-    <div class="col-md-6 col-sm-6 colxs6">
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-        </ol>
+  <div class="container">
+    <!-- Standard button -->
+    <button type="button" class="btn btn-warning"><a href="http://www.uxhzz.com">楼主首页</button>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="http://ucren.com/static/locozan/images/dragInsert.png" width="400" height="300" alt="...">
-            <div class="carousel-caption" style="display: none;">实现原理就是每个元素都来一个定位符用来撑开位置，点击目标元素之后，创建一个占位元素，然后拖动目标元素，找到相应的位置之后，插入目标元素，清除占位元素</div>
-            <div class="carousel-caption">drag-insert
-            </div>
-          </div>
-          <div class="item">
-            <img src="http://ucren.com/static/locozan/images/flappy.png" width="400" height="300" alt="...">
-            <div class="carousel-caption" style="display: none;">flappy bird：一夜爆红的胖鸟更多这是一款简单又困难的手机游戏，游戏中玩家必须控制一只胖乎乎的小鸟，跨越由各种不同长度水管所组成的障碍。上手容易，但是想通关可不简单。Flappy bird 于2013年5月在苹果App Store上线，2014年2月份在100多个国家/地区的榜单一跃登顶，尽管没有精细的动画效果，没有有趣的游戏规则，没有众多的关卡，却突然大火了一把，下载量突破5000万次。</div>
-            <div class="carousel-caption">flappy-bird
-            </div>
-          </div>
-          <div class="item">
-            <img src="http://ucren.com/static/locozan/images/ipad.png" width="400" height="300" alt="...">
-            <div class="carousel-caption" style="display: none;">模拟ipad界面写的，目前还没全部写好，只实现了一些简单功能，如图标放大·缩小·拖拽·翻页·抖动·排序</div>
-            <div class="carousel-caption">ipad
-            </div>
-          </div>
-          <div class="item">
-            <img src="http://ucren.com/static/locozan/images/puzzle.png" width="400" height="300" alt="...">
-            <div class="carousel-caption" style="display: none;">大家熟悉的拼图游戏，难度可以自己选，图片也可以自己选。</div>
-            <div class="carousel-caption">puzzle
-            </div>
-          </div>
-          <div class="item">
-            <img src="http://ucren.com/static/locozan/images/todo.png" width="400" height="300" alt="...">
-            <div class="carousel-caption" style="display: none;">用原生js实现的TODO应用，实现了添·删·改·差的功能</div>
-            <div class="carousel-caption">TODO
+    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+    <button type="button" class="btn btn-primary"><a href="http://www.uxhzz.com/resume/index.html">个人简历</button>
+
+    <!-- Indicates a successful or positive action -->
+    <button type="button" class="btn btn-success"><a href="http://www.uxhzz.com/blog/">我的博客</button>
+
+    <!-- Contextual button for informational alert messages -->
+    <button type="button" class="btn btn-info"><a href="http://www.uxhzz.com/works/dist/index.html">我的作品</button>
+
+    <!-- Indicates a dangerous or potentially negative action -->
+    <button type="button" class="btn btn-danger"><a href="http://www.uxhzz.com">待定</button>
+    <div class="row row-a">
+      <div class="col-xs-3 colxs"><span>HTML5</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
           </div>
         </div>
-    </div>
-      <!-- Controls -->
-      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left chevron" style="display: none" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right chevron" style="display: none" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      </div>
+      <div class="col-xs-3 colxs"><span>CSS3</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3 colxs"><span>jQuery</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3 colxs"><span>JavaScript</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-md-3 col-sm-3 front">
-      <ul><h3 style="color: #6680FF">个人技能</h3>
-        <ol>
-          <li><h4>HTML5</h4></li>
-          <li><h4>CSS3</h4></li>
-          <li><h4>原生JavaScript</h4></li>
-          <li><h4>jQuery</h4></li>
-          <li><h4>CSS·Bootstrap</h4></li>
-          <li><h4>React·js</h4></li>
-          <li><h4>ES6</h4></li>
-        </ol>
-      </ul>
-    </div>
-  </div>
-  <div id="list">
-    <li class="active"><a href="#one">getBCR()</a></li>
-    <li><a href="#list-a"></a></li>
-    <li><a href="#list-b"></a></li>
-  </div>
-  <div id="text">
-    <div id="textContent">
-      <h1 id="one">Locozan</h1>
-      <li><spen class="glyphicon glyphicon-share-alt"></spen><a style="color: #D91521;" href="http://www.uxhzz.com/blog/2016/09/22/%E6%9C%89%E8%B6%A3%E7%9A%84%E6%B5%81%E6%B0%93-getBoundingClientRect/">README.to</a></li>
-      <div class=""style="width: 100%;background: #3ACCD9;"><hr>
-
-        <p class="muted" style="line-height: 37px;">一次无意中发现的getBoundingClientRect()的强大功能: 竟然可以强制停止代码渲染<p>
+    <div class="row">
+      <div class="col-xs-3 colxs"><span>bootstrap</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+          </div>
+        </div>
       </div>
-      <h1 id="list-a"></h1>
-      <p></p>
-      <div class=""style="width: 100%;height: 50px;background: #C0F1FF;"></div>
-      <h1 id="list-b"></h1>
-      <p></p>
-      <div class=""style="width: 100%;height: 100px;background: #C0F1FF;"></div>
+      <div class="col-xs-3 colxs"><span>canvas</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3 colxs"><span>React</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3 colxs"><span>ES6</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
 </body>
-<script type="text/javascript" src="http://ucren.com/static/locozan/jquery/jquery-3.1.0.min.js"></script>
-<script type="text/javascript" src="http://ucren.com/static/locozan/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-  var contentNavContent = document.querySelector( '.nav-content' ) 
-
-  var closest = function(el, className) { //找父元素、
-    while (el && el.tagName && el.className.toLowerCase() !== className.toLowerCase()) {
-      el = el.parentNode;
-    }
-    return el.tagName ? el : null;
-  };
-  
-  document.querySelector( '.col-md-3.behind' ).innerHTML = document.querySelector( '.carousel-caption' ).innerText;
-  contentNavContent.addEventListener("mousemove", function( event ){
-    var target = event.target;
-    var targetParend = closest( target, 'row' );
-    if( closest( target, 'row' ) !== null ){
-      $( '.chevron' ).css('display','block');
-      $( '.glyphicon-chevron-right' ).css('display','block');
-    }
-    if( closest( target, 'row' ) == null ){
-      $( '.chevron' ).css('display','none');
-      $( '.glyphicon-chevron-right' ).css('display','none');
-
-    }
-  }, false);
-  var configs = {
-    post: [65, 97],
-    size: [25, 400],
-    post2: [65, 0]
-  }
-
-  document.querySelector('#list li').className = 'active';
-
-  var render = function () {
-    var list = document.getElementById('list');
-    var text = document.getElementById('text');
-    var textTop = text.getBoundingClientRect().top;
-
-    if (textTop < -30) {
-      list.style = 'position:fixed;'
-      list.style.top = configs.post2[1] + '%';
-      list.style.left = configs.post2[0] + '%';
-    } else if (textTop > -30) {
-      list.style = 'position:absolute;'
-      list.style.top = configs.post[1] + '%';
-      list.style.left = configs.post[0] + '%';
-    }
-
-    var listLi = list.getElementsByTagName('li');
-    var listA = list.getElementsByTagName('a');
-    var textH1 = text.getElementsByTagName('h1');
-
-    for (var i = 0, l = textH1.length; i < l; i++) {
-      var top = textH1[i].getBoundingClientRect().top;
-
-      if (top > -20) {
-        var id = textH1[i].getAttribute('id');
-
-        for (var j = 0, l = listA.length; j < l; j++) {
-          listLi[j].className = listA[j].getAttribute('href') === '#' + id ?
-            'active' : '';
-        }
-
-        break;
-      }
-    }
-  }
-
-  window.addEventListener('scroll', function () {
-    render();
-  }, false);
-
-  function mainloop() { //主循环自调用一次
-        if( document.querySelector('.item.next.left') ){
-          var a = document.querySelector('.item.next.left');
-          var b = document.querySelector( '.col-md-3.behind' );
-          b.innerHTML = a.querySelector( '.carousel-caption' ).innerText;
-        }
-      requestAnimationFrame(mainloop); //每秒60桢，使主循环一直在刷新  
-
-  }
-  mainloop(); //调用主循环
-</script>
 </html>
