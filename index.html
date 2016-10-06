@@ -174,7 +174,7 @@
 </head>
 <body onload="run();">
   <div id="div">
-    <canvas width"1281" height="961" style="position: absolute;top: 0px;left: 0px;"></canvas>
+    <canvas id="canvas" width"1281" height="961" style="position: absolute;top: 0px;left: 0px;"></canvas>
     <img id="background" alt="background" src="images/road.jpg" crossOrigin="anonymous">
   </div>
   <div class="container">
@@ -253,8 +253,8 @@
 
   var screenWidth = document.documentElement.clientWidth;//屏幕宽=可视窗口宽
   var screenHeight = document.documentElement.clientHeight;//屏幕高=可视窗口高
-  document.querySelector( '#div' ).style.width = screenWidth;
-  document.querySelector( '#div' ).style.height = screenHeight;
+  document.querySelector( '#canvas' ).style.width = screenWidth;
+  document.querySelector( '#canvas' ).style.height = screenHeight;
     
   function run() {
     var image = document.getElementById('background');
