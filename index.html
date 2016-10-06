@@ -95,7 +95,7 @@
           height: 961px;
       }
       .container{
-        width: 100%;
+        width: 96%;
         height: 250px;
         position: absolute;
         z-index: 1;
@@ -157,22 +157,20 @@
   }
   @media screen and (max-width: 414px){
       body{
-        width: 100%;
         overflow: hidden;
         margin: 0;
         padding: 0;
         background: #FF516C;
       }
-      img{
-        width: 1366px;
-        height: 961px;
+      #div{
+        overflow: hidden;
       }
   }
   </style>
 </head>
 <body onload="run();">
   <div id="div">
-    <canvas width"1281" height="961" style="position: absolute;top: 0px;left: 0px;"></canvas>
+    <canvas id="canvas" style="position: absolute;top: 0px;left: 0px;"></canvas>
     <img id="background" alt="background" src="images/road.jpg" crossOrigin="anonymous">
   </div>
   <div class="container">
@@ -251,6 +249,17 @@
 
   var screenWidth = document.documentElement.clientWidth;//屏幕宽=可视窗口宽
   var screenHeight = document.documentElement.clientHeight;//屏幕高=可视窗口高
+
+  document.querySelector( '#canvas' ).width  = screenWidth;
+  document.querySelector( '#canvas' ).height = screenHeight;
+
+  document.querySelector( '#div' ).style.width  = screenWidth + 'px';
+  document.querySelector( '#div' ).style.height = screenHeight + 'px';
+
+  document.querySelector( '#background' ).style.width  = screenWidth + 'px';
+  document.querySelector( '#background' ).style.height = screenHeight + 'px';
+
+  console.log( document.querySelector( '#div' ) );
     
   function run() {
     var image = document.getElementById('background');
@@ -262,6 +271,8 @@
     };
       image.crossOrigin = 'anonymous';
       image.src = 'images/road.jpg';
+      image.style.width = screenWidth + 'px';
+      image.style.height = screenHeight + 'px';
   }
         
 </script>
