@@ -162,10 +162,13 @@
           padding: 0;
           background: #FF516C;
       }
-      /*img {
+      img {
           width: 1281px;
           height: 961px;
-      }*/
+      }
+      #div{
+        overflow: hidden;
+      }
   }
   </style>
 </head>
@@ -247,6 +250,11 @@
 </body>
 <script src="http://ucren.com/static/locozan/rainyday/rainyday.min.js"></script>
 <script>
+
+  var screenWidth = document.documentElement.clientWidth;//屏幕宽=可视窗口宽
+  var screenHeight = document.documentElement.clientHeight;//屏幕高=可视窗口高
+  document.querySelector( '#div' ).style.width = screenWidth;
+  document.querySelector( '#div' ).style.height = screenHeight;
     
   function run() {
     var image = document.getElementById('background');
