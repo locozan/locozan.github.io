@@ -3,6 +3,7 @@
 <head>
   <title></title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="http://ucren.com/static/locozan/animate.css/animate.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
   <script type="text/javascript" src="http://ucren.com/static/locozan/jquery/jquery-3.1.0.min.js"></script>
   <script type="text/javascript" src="http://ucren.com/static/locozan/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -12,7 +13,7 @@
       body {
           overflow: hidden;
           margin: 0;
-          padding: 0;
+          padding: 0; 
       }
 
       img {
@@ -171,7 +172,7 @@
 <body onload="run();">
   <div id="div">
     <canvas id="canvas" style="position: absolute;top: 0px;left: 0px;"></canvas>
-    <img id="background" alt="background" src="images/road.jpg" crossOrigin="anonymous">
+    <img id="background" alt="background" src="http://ucren.com/static/locozan/images/road.jpg" crossOrigin="anonymous">
   </div>
   <div class="container">
     <!-- Standard button -->
@@ -266,6 +267,19 @@
       image.style.width = screenWidth + 'px';
       image.style.height = screenHeight + 'px';
   }
+  var headPhoto = document.createElement( 'div' );
+      headPhoto.className = "headPhoto animated fadeInUp";
+      headPhoto.style.cssText = "position:absolute; width:150px; height:150px; left:0px; right:0px;bottom:0px;top:0px;margin: 110px auto;border-radius: 50%;border: 2px solid #989892; background:url(http://ucren.com/static/locozan/images/pic.jpg) round;z-index: 20;";
+
+      setTimeout( function(){
+        document.body.appendChild( headPhoto );
+      }, 1000 );
+      setTimeout( function(){
+        document.querySelector( '.headPhoto,.animated,.fadeInUpBig' ).classList.remove('fadeInUp')
+        document.querySelector( '.headPhoto,.animated,.fadeInUpBig' ).classList.add('rubberBand')
+      }, 2009 );
+
+      
         
 </script>
 </html>
