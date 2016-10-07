@@ -277,7 +277,7 @@
       image.src = 'images/road.jpg';
       image.style.width = screenWidth + 'px';
       image.style.height = screenHeight + 'px';
-  }
+
   var headPhoto = document.createElement( 'div' );
   var headPhotoText = document.createElement( 'p' );
       headPhotoText.className = "headPhotoText animated fadeInUp";
@@ -289,10 +289,11 @@
       setTimeout( function(){
         headPhoto.appendChild( headPhotoText );
         document.body.appendChild( headPhoto );
-      }, 1000 );
+      }, 1500 );
       setTimeout( function(){
         document.querySelector( '.headPhoto,.animated,.fadeInUpBig' ).classList.remove('fadeInUp')
         document.querySelector( '.headPhoto,.animated,.fadeInUpBig' ).classList.add('rubberBand')
-      }, 2009 );   
+      }, 2509 );
+  }   
 </script>
 </html>
