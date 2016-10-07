@@ -9,6 +9,14 @@
   <script type="text/javascript" src="http://ucren.com/static/locozan/bootstrap-3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://ucren.com/static/locozan/bootstrap-3.3.7/css/bootstrap.min.css">
   <style>
+    .headPhotoText{
+        color:#4B4F4F;
+        font-family: 'Arbutus', sans-serif;
+        text-shadow: white  .02em   0     0,
+                     white  0       .02em 0,
+                     white -.02em   0     0,
+                     white  0      -.02em 0;
+      }
   @media screen and (min-width: 765px){
       body {
           overflow: hidden;
@@ -166,13 +174,16 @@
       #div{
         overflow: hidden;
       }
+      .headPhotoText{
+        color: #B4BFBF;
+      }
   }
   </style>
 </head>
 <body onload="run();">
   <div id="div">
     <canvas id="canvas" style="position: absolute;top: 0px;left: 0px;"></canvas>
-    <img id="background" alt="background" src="http://ucren.com/static/locozan/images/road.jpg" crossOrigin="anonymous">
+    <img id="background" alt="background" src="images/road.jpg" crossOrigin="anonymous">
   </div>
   <div class="container">
     <!-- Standard button -->
@@ -268,18 +279,20 @@
       image.style.height = screenHeight + 'px';
   }
   var headPhoto = document.createElement( 'div' );
+  var headPhotoText = document.createElement( 'p' );
+      headPhotoText.className = "headPhotoText animated fadeInUp";
+      headPhotoText.style.cssText = "width: 382px;left: -108px;display: block;position: relative;text-align: center;bottom: -160px;font-size: 17px;font-weight: 900;";
+
       headPhoto.className = "headPhoto animated fadeInUp";
       headPhoto.style.cssText = "position:absolute; width:150px; height:150px; left:0px; right:0px;bottom:0px;top:0px;margin: 110px auto;border-radius: 50%;border: 2px solid #989892; background:url(http://ucren.com/static/locozan/images/pic.jpg) round;z-index: 20;";
-
+      headPhotoText.innerHTML = '一顿饭解决不了的事情: 是两顿饭!≡(▔﹏▔)≡';
       setTimeout( function(){
+        headPhoto.appendChild( headPhotoText );
         document.body.appendChild( headPhoto );
       }, 1000 );
       setTimeout( function(){
         document.querySelector( '.headPhoto,.animated,.fadeInUpBig' ).classList.remove('fadeInUp')
         document.querySelector( '.headPhoto,.animated,.fadeInUpBig' ).classList.add('rubberBand')
-      }, 2009 );
-
-      
-        
+      }, 2009 );   
 </script>
 </html>
