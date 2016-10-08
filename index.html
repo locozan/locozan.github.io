@@ -265,6 +265,9 @@
     
   function run() {
 
+  var screenWidth = document.documentElement.clientWidth;//屏幕宽=可视窗口宽
+  var screenHeight = document.documentElement.clientHeight;//屏幕高=可视窗口高
+
 
     
     var image = document.getElementById('background');
@@ -276,7 +279,25 @@
     };
       image.crossOrigin = 'anonymous';
       image.src = 'images/road.jpg';
-  }
-        
+      image.style.width = screenWidth + 'px';
+      image.style.height = screenHeight + 'px';
+
+  var headPhoto = document.createElement( 'div' );
+  var headPhotoText = document.createElement( 'p' );
+      headPhotoText.className = "headPhotoText animated fadeInUp";
+      headPhotoText.style.cssText = "width: 382px;left: -108px;display: block;position: relative;text-align: center;bottom: -160px;font-size: 17px;font-weight: 900;";
+
+      headPhoto.className = "headPhoto animated fadeInUp";
+      headPhoto.style.cssText = "position:absolute; width:150px; height:150px; left:0px; right:0px;bottom:0px;top:0px;margin: 110px auto;border-radius: 50%;border: 2px solid #989892; background:url(http://ucren.com/static/locozan/images/pic.jpg) round;z-index: 20;";
+      headPhotoText.innerHTML = '一顿饭解决不了的事情: 是两顿饭!≡(▔﹏▔)≡';
+      setTimeout( function(){
+        headPhoto.appendChild( headPhotoText );
+        document.body.appendChild( headPhoto );
+      }, 2000 );
+      setTimeout( function(){
+        document.querySelector( '.headPhoto,.animated,.fadeInUpBig' ).classList.remove('fadeInUp')
+        document.querySelector( '.headPhoto,.animated,.fadeInUpBig' ).classList.add('rubberBand')
+      }, 3009 );
+  }   
 </script>
 </html>
