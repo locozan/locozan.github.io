@@ -185,7 +185,7 @@
 <body onload="run();">
   <div id="div">
     <canvas width"1281" height="961" style="position: absolute;top: 0px;left: 0px;"></canvas>
-    <img id="background" alt="background" src="images/road.jpg" crossOrigin="anonymous">
+    <img id="background" src="images/road.jpg" crossOrigin="anonymous">
   </div>
   <div class="container">
     <!-- Standard button -->
@@ -276,7 +276,7 @@
       engine.rain([ [3, 2, 2] ], 100);
     };
       image.crossOrigin = 'anonymous';
-      image.src = 'images/road.jpg';
+      image.src = "data:image/jpg;base64,"+ callBack;
       image.style.width = screenWidth + 'px';
       image.style.height = screenHeight + 'px';
 
