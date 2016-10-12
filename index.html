@@ -187,7 +187,7 @@
 <body onload="run();">
   <div id="div">
     <canvas width"1281" height="961" style="position: absolute;top: 0px;left: 0px;"></canvas>
-    <img id="background" crossOrigin="anonymous">
+    <img id="background">
   </div>
   <div class="container">
     <!-- Standard button -->
@@ -263,19 +263,21 @@
 <script src="http://ucren.com/static/locozan/rainyday/rainyday.min.js"></script>
 <script>
   function run() {
+    console.log( 123 );
   var screenWidth = document.documentElement.clientWidth;//屏幕宽=可视窗口宽
   var screenHeight = document.documentElement.clientHeight;//屏幕高=可视窗口高
     var image = document.getElementById('background');
-      image.onload = function() {
-        var engine = new RainyDay({
+
+    image.onload = function() {
+      var engine = new RainyDay({
         image: this
       });
       engine.rain([ [3, 2, 2] ], 100);
     };
-      image.crossOrigin = 'anonymous';
-      image.src = "data:image/jpg;base64,"+ road;
-      image.style.width = screenWidth + 'px';
-      image.style.height = screenHeight + 'px';
+    
+    image.src = "data:image/jpg;base64,"+ road;
+    image.style.width = screenWidth + 'px';
+    image.style.height = screenHeight + 'px';
 
   var headPhoto = document.createElement( 'div' );
   var headPhotoText = document.createElement( 'p' );
