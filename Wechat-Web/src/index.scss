@@ -1,0 +1,135 @@
+@mixin abs(){
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin: auto;
+}
+@mixin lirela(){
+  width: 25%;
+  height: 77px;
+  position: relative;
+  float: left;
+  background: #FFFFFF;
+}
+@mixin inp(){
+  line-height: 105px;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  height: 57px;
+}
+.wechat-bav{
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 50px;
+  background: rgba(15,15,16,.8);
+  .wechat-bav-wechat{
+    @include abs();
+    width: 38px;
+    height:21px;
+    left: 15px;
+    right: auto;
+    line-height: 22px;
+    text-align: center;
+    .wechat-bav-wechat-icon{
+      font-size: 18px;
+      color: #FBF8FF;
+      cursor: pointer; 
+      a{
+        color: #FFF;
+      }
+    }
+  }
+  .wechat-bav-name{
+    @include abs();
+    width: 100px;
+    height: 17px;
+    font-size: 21px;
+    font-weight: 900;
+    text-align: center;
+    color: #FEFFFE;
+  }
+  .wechat-bav-add{
+    @include abs();
+    width: 37px;
+    height: 19px;
+    left: auto;
+    right: 14px;
+    .wechat-bav-name-icon{
+      font-size: 18px;
+      color: #FBF8FF;
+      cursor: pointer; 
+      a{
+        font-size: 18px;
+        color: #FFF;
+      }
+    }
+  }
+}  
+.wechat-container{
+
+}
+.wechat-dock{
+  @include abs();
+  top: auto;
+  width: 100%;
+  height: 77px;
+  border-top: 1px solid #9EA4A3;
+  .wechat-dock-item1{
+    @include lirela();
+    .wechat-dock-item1-span{
+      @include abs();
+      width: 40px;
+      height: 40px;
+      background: url(images/speech-bubble.png) round;
+      p{
+        @include inp();
+      }
+    }
+  }  
+  .wechat-dock-item2{
+    @include lirela();
+    .wechat-dock-item2-span{
+      @include abs();
+      width: 40px;
+      height: 40px;
+      background: url(images/user-1.png) round;
+      p{
+        @include inp();
+      }
+    }
+  }
+  .wechat-dock-item3{
+    @include lirela();
+    .wechat-dock-item3-span{
+      @include abs();
+      width: 40px;
+      height: 40px;
+      background: url(images/compass.png) round;
+      p{
+        @include inp();
+      }
+    }  
+  }
+  .wechat-dock-item4{
+    @include lirela();
+    .wechat-dock-item4-span{
+      @include abs();
+      width: 40px;
+      height: 40px;
+      background: url(images/user-2.png) round;
+      p{
+        @include inp();
+      }
+    }  
+  }
+}
+
+#cnzz_stat_icon_1260929313{
+  display: none;
+}
+
+

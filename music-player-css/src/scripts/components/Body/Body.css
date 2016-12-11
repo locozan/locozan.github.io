@@ -1,0 +1,119 @@
+.bodys{
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  // background: rgba(124,204,152,.2);
+}
+.bodys-list{
+  position: relative;
+  float: left;
+  width: 200px;
+  height: 100%;
+  // background: rgba(4,204,152,.2);
+}
+.bodys-list li,.bodys-list span{
+  display: block;
+  width: 100%;
+  height: 20px;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: 900;
+
+}
+.bodys-list li{
+  text-indent: 17px;
+}
+.bodys-list li:hover, .bodys-list span:hover{
+  background: rgba(19,19,81,.4);
+  color: #E4EBEB;
+  cursor: pointer;
+  position: relative;
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+}
+.bodys-content{
+  position: relative;
+  float: left;
+  width: 70%;
+  // min-width: 890px;
+  height: 100%;
+  // border: 2px solid #000000;
+  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.3);
+}
+.bodys-content-nav{
+  position: relative;
+  width: 100%;
+  height: 8%;
+  border-bottom: 2px solid #000000;
+  box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.3);
+}
+.bodys-content-nav ul{
+  display: table;
+  position: absolute;
+  text-align:center;
+  width: 90%;
+  height: 100%;
+}
+.bodys-content-nav li{
+  display: table-cell;
+  vertical-align: middle;
+  font-weight: 900;
+}
+.bodys-content-nav li:hover{
+  color: #E4EBEB;
+  cursor: pointer;
+}
+.bodys-content-db{
+  width: 92%;
+  height: 32%;
+  padding: 40px 25px 0px 25px;
+}
+.bodys-content-db-span{
+  margin-left: 20px;
+  width: 92.5%;
+  font-weight: 900;
+  padding-left: 16px;
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.3);
+}
+.bodys-content-db-span span{
+  font-weight: 900;
+  font-size: 25px;
+} 
+.bodys-content-db li{
+  position: relative;
+  float: left;
+  width: 20%;
+  height: 100px;
+  background: #9FC48F;
+  padding: 1px;
+  margin: 10px;
+}
+@media screen and (max-height: 670px){/*最大5100*/
+  .bodys-bar li:nth-child(4){
+    display: none;
+  }
+}
+.bodys-bar{
+  position: relative;
+  float: left;
+  width: 8%;
+  height: 100%;
+  padding: 5px;
+}
+.bodys-bar li{
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 115px;
+  background: #C49CAA;
+  margin: 5px;
+}
+.bodys-set-nav{
+  display: none;
+}
+
+
+
+

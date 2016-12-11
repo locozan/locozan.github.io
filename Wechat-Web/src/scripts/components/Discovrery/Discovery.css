@@ -1,0 +1,66 @@
+.wechat-container{
+}
+.wechat-container-div1, 
+.wechat-container-div2, 
+.wechat-container-div3, 
+.wechat-container-div4, 
+.wechat-container-div5, 
+.wechat-container-div6, 
+.wechat-container-div7{
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 40px;
+  background-color: #FFF;
+  line-height: 40px;
+  border: .5px solid #E9E6E6;
+  text-indent: 40px;
+  letter-spacing: 5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.wechat-container-div1:before, 
+.wechat-container-div2:before, 
+.wechat-container-div3:before, 
+.wechat-container-div4:before, 
+.wechat-container-div5:before, 
+.wechat-container-div6:before, 
+.wechat-container-div7:before{
+  content: '>';
+  position: absolute;
+  right: 19px;
+  color: #9E9E9E;
+}
+.wechat-container-div1:hover,
+.wechat-container-div2:hover,
+.wechat-container-div3:hover,
+.wechat-container-div4:hover,
+.wechat-container-div5:hover,
+.wechat-container-div6:hover,
+.wechat-container-div7:hover{
+  background-color: #F5F0F1;
+}
+.wechat-container-div1{
+   margin-top: 92px;
+}
+.wechat-container-div2{
+  margin-top: 10px;
+  border-bottom: 0px;
+}
+.wechat-container-div3{
+  
+}
+.wechat-container-div4{
+  margin-top: 10px;
+  border-bottom: 0px;
+}
+.wechat-container-div5{
+  
+}
+.wechat-container-div6{
+  margin-top: 10px;
+  border-bottom: 0px;
+}
+.wechat-container-div7{
+  
+}

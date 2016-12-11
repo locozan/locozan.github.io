@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html manifest="index.manifest">
+<head>
+  <title>计算器123</title>
+  <meta charset="utf-8">
+  <link rel="apple-touch-icon-precomposed" href="img/sj.png">
+  <link rel="apple-touch-startup-image" href="img/apple-touch-startup-image-750x1334.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+    }
+    @media screen and (max-width: 765px){
+      *{
+        background: url(img/apple-touch-startup-image-750x1334.png);
+      }
+      .h1{
+        display: none;
+      }
+    }
+    #calculator{
+      position: absolute;
+      width: 232px;
+      height: 320px;
+      border: 1px solid #5F5E5F;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      border-radius: 10px;
+    }
+    #close-bar{
+      position: relative;
+      width: 100%;
+      height: 15px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      background: #B6B5B7;
+    }
+    .bar{
+      position: relative;
+      width: 15px;
+      height: 100%;
+      float: left;
+      list-style-type: none;
+      border-radius: 50%;
+      margin-left: 5px; 
+      cursor: pointer;
+    }
+    .screen{
+      position: relative;
+      width: 100%;
+      height: 60px;
+      background: #B6B5B7;
+      line-height: 60px;
+      font-size: 45px;
+      table-layout: fixed;
+      word-wrap: break-word; 
+      word-break: normal;
+    }
+    ul{
+      list-style: none;
+    }
+    ul li{
+      width: 56px;
+      height: 47px;
+      font-size: 32px;
+      line-height: 48px;
+      text-align: center;
+      border: 1px solid #8e8e8e;
+      background-color: #e8e8e8;
+      float: left;
+      cursor: pointer;
+      -webkit-user-select: none;
+    }
+    ul li.hl{
+      background-color: #f39331;
+      color: #fff;
+    }
+    ul li:hover{
+      background-color: #fff;
+    }
+    ul li.hl:hover{
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+<h1 class="h1">iOS中的safri浏览器可以将一个网页添加到桌面，当做一个独立的app应用运行。所以你可以试试这个计算器哦！还可以离线使用哦！</h1>
+<div id="calculator">
+  <div id="close-bar">
+    <li class="bar close" style="background: #DE2B41"></li>
+    <li class="bar narrow" style="background: #DEDB14"></li>
+    <li class="bar enlarge" style="background: #11DE11"></li>
+  </div>
+  <div class="screen">0</div>
+  <div id="Presskey">
+    <ul class="list">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li class="hl">+</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li class="hl">-</li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li class="hl">*</li>
+      <li>0</li>
+      <li>.</li>
+      <li class="hl">=</li>
+      <li class="hl">/</li>
+    </ul>
+  </div>
+</div>
+</body>
+<script>
+  void function(){
+    var list = document.querySelector(".list");
+    var screen = document.querySelector( ".screen" );
+    var toDoCalcQueue = [];
+
+    list.addEventListener( 'click', function( event ){
+      if( event.target.innerHTML === '=' ){
+          try{
+            var result = eval( toDoCalcQueue.join( '' ) );
+          }catch( e ){
+            result = 'Error';
+        }
+        switch( result ){
+          case undefined:
+            screen,innerHTML = '0';
+            break;
+          case Infinity:
+            screen.innerHTML = 'Error'
+            break;
+          default:
+            screen.innerHTML = result;
+            break;  
+        }
+        toDoCalcQueue.length = 0;
+      }else{
+        toDoCalcQueue.push( event.target.innerHTML );
+        screen.innerHTML = toDoCalcQueue.join('');
+      }
+    }, false);
+
+
+  }();
+</script>
+</html>

@@ -1,0 +1,61 @@
+{
+  // specify path of input.
+  "srcBase": "./src/",
+
+  // specify path of output.
+  "distBase": "./dist/",
+
+  // server port
+  "port": 8080,
+
+  // open url on browser
+  "demoUrlPath": "/dist/",
+
+  // enable notify
+  "notify": true,
+
+  "rules": [
+    /**
+     * example 1: Webpack src/index.js to dist/bundle.js
+     */
+    
+    {
+      "watch": "**/*.@(json|js|tpl|scss|css)",
+      "src": "index.js",
+      "dist": "bundle.js",
+      "compiler": "webpack"
+    },
+
+    /**
+     * example 2: Sass src/*.scss to dist/*.css
+     */
+    
+    {
+      "src": "**/*.scss",
+      "dist": "{basename}.css", // variable can be 'dirname', 'parentname', 'basename' and 'extname'.
+      "compiler": "sass"
+    },
+
+    /**
+     * example 3: Copy specified files
+     *
+     * if watch no specified, it equal to src.
+     * if compiler no specified, it defaults to 'copy'.
+     */
+    
+    {
+      "src": "**/@(*.html|*.css|*.json)",
+      "dist": "{basename}{extname}"
+    },
+
+    {
+      "src": "**/css/@(*.css)",
+      "dist": "css/{basename}{extname}"
+    },
+
+    {
+      "src": "**/@(images)/@(*.*)",
+      "dist": "{parentname}/{basename}{extname}"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+.wechat-bav-add-wechat{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: auto;
+  margin: auto;
+}
+.card-container_name div{
+  width: 77%;
+  top: 6px;
+  left: 23px;
+  padding-top: 8px;
+  position: relative;
+
+}
+.card-container_name div:nth-child(1){
+  top: 3px;
+  left: 23px;
+  font-weight: 800;
+}
+.card-container_remark div,
+ .card-container_more div,
+  .card-container_region div,
+   .card-container-fa div,
+    .card-container-lt div{
+  display: block;
+  float: left;
+  height: 36px;
+  line-height: 36px;
+  position: relative;
+  top: 137px;
+  margin-top: 11px;
+  text-indent: 10px;
+  width: 100%;
+  background: #FFFFFF;
+  border-bottom: 1px solid rgba(162, 151, 151, 0.53);
+}
+.card-container-fa div, .card-container-lt div{
+  border-bottom: none;
+  background: rgba(193, 181, 181, 0);
+}
+.card-container-div-p{
+  text-align: center;
+  background: #4CAF50;
+  width: 90%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  border-radius: 6px;
+  color: #FFF;
+  border: 0.5px solid #D8D8D8;
+}

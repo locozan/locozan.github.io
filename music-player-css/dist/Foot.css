@@ -1,0 +1,157 @@
+.foots{
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  // background: rgba(55,57,157,.2);
+  border-top: 5px solid;
+}
+.foots-hd{
+  width: 200px;
+  height: 100%;
+  position: relative;
+  float: left;
+  text-align: center;
+  top: 47px;
+}
+.foots-hd button{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  font-size: 24px;
+  border-radius: 50%;
+  border: 3px solid #F6F3FF;
+  margin: auto;
+  outline: none;
+  background: #000000;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.foots-hd button:active{
+  background: #FFFFFF;
+}
+
+.foots-hd .foots-hd-rw{
+  left: -115px;
+}
+.foots-hd .foots-hd-rw:before{
+  content: '◁';
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  color: #F4F2FF;
+  font-size: 21px;
+  left: 9px;
+  top: 4px;
+}
+.foots-hd .foots-hd-rw:after{
+  content: '▏';
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  color: #F4F2FF;
+  font-size: 14px;
+  left: 7px;
+  top: 8px;
+}
+.foots-hd .foots-hd-play{
+  width: 60px;
+  height: 60px;
+}
+.foots-hd .foots-hd-play:before{
+  content: '▷';
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  color: #F4F2FF;
+  font-size: 41px;
+  left: 13px;
+  top: 0px;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.3);
+  }
+.foots-hd .foots-hd-ff{
+  left: 115px;
+}
+.foots-hd .foots-hd-ff:before{
+  content: '◁';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  color: #F4F2FF;
+  font-size: 21px;
+  left: 14px;
+  top: 19px;
+  transform:rotate(180deg);
+}
+.foots-hd .foots-hd-ff:after{
+  content: '▏';
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  color: #F4F2FF;
+  font-size: 14px;
+  left: 26px;
+  top: 26px;
+  transform:rotate(180deg);
+}
+.music-article{
+  position: relative;
+  width: 715px;
+  height: 8%;
+  margin: auto;
+  line-height: 100%;
+  padding-top: 42px;
+}
+@media screen and (max-width: 1078px){/*最大5100*/
+  .music-article{
+    left: 95px;
+  }
+}
+.music-article span, .music-article p{
+  position: relative;
+  display: inline;
+  float: left;
+  margin-left: 10px;
+}
+.music-article-bar{
+  margin-top: 5px;
+  width: 400px;
+  height: 5px;
+  background: #000;
+  line-height: 8px;
+  border-radius: 10px;
+}
+.music-article-bar-spot{
+  color: #000000;
+}
+.music-article-bar-spot:hover{
+  font-size: 22px;
+  box-shadow: 0px 0px 10px 6px rgba(44, 60, 58, 0.3);
+}
+.music-article-bar-sound{
+  width: 75px;
+  height: 11px;
+  background: #5B5B5B;
+  line-height: 8px;
+  border-radius: 10px;
+
+}
+.music-article-bar-sound span{
+  width: 55px;
+  height: 11px;
+  background: #BD162C;
+  line-height: 8px;
+  border-radius: 10px;
+  left: -10px;
+}
+.music-article-bar-sound-span:hover{
+  font-size: 22px;
+  box-shadow: 0px 0px 10px 6px rgba(44, 60, 58, 0.3);
+}
+.foots-hd-bar,.foots-hd-name,.foots-hd-die,.foots-hd-onList,.foots-hd-model{
+  display: none;
+}

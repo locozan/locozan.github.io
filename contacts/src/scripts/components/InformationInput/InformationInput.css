@@ -1,0 +1,194 @@
+.card{
+  width: 100%;
+  position: relative;
+  height: 500px;
+  background: rgba( 200,200,200,.2 );
+  padding-top: 80px;
+}
+.card_portrait{
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  margin-left: 35px;
+  border-radius: 50%;
+}
+.card_surname{
+  width: 80%;
+  position: relative;
+  float: right;
+}
+.card_name{
+  width: 80%;
+  position: relative;
+  float: right;
+}
+.card_corporation{
+  width: 80%;
+  position: relative;
+  float: right;
+}
+@media screen and (max-width: 665px){
+  .card_portrait{
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    margin-left: 58px;
+    border-radius: 50%;
+  }
+  .card_surname,.card_name,.card_corporation{
+    width: 65%;
+  }
+}
+@media screen and (max-width: 414px){
+  .card_portrait{
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    margin-left: 20px;
+    border-radius: 50%;
+  }
+}
+.btn {
+  font-size: 18px;
+  padding: 10px 0px 10px 0px;
+  -webkit-appearance: none;
+  display: block;
+  background: #fafafa;
+  color: #636363;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #757575;
+}
+
+.btn:focus { outline: none; }
+
+
+/* Label */
+
+label {
+  color: #999; 
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: all 0.2s ease;
+}
+
+
+/* active */
+
+.btn:focus ~ label, .btn.used ~ label {
+  top: -20px;
+  transform: scale(.75); left: -2px;
+  /* font-size: 14px; */
+  color: #4a89dc;
+}
+
+
+/* Underline */
+
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.bar:before, .bar:after {
+  content: '';
+  height: 2px; 
+  width: 0;
+  bottom: 1px; 
+  position: absolute;
+  background: #4a89dc; 
+  transition: all 0.2s ease;
+}
+
+.bar:before { left: 50%; }
+
+.bar:after { right: 50%; }
+
+
+/* active */
+
+.btn:focus ~ .bar:before, .btn:focus ~ .bar:after { width: 50%; }
+
+
+/* Highlight */
+
+.highlight {
+  position: absolute;
+  height: 60%; 
+  width: 100px; 
+  top: 25%; 
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+
+/* active */
+
+.btn:focus ~ .highlight {
+  animation: .btnHighlighter 0.3s ease;
+}
+.anchor-div { 
+  display: block;
+  height: 100%;
+}
+
+.download-buttom strong {
+  color: white;
+  display: inline-block;
+  font-size: 16px;
+  letter-spacing: 0.05em; 
+  margin-top: 15px;
+}
+
+/* Код, о котором идёт речь */
+.download-buttom {
+  border: 1px solid transparent;
+  background: -webkit-linear-gradient(bottom, #87C03B, #98D647);
+  border-radius: 24px;
+  display: inline-block;
+  height: 50px;
+  margin-top: 40px;
+  text-align: center;
+  width: 240px;
+}
+
+.download-buttom:hover {
+  background-color: #3C3C3C;
+  border: 1px solid #4694FF;
+}
+.delete-button {
+  position: relative;
+  margin: 10px auto;
+  height: 55px;
+  width: 99%;
+  line-height: 55px;
+  border: 2px solid #cdcdcd;
+  border-radius: 3px;
+  font-weight: 400;
+  color: #aaa;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.63, 1.75, 0.22, 0.57);
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  text-align: center;
+}
+.delete-button:hover {
+  border: 2px solid #e03e28;
+  color: #e03e28;
+}
+.delete-button.activate {
+  border: 2px solid #e03e28 !important;
+  box-shadow: inset 0px 55px 0px 0px #e03e28;
+  color: #fff;
+}
+.delete-button.activate{
+  transform: translate3d(0, 0px, 0);
+}
+

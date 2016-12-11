@@ -1,0 +1,226 @@
+@charset "UTF-8";
+* {
+  list-style: none;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 17px;
+}
+
+#cnzz_stat_icon_1260929313 {
+  display: none;
+}
+
+.speaker {
+  height: 7px;
+  width: 60px;
+  margin: 0 auto 30px;
+  border: 2px solid #ccc;
+  border-radius: 7px;
+}
+
+.device {
+  box-sizing: content-box;
+  border: 2px solid #ccc;
+  padding: 40px 12px 8px;
+  border-radius: 40px;
+  width: 320px;
+  margin: 11px auto 0;
+}
+
+.screen {
+  height: 423px;
+  width: 320px;
+  border: 1px solid #ccc;
+  /*overflow: hidden;*/
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-style: 0px;
+  overflow: auto;
+}
+
+.dialog-left {
+  position: relative;
+  float: left;
+}
+
+.role-left {
+  position: relative;
+  margin-left: -30px;
+  float: left;
+  width: 30px;
+  height: 30px;
+  background: #6169C2;
+}
+
+.point {
+  float: left;
+  width: 15px;
+  height: 30px;
+}
+
+.content-left {
+  width: 188px;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #E4E0E0;
+  position: relative;
+  word-break: break-all;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.content-left:before {
+  content: "";
+  display: block;
+  border-color: transparent;
+  border-right-color: #E4E0E0;
+  border-width: 6px;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 9px;
+  right: 198px;
+}
+
+.dialog-right {
+  position: relative;
+  float: right;
+}
+
+.role-right {
+  margin-right: 10px;
+  float: right;
+  width: 30px;
+  height: 30px;
+  background: #C27678;
+}
+
+.content-right {
+  max-width: 188px;
+  margin-right: 15px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #B9E4D8;
+  position: relative;
+  float: right;
+  word-break: break-all;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.content-right:after {
+  content: "";
+  display: block;
+  border-color: transparent;
+  border-left-color: #B9E4D8;
+  border-width: 6px;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 7px;
+  right: -12px;
+}
+
+.copy-editor {
+  position: relative;
+  float: left;
+  width: 320px;
+  height: 50px;
+  background: rgba(200, 200, 200, 0.2);
+  margin-top: -1px;
+  line-height: 50px;
+  border: 1px solid #C1C1C1;
+  border-top-style: 0px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.copy-editor li {
+  float: left;
+}
+
+.btn {
+  position: absolute;
+  top: 7px;
+  width: 200px;
+  height: 30px;
+}
+
+.btn2 {
+  position: absolute;
+  width: 49px;
+  height: 34px;
+  right: 13px;
+  top: 8px;
+  border-radius: 50%;
+}
+
+.send {
+  position: absolute;
+  right: 39px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(190, 190, 190, 0.3);
+  border: 1px solid #1C1F21;
+}
+
+.send:before {
+  content: "➜ ";
+  display: block;
+  position: absolute;
+  transform: rotate(-90deg);
+  top: 6px;
+  left: 3px;
+  font-size: 25px;
+}
+
+.pic_p1 {
+  background: url(images/p1.png) round;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 7px;
+  top: 9px;
+}
+
+.phiz {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(190, 190, 190, 0.3);
+  border: 1px solid #1C1F21;
+}
+
+.phiz:before {
+  content: "＋";
+  display: block;
+  position: absolute;
+  top: 6px;
+  left: 0px;
+  font-size: 30px;
+}
+
+.copy-editor li:hover {
+  cursor: pointer;
+  /*background: #77CB7C;*/
+}
+
+.button {
+  margin: 70px auto 0;
+  height: 50px;
+  width: 50px;
+  border: 2px solid #ccc;
+  border-radius: 60px;
+}
+
+.align {
+  text-align: right;
+}

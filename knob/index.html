@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>旋钮</title>
+  <!-- <script type="text/javascript" src="http://www.uxhzz.com/nav-bar/nav-bar.min.js"></script> -->
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #505050 -moz-radial-gradient(top, #cdcdcf 0%, #505050 70%) no-repeat 50% 0%;
+      background: #505050 -webkit-radial-gradient(top, #cdcdcf 0%, #505050 70%) no-repeat 50% 0%;
+      background-size: 1200px 600px;
+      background: #505050 radial-gradient(top, #cdcdcf 0%, #505050 70%) no-repeat 50% 0%;
+      background-size: 1200px 600px;
+    }
+
+    .button {
+      width: 300px;
+      height: 300px;
+      margin: 40px auto;
+      background: #b19d92 -moz-radial-gradient(top, #fbf2ed 0%, #b19d92 75%) no-repeat 50% 0%;
+      background: #b19d92 -webkit-radial-gradient(top, #fbf2ed 0%, #b19d92 75%) no-repeat 50% 0%;
+      border-radius: 15%;
+      background: #b19d92 radial-gradient(top, #fbf2ed 0%, #b19d92 75%) no-repeat 50% 0%;
+      border-radius: 15%;
+      box-shadow:
+        -1px 1px 2px rgba(255,255,255,.6) inset,
+        1px 0 3px rgba(0,0,0,.25) inset,
+        0 -6px 12px -3px rgba(0,0,0,.8) inset,
+        0 20px 20px 3px rgba(0,0,0,.6);
+      position: relative;
+    }
+    .button:before {
+      content: '';
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      left: 30px;
+      top: 30px;
+      border-radius: 50%;
+      background: #b19d92 -moz-linear-gradient(top, #efe4de 0%, #af998c 75%) no-repeat 50% 0%;
+      background: #b19d92 -webkit-linear-gradient(top, #efe4de 0%, #af998c 75%) no-repeat 50% 0%;
+      background: #b19d92 linear-gradient(top, #efe4de 0%, #af998c 75%) no-repeat 50% 0%;
+      box-shadow:
+        0 1px 2px rgba(255,255,255,1) inset,
+        1px 0 3px rgba(0,0,0,.25) inset,
+        0 3px 5px rgba(0,0,0,.6); 
+    }
+    .button:after {
+      content: '';
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      left: 45px;
+      top: 45px;
+      border-radius: 50%;
+      background: 
+        -moz-linear-gradient(left, transparent 49%, #000 49%, #000 50%, transparent 50%) 50% -80px,
+        -moz-linear-gradient(right top,white, #ee9900) 100% 0%,
+        -moz-linear-gradient(left top,#A00, orange) 0% 0%
+        ;
+
+      background: 
+        -webkit-linear-gradient(left, transparent 49%, #000 49%, #000 50%, transparent 50%) 50% -80px,
+        -webkit-linear-gradient(right top,white, #ee9900) 100% 0%,
+        -webkit-linear-gradient(left top,#A00, orange) 0% 0%
+        ;
+      background: 
+        linear-gradient(left, transparent 49%, #000 49%, #000 50%, transparent 50%) 50% -80px,
+        linear-gradient(right top,white, #ee9900) 100% 0%,
+        linear-gradient(left top,#A00, orange) 0% 0%
+        ;
+      background-repeat: no-repeat;
+      background-size: 50% 100%;
+      box-shadow:
+        0 -1px 2px rgba(255,255,255,1) inset,
+        -1px 0 3px rgba(0,0,0,.25) inset,
+        0 3px 3px rgba(0,0,0,.3) inset; 
+    }
+    .knob {
+      z-index: 10;
+      position: absolute;
+      top: 70px;
+      left: 70px;
+      border-radius: 50%;
+      background: #b19d92 -moz-radial-gradient(top, #e7d9d0 0%, #c5b1a6 75%) no-repeat 50% 0%;
+      background: #b19d92 -webkit-radial-gradient(top, #e7d9d0 0%, #c5b1a6 75%) no-repeat 50% 0%;
+      background: #b19d92 radial-gradient(top, #e7d9d0 0%, #c5b1a6 75%) no-repeat 50% 0%;
+      box-shadow:
+        0 6px 5px rgba(255,255,255,.4) inset,
+        1px 0 3px rgba(0,0,0,.25) inset,
+        0 -6px 5px rgba(0,0,0,.2) inset,
+        0 1px 8px 9px rgba(0,0,0,.6); 
+      color: #FFF;
+      font-weight: bold;
+      font-size: 50px;
+      letter-spacing: -4px;
+      line-height: 160px;
+      text-align: center;
+      text-shadow:
+        0 1px 2px rgba(255,255,255,1),
+        0 -1px 1px rgba(0,0,0,.25);
+    }
+    .knob:after {
+      content: '';
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: -12px 0 0 3px;
+      transform: rotate(230deg) translateY(-75px) rotate(-230deg);
+      border-radius: 50%;
+      z-index: 100;
+      background: #fe8400;
+      box-shadow:
+        0 1px 2px rgba(0,0,0,.35) inset,
+        0 0 18px #FFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="button">
+  </div>
+</div>
+</body>
+<script>
+ void function () {
+
+   var knobModle = {
+     size: [160, 160]
+   }
+
+   var button = document.getElementsByClassName('button')[0];
+   var render = function () {
+     if (!knobModle.el) {
+       knobModle.el = document.createElement('div');
+       knobModle.el.className = 'knob';
+       button.appendChild(knobModle.el)
+     }
+       knobModle.el.style.width = knobModle.size[0] + 'px';
+       knobModle.el.style.height = knobModle.size[1] + 'px';
+   }
+    render();
+  
+   
+   var mouseIsDown, nowX, nowY, newX, newY;
+
+   var knob = document.getElementsByClassName('knob')[0];
+   var circleX = knob.getBoundingClientRect().left + knobModle.size[0] / 2; //圆心X坐标
+   var circleY = knob.getBoundingClientRect().top + knobModle.size[1] / 2; //圆心Y坐标
+   var downAngle, moverAngle, storeAngle = 0, diffAngle;
+
+   var angle = function (Y, X) {
+     return Math.floor( Math.atan2( Y, X ) * 180 / Math.PI );
+   }
+
+   knob.addEventListener('mousedown', function (event) {
+     mouseIsDown = true;
+
+     nowX = event.clientX - circleX; //记录鼠标按下时距离圆心的X
+     nowY = event.clientY - circleY; //记录鼠标按下时的距离圆心Y
+     downAngle = angle( nowY, nowX );
+   }, false);
+
+   document.addEventListener('mousemove', function (event) {
+     if (mouseIsDown) {
+       newX = event.clientX - circleX; //移动时鼠标离圆心的X距离
+       newY = event.clientY - circleY; //移动时鼠标离圆心的Y距离
+       moverAngle = angle( newY, newX );
+
+       diffAngle = moverAngle - downAngle;
+
+       var knobAngle = storeAngle + diffAngle;
+          
+       knob.style.transform = "rotate(" + knobAngle + "deg)";
+     }
+
+   }, false);
+
+   document.addEventListener('mouseup', function (evet) {
+      storeAngle += diffAngle;
+      console.log( storeAngle );
+     // knob.style.transform = "rotate(" + 0 + "deg)";
+     mouseIsDown = false;
+
+   }, false);
+
+ }();
+
+
+
+</script>
+</html>

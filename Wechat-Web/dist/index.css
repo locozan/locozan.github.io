@@ -1,0 +1,200 @@
+.wechat-bav {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 50px;
+  background: rgba(15, 15, 16, 0.8);
+}
+
+.wechat-bav .wechat-bav-wechat {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin: auto;
+  width: 38px;
+  height: 21px;
+  left: 15px;
+  right: auto;
+  line-height: 22px;
+  text-align: center;
+}
+
+.wechat-bav .wechat-bav-wechat .wechat-bav-wechat-icon {
+  font-size: 18px;
+  color: #FBF8FF;
+  cursor: pointer;
+}
+
+.wechat-bav .wechat-bav-wechat .wechat-bav-wechat-icon a {
+  color: #FFF;
+}
+
+.wechat-bav .wechat-bav-name {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin: auto;
+  width: 100px;
+  height: 17px;
+  font-size: 21px;
+  font-weight: 900;
+  text-align: center;
+  color: #FEFFFE;
+}
+
+.wechat-bav .wechat-bav-add {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin: auto;
+  width: 37px;
+  height: 19px;
+  left: auto;
+  right: 14px;
+}
+
+.wechat-bav .wechat-bav-add .wechat-bav-name-icon {
+  font-size: 18px;
+  color: #FBF8FF;
+  cursor: pointer;
+}
+
+.wechat-bav .wechat-bav-add .wechat-bav-name-icon a {
+  font-size: 18px;
+  color: #FFF;
+}
+
+.wechat-dock {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin: auto;
+  top: auto;
+  width: 100%;
+  height: 77px;
+  border-top: 1px solid #9EA4A3;
+}
+
+.wechat-dock .wechat-dock-item1 {
+  width: 25%;
+  height: 77px;
+  position: relative;
+  float: left;
+  background: #FFFFFF;
+}
+
+.wechat-dock .wechat-dock-item1 .wechat-dock-item1-span {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  background: url(images/speech-bubble.png) round;
+}
+
+.wechat-dock .wechat-dock-item1 .wechat-dock-item1-span p {
+  line-height: 105px;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  height: 57px;
+}
+
+.wechat-dock .wechat-dock-item2 {
+  width: 25%;
+  height: 77px;
+  position: relative;
+  float: left;
+  background: #FFFFFF;
+}
+
+.wechat-dock .wechat-dock-item2 .wechat-dock-item2-span {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  background: url(images/user-1.png) round;
+}
+
+.wechat-dock .wechat-dock-item2 .wechat-dock-item2-span p {
+  line-height: 105px;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  height: 57px;
+}
+
+.wechat-dock .wechat-dock-item3 {
+  width: 25%;
+  height: 77px;
+  position: relative;
+  float: left;
+  background: #FFFFFF;
+}
+
+.wechat-dock .wechat-dock-item3 .wechat-dock-item3-span {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  background: url(images/compass.png) round;
+}
+
+.wechat-dock .wechat-dock-item3 .wechat-dock-item3-span p {
+  line-height: 105px;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  height: 57px;
+}
+
+.wechat-dock .wechat-dock-item4 {
+  width: 25%;
+  height: 77px;
+  position: relative;
+  float: left;
+  background: #FFFFFF;
+}
+
+.wechat-dock .wechat-dock-item4 .wechat-dock-item4-span {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  background: url(images/user-2.png) round;
+}
+
+.wechat-dock .wechat-dock-item4 .wechat-dock-item4-span p {
+  line-height: 105px;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  height: 57px;
+}
+
+#cnzz_stat_icon_1260929313 {
+  display: none;
+}

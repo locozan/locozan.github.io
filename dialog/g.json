@@ -1,0 +1,62 @@
+{
+  // specify path of input.//指定的输入路径
+  "srcBase": "./src/",
+
+  // specify path of output.//指定输出路径。
+  "distBase": "./dist/",
+
+  // open url on browser//打开浏览器上的网址
+  "demoUrlPath": "/dist/",
+
+  // enable notify//启用通知
+  "notify": true,
+
+  "rules": [
+    /**
+     * example 1: Webpack src/index.js to dist/bundle.js//规则例子
+     */
+    
+    {
+      "watch": "**/*.@(json|js|tpl)",
+      "src": "index.js",
+      "dist": "bundle.js",
+      "compiler": "webpack"
+    },
+
+    /**
+     * example 2: Sass src/*.scss to dist/*.css//
+     */
+    
+    {
+      "watch": "**/*.scss",
+      "src": "*.scss",
+      "dist": "{basename}.css", // variable can be 'dirname', 'parentname', 'basename' and 'extname'.//变量可以被‘目录名’，‘起源名’，‘基础’和‘提取名’，
+      "compiler": "sass"
+    },
+
+    /**
+     * example 3: Copy specified files//复制指定文件
+     *
+     * if watch no specified, it equal to src.//如果没有指定，SRC是平等的。
+     * if compiler no specified, it defaults to 'copy'.//如果编译器没有指定，它默认为“复制”
+     */
+    
+    {
+      "watch": "**/@(*.html|*.css|*.json)",
+      "src": "@(*.html|*.css|*.json)",
+      "dist": "{basename}{extname}"
+    },
+
+    {
+      "watch": "**/css/@(*.css)",
+      "src": "css/@(*.css)",
+      "dist": "css/{basename}{extname}"
+    },
+
+    {
+       "watch": "**/@(images)/@(*.*)",
+      "src": "@(images)/@(*.*)",
+      "dist": "{parentname}/{basename}{extname}"
+    }
+  ]
+}
