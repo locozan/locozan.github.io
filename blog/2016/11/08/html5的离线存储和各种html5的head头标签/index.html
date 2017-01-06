@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="locozan" />
+
+
+
+<meta name="description" content="html5的离线存储和html5新增的你所不知的head头标签">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html5的离线存储和各种html5的head头标签">
+<meta property="og:url" content="/2016/11/08/html5的离线存储和各种html5的head头标签/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="html5的离线存储和html5新增的你所不知的head头标签">
+<meta property="og:updated_time" content="2016-11-09T16:10:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html5的离线存储和各种html5的head头标签">
+<meta name="twitter:description" content="html5的离线存储和html5新增的你所不知的head头标签">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/blog/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>html5的离线存储和各种html5的head头标签 | 博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/blog/" class="profilepic">
+            <img src="/blog/img/pic.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/blog/">locozan</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/blog/">主页</a></li>
+                        
+                            <li><a href="/blog/archives/">所有文章</a></li>
+                        
+                            <li><a href="/blog/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="https://275345465@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/locozan" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://zhihu.com/people/locozan" title="知乎"></a>
+                            
+                                <a class="fa Coding" href="https://coding.net/u/uxhzz/p/uxhzz.coding.io/git" title="Coding"></a>
+                            
+                                <a class="fa QQ" href="http://user.qzone.qq.com/275345465" title="QQ"></a>
+                            
+                                <a class="fa 微信" href="https://wx.qq.com/hzz520134134" title="微信"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://git.coding.net/uxhzz/uxhzz.coding.io.git">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/locozan">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">locozan</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/blog/" class="profilepic">
+                <img src="/blog/img/pic.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/blog/" title="回到主页">locozan</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/blog/">主页</a></li>
+                
+                    <li><a href="/blog/archives/">所有文章</a></li>
+                
+                    <li><a href="/blog/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="https://275345465@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/locozan" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://zhihu.com/people/locozan" title="知乎"></a>
+                            
+                                <a class="fa Coding" target="_blank" href="https://coding.net/u/uxhzz/p/uxhzz.coding.io/git" title="Coding"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://user.qzone.qq.com/275345465" title="QQ"></a>
+                            
+                                <a class="fa 微信" target="_blank" href="https://wx.qq.com/hzz520134134" title="微信"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-html5的离线存储和各种html5的head头标签" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/" class="article-date">
+      <time datetime="2016-11-08T04:35:06.000Z" itemprop="datePublished">2016-11-08</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      html5的离线存储和各种html5的head头标签
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>html5的离线存储和html5新增的你所不知的head头标签</p>
+<a id="more"></a>
+<p>iOS中的safri浏览器可以将一个网页添加到桌面，当做一个独立的应用运行。这需要html5的相关知识和开发经验。这里我们只讲webApp添加桌面后到启动的相关细节。</p>
+<p>全屏显示：<br><code>&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;</code></p>
+<p>系统顶栏的颜色(黑色和白色)：</p>
+<p><code>&lt;meta name=&quot;apple-mobile-app-status-bar-style&quot; content=&quot;white&quot; /&gt;</code><br><code>&lt;meta name=&quot;apple-mobile-app-status-bar-style&quot; content=&quot;black&quot; /&gt;</code></p>
+<p>桌面程图标(如果不设置，则图标会显示网页的截图)：<br><code>&lt;link rel=&quot;apple-touch-icon&quot; href=&quot;icon.png&quot; /&gt;</code></p>
+<p>如果想给不同的设备匹配不同的icon，可以加上size属性：<br><code>&lt;link rel=&quot;apple-touch-icon&quot; size=&quot;72x72&quot; href=&quot;icon-ipad.png&quot; /&gt;</code><br><code>&lt;link rel=&quot;apple-touch-icon&quot; size=&quot;114x114&quot; href=&quot;icon-iphone4.png&quot; /&gt;</code></p>
+<p>这里做成APP后可以用HTML5离线存储，把js和css和图片文件缓存起来;</p>
+<ol>
+<li><p>在index.html里加上<html manifest="test.manifest"></html></p>
+</li>
+<li><p>在创建test.manifest文件，</p>
+</li>
+<li>manifest文件的mime-type必须是 text/cache-manifest类型,内容清单格式如下:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">CACHE MANIFEST</div><div class="line">#上面一句必须</div><div class="line">#v1.0.0</div><div class="line">#需要缓存的文件</div><div class="line">CACHE:</div><div class="line">a.js</div><div class="line">b.css</div><div class="line">#不需要缓存的文件</div><div class="line">NETWORK:</div><div class="line">*</div><div class="line">#无法访问页面</div><div class="line">FALLBACK:</div><div class="line">404.html</div></pre></td></tr></table></figure>
+<p>注意点：</p>
+<p>   　　1.对于每个index.html?id=1或index.html?id=2都会分别缓存index.html页面，可以通过chrome浏览器Resources/Application Cache观察</p>
+<p>   　　2.如果想更新缓存内容，只要修改下manifest文件即可，如改版本号v1.0.1<br>   　　3.或者到Developer Tools 里的Network里清楚缓存;</p>
+<h1 id="接下来列一下网上收集的各种html5的head头标签"><a href="#接下来列一下网上收集的各种html5的head头标签" class="headerlink" title="接下来列一下网上收集的各种html5的head头标签"></a>接下来列一下网上收集的各种html5的head头标签</h1><p><a href="http://www.css88.com/archives/6410" target="_blank" rel="external"> 原文地址 </a> </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 有助于防止出现内容重复的问题 --&gt;</div><div class="line">&lt;link rel="canonical" href="https://example.com/2010/06/9-things-to-do-before-entering-social-media.html"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 之前用于包含 icon 链接，但已被废弃并不再使用 --&gt;</div><div class="line">&lt;link rel="shortlink" href="https://example.com/?p=42"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 链接到当前文档的一个 AMP HTML 版本 --&gt;</div><div class="line">&lt;link rel="amphtml" href="https://example.com/path/to/amp-version.html"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 表明一个 CSS 样式表 --&gt;</div><div class="line">&lt;link rel="stylesheet" href="https://example.com/styles.css"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 链接到一个指定 Web 应用程序“安装”证书的 JSON 文件 --&gt;</div><div class="line">&lt;link rel="manifest" href="manifest.json"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 链接到文档的作者 --&gt;</div><div class="line">&lt;link rel="author" href="humans.txt"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 指向一个适用于链接内容的版权申明 --&gt;</div><div class="line">&lt;link rel="copyright" href="copyright.html"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 给出可能的你的另一种语言的文档位置参考 --&gt;</div><div class="line">&lt;link rel="alternate" href="https://es.example.com/" hreflang="es"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 提供了关于作者或其他人的信息 --&gt;</div><div class="line">&lt;link rel="me" href="https://google.com/profiles/thenextweb" type="text/html"&gt;</div><div class="line">&lt;link rel="me" href="mailto:name@example.com"&gt;</div><div class="line">&lt;link rel="me" href="sms:+15035550125"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 链接到一个文档，包含当前文档的一个归档链接 --&gt;</div><div class="line">&lt;link rel="archives" href="https://example.com/2003/05/" title="May 2003"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 链接到层次结构中的顶级资源 --&gt;</div><div class="line">&lt;link rel="index" href="https://example.com/" title="DeWitt Clinton"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 给出该文档的起点 --&gt;</div><div class="line">&lt;link rel="start" href="https://example.com/photos/pattern_recognition_1_about/" title="Pattern Recognition 1"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 引导当前文档的前述资源序列 --&gt;</div><div class="line">&lt;link rel="prev" href="https://example.com/opensearch/opensearch-and-openid-a-sure-way-to-get-my-attention/" title="OpenSearch and OpenID? A sure way to get my attention."&gt;</div><div class="line"> </div><div class="line">&lt;!-- 给出一个自我参考 - 当文档有多个可能的参考时非常有用 --&gt;</div><div class="line">&lt;link rel="self" type="application/atom+xml" href="https://example.com/atomFeed.php?page=3"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 分别是在一系列文件中的第一个、下一个、上一个和最后一个 --&gt;</div><div class="line">&lt;link rel="first" href="https://example.com/atomFeed.php"&gt;</div><div class="line">&lt;link rel="next" href="https://example.com/atomFeed.php?page=4"&gt;</div><div class="line">&lt;link rel="previous" href="https://example.com/atomFeed.php?page=2"&gt;</div><div class="line">&lt;link rel="last" href="https://example.com/atomFeed.php?page=147"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 当使用第三方服务来维护 blog 时使用 --&gt;</div><div class="line">&lt;link rel="EditURI" href="https://example.com/xmlrpc.php?rsd" type="application/rsd+xml" title="RSD"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 当另一个 WordPress 博客链接到你的 WordPress 博客或文章时形成一个自动化的评论 --&gt;</div><div class="line">&lt;link rel="pingback" href="https://example.com/xmlrpc.php"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 当你在自己的页面上链接到一个 url 时通知它 --&gt;</div><div class="line">&lt;link rel="webmention" href="https://example.com/webmention"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 加载一个外部的 HTML 文件到当前 HTML 文件中 --&gt;</div><div class="line">&lt;link rel="import" href="component.html"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 打开搜索 --&gt;</div><div class="line">&lt;link rel="search" href="/open-search.xml" type="application/opensearchdescription+xml" title="Search Title"&gt;</div><div class="line"> </div><div class="line">&lt;!-- Feeds --&gt;</div><div class="line">&lt;link rel="alternate" href="https://feeds.feedburner.com/example" type="application/rss+xml" title="RSS"&gt;</div><div class="line">&lt;link rel="alternate" href="https://example.com/feed.atom" type="application/atom+xml" title="Atom 0.3"&gt;</div><div class="line"> </div><div class="line">&lt;!-- 预取，预载，预浏览 --&gt;</div><div class="line">&lt;link rel="dns-prefetch" href="//example.com/"&gt;</div><div class="line">&lt;link rel="preconnect" href="https://www.example.com/"&gt;</div><div class="line">&lt;link rel="prefetch" href="https://www.example.com/"&gt;</div><div class="line">&lt;link rel="prerender" href="https://example.com/"&gt;</div><div class="line">&lt;link rel="preload" href="image.png" as="image"&gt;</div><div class="line">&lt;!-- 更多信息：https://css-tricks.com/prefetching-preloading-prebrowsing/ --&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/">html5的离线存储和各种html5的head头标签</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">locozan</a></p>
+        <p><span>Created:</span>2016-11-08, 12:35:06</p>
+        <p><span>Updated:</span>2016-11-10, 00:10:53</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/" title="html5的离线存储和各种html5的head头标签">/blog/2016/11/08/html5的离线存储和各种html5的head头标签/</a>
+            <span class="copy-path" data-clipboard-text="From /blog/2016/11/08/html5的离线存储和各种html5的head头标签/　　By locozan" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/blog/2016/11/09/React实现人机对话/">
+                    React实现模拟人机对话
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/blog/2016/11/06/react-router入门学习笔记/">
+                    react-router入门学习笔记
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#接下来列一下网上收集的各种html5的head头标签"><span class="toc-number">1.</span> <span class="toc-text">接下来列一下网上收集的各种html5的head头标签</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"html5的离线存储和各种html5的head头标签　| 博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/08/html5的离线存储和各种html5的head头标签/" data-title="html5的离线存储和各种html5的head头标签" data-url="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"null"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/blog/2016/11/09/React实现人机对话/" title="Pre: React实现模拟人机对话">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/blog/2016/11/06/react-router入门学习笔记/" title="Next: react-router入门学习笔记">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/11/实现移动端的下拉刷新/">实现移动端的下拉刷新</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/06/高仿PS选区的流水虚线框/">高仿PS选区的流水虚线框</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/26/文章高亮/">文章高亮</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/24/找出文章重复字/">找出文章的重复字</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/18/html5css3响应式笔记/">纯html5css3响应式笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/09/React实现人机对话/">React实现模拟人机对话</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/">html5的离线存储和各种html5的head头标签</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/06/react-router入门学习笔记/">react-router入门学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/05/属性getter和setter/">属性的get和set</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/04/react生命周期简介/">React 生命周期简介</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/01/react-入门→虚拟DOM/">React 入门→虚拟DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/10/31/系统创建可执行的全局命令/">系统创建可执行的全局命令</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/09/22/有趣的流氓-getBoundingClientRect/">有趣的流氓:getBoundingClientRect()</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 locozan
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/blog/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(./background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

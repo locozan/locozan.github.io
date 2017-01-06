@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="locozan" />
+
+
+
+<meta name="description" content="今天无意中看到以下的这样一张动态虚线框的图：感觉这动态虚线挺有意思的，就研究实现了下：demo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高仿PS选区的流水虚线框">
+<meta property="og:url" content="/2016/12/06/高仿PS选区的流水虚线框/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="今天无意中看到以下的这样一张动态虚线框的图：感觉这动态虚线挺有意思的，就研究实现了下：demo">
+<meta property="og:image" content="/images/dashed-img/liushuikuang.gif">
+<meta property="og:image" content="/images/dashed-img/dashed%EF%BC%8D0.png">
+<meta property="og:image" content="/images/dashed-img/dashed.gif">
+<meta property="og:image" content="/images/dashed-img/dashed%EF%BC%8D2.png">
+<meta property="og:image" content="/images/dashed-img/dashed%EF%BC%8D1.png">
+<meta property="og:updated_time" content="2016-12-15T05:13:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="高仿PS选区的流水虚线框">
+<meta name="twitter:description" content="今天无意中看到以下的这样一张动态虚线框的图：感觉这动态虚线挺有意思的，就研究实现了下：demo">
+<meta name="twitter:image" content="/images/dashed-img/liushuikuang.gif">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/blog/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>高仿PS选区的流水虚线框 | 博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/blog/" class="profilepic">
+            <img src="/blog/img/pic.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/blog/">locozan</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/blog/">主页</a></li>
+                        
+                            <li><a href="/blog/archives/">所有文章</a></li>
+                        
+                            <li><a href="/blog/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="https://275345465@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/locozan" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://zhihu.com/people/locozan" title="知乎"></a>
+                            
+                                <a class="fa Coding" href="https://coding.net/u/uxhzz/p/uxhzz.coding.io/git" title="Coding"></a>
+                            
+                                <a class="fa QQ" href="http://user.qzone.qq.com/275345465" title="QQ"></a>
+                            
+                                <a class="fa 微信" href="https://wx.qq.com/hzz520134134" title="微信"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://git.coding.net/uxhzz/uxhzz.coding.io.git">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/locozan">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">locozan</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/blog/" class="profilepic">
+                <img src="/blog/img/pic.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/blog/" title="回到主页">locozan</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/blog/">主页</a></li>
+                
+                    <li><a href="/blog/archives/">所有文章</a></li>
+                
+                    <li><a href="/blog/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="https://275345465@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/locozan" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://zhihu.com/people/locozan" title="知乎"></a>
+                            
+                                <a class="fa Coding" target="_blank" href="https://coding.net/u/uxhzz/p/uxhzz.coding.io/git" title="Coding"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://user.qzone.qq.com/275345465" title="QQ"></a>
+                            
+                                <a class="fa 微信" target="_blank" href="https://wx.qq.com/hzz520134134" title="微信"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-高仿PS选区的流水虚线框" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/12/06/高仿PS选区的流水虚线框/" class="article-date">
+      <time datetime="2016-12-05T16:35:06.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      高仿PS选区的流水虚线框
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>今天无意中看到以下的这样一张动态虚线框的图：<br><img src="/images/dashed-img/liushuikuang.gif" alt=""><br>感觉这动态虚线挺有意思的，就研究实现了下：<br><a href="/images/dashed-img/index.html">demo</a></p>
+<a id="more"></a>
+<p>这效果其实跟我们的绘图工具 Photoshop 里的矩形选框工具画出矩形时是一样的，</p>
+<p><img src="/images/dashed-img/dashed%EF%BC%8D0.png" alt=""></p>
+<p>而实现这功能不用 js，只要用到 css 中的 <a href="http://www.css88.com/book/css/properties/border/border-image.htm" target="_blank" rel="external">border-image</a> 就可以了；</p>
+<p>前提要做一个 gif 动画，像这样：</p>
+<p><img src="/images/dashed-img/dashed.gif" alt=""></p>
+<p>当然这动画用 PS 做在导出就可以了；<br>首先在 PS 里先画一张图：</p>
+<p><img src="/images/dashed-img/dashed%EF%BC%8D2.png" alt=""></p>
+<p>然后拷贝一个区，选中复制几张下来，设定成一个动画：</p>
+<p><img src="/images/dashed-img/dashed%EF%BC%8D1.png" alt=""></p>
+<p>最后这动画导出 gif 格式的图片，在转换成 Base64 编码；<br>最后写入你 html 创建的 div 的css样式中：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">  .box&#123;</div><div class="line">    width: 800px;</div><div class="line">    height: 400px;</div><div class="line">    border: 1px solid gray;</div><div class="line">    border-image: url(data:image/gif;base64,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) 1/1px repeat;</div><div class="line">  &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>这样就不用引一个外部图片，而且实现了任意大小的 div 都有流水虚线框的效果。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/blog/2016/12/06/高仿PS选区的流水虚线框/">高仿PS选区的流水虚线框</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">locozan</a></p>
+        <p><span>Created:</span>2016-12-06, 00:35:06</p>
+        <p><span>Updated:</span>2016-12-15, 13:13:21</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/blog/2016/12/06/高仿PS选区的流水虚线框/" title="高仿PS选区的流水虚线框">/blog/2016/12/06/高仿PS选区的流水虚线框/</a>
+            <span class="copy-path" data-clipboard-text="From /blog/2016/12/06/高仿PS选区的流水虚线框/　　By locozan" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/blog/2016/12/11/实现移动端的下拉刷新/">
+                    实现移动端的下拉刷新
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/blog/2016/11/26/文章高亮/">
+                    文章高亮
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"高仿PS选区的流水虚线框　| 博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/06/高仿PS选区的流水虚线框/" data-title="高仿PS选区的流水虚线框" data-url="/blog/2016/12/06/高仿PS选区的流水虚线框/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"null"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/blog/2016/12/11/实现移动端的下拉刷新/" title="Pre: 实现移动端的下拉刷新">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/blog/2016/11/26/文章高亮/" title="Next: 文章高亮">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/11/实现移动端的下拉刷新/">实现移动端的下拉刷新</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/06/高仿PS选区的流水虚线框/">高仿PS选区的流水虚线框</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/26/文章高亮/">文章高亮</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/24/找出文章重复字/">找出文章的重复字</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/18/html5css3响应式笔记/">纯html5css3响应式笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/09/React实现人机对话/">React实现模拟人机对话</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/">html5的离线存储和各种html5的head头标签</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/06/react-router入门学习笔记/">react-router入门学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/05/属性getter和setter/">属性的get和set</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/04/react生命周期简介/">React 生命周期简介</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/01/react-入门→虚拟DOM/">React 入门→虚拟DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/10/31/系统创建可执行的全局命令/">系统创建可执行的全局命令</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/09/22/有趣的流氓-getBoundingClientRect/">有趣的流氓:getBoundingClientRect()</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 locozan
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/blog/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(./background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

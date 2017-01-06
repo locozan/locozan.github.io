@@ -1,69 +1,53 @@
-var container = document.getElementById('container');
+window.onload=function(){
+  var disp = document.querySelector( '#disp' );
+  setTimeout( function(){
+    document.body.removeChild( disp )
+  }, 300 );
 
-var encodeHTML = function(source) {
-    return String(source)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#39;");
-  };
+  let container = document.querySelector( '.container' );
+  window.addEventListener( 'resize', function( event ){
+    waterfall();
+  }, false);
 
-var render = function(HTML, model) {
-  HTML.innerHTML = model.map(function(item, index) {
-    var title = encodeHTML(item.title)
-    return [
-      '<div class=" '+ 'box box-' + index +' " data-index=" '+ index +' ">',
-        '<ul>',
-          '<li>',
-            '<a class="link-a" href=" ' + item.src + ' ">',
-            '<img src=" '+ item.img +' " width="145" height="100">',
-            '<h3>'+ title +'</h3>',
-          '</li>',
-        '</ul>',
-      '</div>'
-    ].join('');
-  }).join('');
-};
+  function waterfall(){
+    let screenWidth = document.documentElement.clientWidth;
+    let box = document.querySelectorAll( '.box' );  
+    let oneBoxWidth = box[0].offsetWidth;
+    let oneBoxHeight = box[0].offsetHeight;
+    let num = Math.floor(screenWidth / oneBoxWidth);
+    let boxArr = new Array();
+    let boxH = [];
+        for( let i in box ){
+          if( box[i].className === 'box' ){
+            boxArr.push(box[i])
+          }
+        }
 
-render( container, worksModel );
-
-var screenWidth = document.documentElement.clientWidth - 20;
-var linkA = document.querySelectorAll('.link-a');
-
-[].slice.call(document.querySelectorAll('.link-a'), 0).forEach( function( item ){
-  $(item).hover(function(){
-      $(item).css("color","#C9323B");
-  },function(){
-      $(item).css("color","#337ab7");
-  });
-} );
-
-var box = container.querySelectorAll( '.box' );
-var sort = function(){
- if( screenWidth > 780 ){
-    [].slice.call(document.querySelectorAll('.box'), 0).forEach( function( item, index ){
-      item.style.width = screenWidth / 5 + (- 30) + 'px';
-      item.style.height = 120 + 'px';
-      item.style.left = Number( index % 5  ) * screenWidth / 5 + 30 + 'px';
-      item.style.top = Number( index / 5 | 0 ) * 140 + 'px';
-    } )
-  }else if( screenWidth < 780 && screenWidth > 414 ){
-    [].slice.call(document.querySelectorAll('.box'), 0).forEach( function( item, index ){
-      item.style.left = Number( index % 3  ) * screenWidth / 3 + 15 + 'px';
-      item.style.top = Number( index / 3 | 0 ) * 140 + 'px';
-    } )
-  }else if( screenWidth < 415 ){
-    [].slice.call(document.querySelectorAll('.box'), 0).forEach( function( item, index ){
-      item.style.left = Number( index % 2  ) * screenWidth / 2 + 15 + 'px';
-      item.style.top = Number( index / 2 | 0 ) * 140 + 'px';
-    } )
-  };
-};
-sort();
-
-window.addEventListener( 'resize', function( event ){
-  screenWidth = document.documentElement.clientWidth - 20;
-  sort();
-}, false);
-
+    container.style.cssText = `width: ${ num * oneBoxWidth }px;margin: 0 auto;margin-top: 48px;`
+    for( let i = 0; i < boxArr.length; i ++ ){
+      let boxHeight = boxArr[i].offsetHeight;
+      if( i < num ){
+        boxH[i] = boxHeight; 
+        // boxArr[i].style.left = i * oneBoxWidth + 'px';
+        // boxArr[i].style.top = 48 + 'px';
+        boxArr[i].style.transform = `translate3d(${i * oneBoxWidth}px, 0px, 0)`
+      }else{
+        let minH  = Math.min.apply( null, boxH );
+        let index = function(){
+          for( let index in boxH ){
+            if( boxH[index] === minH ){
+              return index;
+            }
+          }
+        }()
+        // boxArr[i].style.top = minH + 48 + 'px';
+        // boxArr[i].style.left = boxArr[index].offsetLeft + 'px';
+        
+        boxArr[i].style.transform = `translate3d(${index * oneBoxWidth }px, ${ minH }px, 0)` 
+        boxH[index] += boxArr[i].offsetHeight;
+      }
+    }
+    
+  }
+  waterfall()
+}

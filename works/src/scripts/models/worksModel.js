@@ -1,47 +1,92 @@
 var worksModel = [
 {
-  'title': 'flappy-bird',
-  'img': 'http://ucren.com/static/locozan/images/flappy.png',
-  'src': 'http://ucren.com/static/locozan/writing/flappy-bird/index.html'
+  'title': 'sanguliupo',
+  'img': './images/sanguliupo.png',
+  'src': '/writing/sanguliupo/dist/index.html'
 },
 {
-  'title':'puzzle',
-  'img': 'http://ucren.com/static/locozan/images/puzzle.png',
-  'src': 'http://ucren.com/static/locozan/writing/puzzle/index.html'
+  'title': 'gomoku',
+  'img': './images/gomoku.png',
+  'src': '/writing/gomoku/dist/index.html'
 },
 {
-  'title': 'dragInsert',
-  'img': 'http://ucren.com/static/locozan/images/dragInsert.png',
-  'src': 'http://ucren.com/static/locozan/writing/dragInsert/index.html'
+  'title': 'dialog',
+  'img': './images/dialog.png',
+  'src': '/writing/dialog/dist/index.html'
 },
 {
-  'title': 'eg-ipad',
-  'img': 'http://ucren.com/static/locozan/images/ipad.png',
-  'src': 'http://ucren.com/static/locozan/writing/eg-ipad/index.html'
-},
-{
-  'title': 'todo',
-  'img': 'http://ucren.com/static/locozan/images/todo.png',
-  'src': 'http://ucren.com/static/locozan/writing/todo/index.html'
-},
-{
-  'title': 'myalert',
-  'img': 'http://ucren.com/static/locozan/images/myalert.png',
-  'src': 'http://ucren.com/static/locozan/writing/alert/index.html'
-},
-{
-  'title':'collision',
-  'img': 'http://ucren.com/static/locozan/images/collision.png',
-  'src': 'http://ucren.com/static/locozan/writing/collision/index.html'
-},
-{
-  'title': 'knob',
-  'img': 'http://ucren.com/static/locozan/images/knob.png',
-  'src': 'http://ucren.com/static/locozan/writing/knob/index.html'
+  'title': 'page404',
+  'img': './images/page404.png',
+  'src': '/writing/page404/dist/index.html'
 },
 {
   'title': 'magnifier2',
-  'img': 'http://ucren.com/static/locozan/images/magnifier2.png',
-  'src': 'http://ucren.com/static/locozan/writing/magnifier2/index.html'
+  'img': './images/magnifier2.png',
+  'src': '/writing/magnifier2/index.html'
+},
+{
+  'title': 'contacts',
+  'img': './images/contacts.png',
+  'src': '/writing/contacts/dist/index.html'
+},
+{
+  'title': 'flappy-bird',
+  'img': './images/flappy-bird.png',
+  'src': '/writing/flappy-bird/index.html'
+},
+{
+  'title': 'Wechat-Web',
+  'img': './images/Wechat-Web.png',
+  'src': '/writing/Wechat-Web/dist/index.html'
+},
+{
+  'title':'puzzle',
+  'img': './images/puzzle.png',
+  'src': '/writing/puzzle/index.html'
+},
+{
+  'title': 'dragInsert',
+  'img': './images/dragInsert.png',
+  'src': '/writing/dragInsert/index.html'
+},
+{
+  'title': 'eg-ipad',
+  'img': './images/eg-ipad.png',
+  'src': '/writing/eg-ipad/index.html'
+},
+{
+  'title': 'todo',
+  'img': './images/todo.png',
+  'src': '/writing/todo/index.html'
+},
+{
+  'title':'collision',
+  'img': './images/collision.png',
+  'src': '/writing/collision/index.html'
+},
+{
+  'title': 'knob',
+  'img': './images/knob.png',
+  'src': '/writing/knob/index.html'
+},
+{
+  'title': 'dropDowncurve',
+  'img': './images/curve.gif',
+  'src': '/writing/dropDowncurve/index.html'
+},
+{
+  'title': 'calculator',
+  'img': './images/calculator.png',
+  'src': '/writing/calculator/index.html'
+},
+{
+  'title': '响应式播放器',
+  'img': './images/player.png',
+  'src': '/writing/music-player-css/dist/index.html'
+},
+{
+  'title': 'myalert',
+  'img': './images/myalert.png',
+  'src': '/writing/alert/index.html'
 }
 ]

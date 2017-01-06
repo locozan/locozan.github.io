@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="locozan" />
+
+
+
+<meta name="description" content="最近去面试好多家公司都在问你会React吗？刚开始都不知道这是什么鬼；回来脑补了一下：什么是React呢？原来React是Facebook开发的一款JS库; 百度上也有好多大神的介绍；就有一篇 React写的不错。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 入门→虚拟DOM">
+<meta property="og:url" content="/2016/11/01/react-入门→虚拟DOM/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="最近去面试好多家公司都在问你会React吗？刚开始都不知道这是什么鬼；回来脑补了一下：什么是React呢？原来React是Facebook开发的一款JS库; 百度上也有好多大神的介绍；就有一篇 React写的不错。">
+<meta property="og:image" content="http://uxhzz.com/images/DOM解说-1.png">
+<meta property="og:image" content="http://uxhzz.com/images/DOM解说-2.png">
+<meta property="og:image" content="http://uxhzz.com/images/DOM解说-3.png">
+<meta property="og:updated_time" content="2016-11-04T02:02:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React 入门→虚拟DOM">
+<meta name="twitter:description" content="最近去面试好多家公司都在问你会React吗？刚开始都不知道这是什么鬼；回来脑补了一下：什么是React呢？原来React是Facebook开发的一款JS库; 百度上也有好多大神的介绍；就有一篇 React写的不错。">
+<meta name="twitter:image" content="http://uxhzz.com/images/DOM解说-1.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/blog/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>React 入门→虚拟DOM | 博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/blog/" class="profilepic">
+            <img src="/blog/img/pic.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/blog/">locozan</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/blog/">主页</a></li>
+                        
+                            <li><a href="/blog/archives/">所有文章</a></li>
+                        
+                            <li><a href="/blog/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="https://275345465@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/locozan" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://zhihu.com/people/locozan" title="知乎"></a>
+                            
+                                <a class="fa Coding" href="https://coding.net/u/uxhzz/p/uxhzz.coding.io/git" title="Coding"></a>
+                            
+                                <a class="fa QQ" href="http://user.qzone.qq.com/275345465" title="QQ"></a>
+                            
+                                <a class="fa 微信" href="https://wx.qq.com/hzz520134134" title="微信"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://git.coding.net/uxhzz/uxhzz.coding.io.git">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/locozan">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">locozan</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/blog/" class="profilepic">
+                <img src="/blog/img/pic.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/blog/" title="回到主页">locozan</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/blog/">主页</a></li>
+                
+                    <li><a href="/blog/archives/">所有文章</a></li>
+                
+                    <li><a href="/blog/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="https://275345465@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/locozan" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://zhihu.com/people/locozan" title="知乎"></a>
+                            
+                                <a class="fa Coding" target="_blank" href="https://coding.net/u/uxhzz/p/uxhzz.coding.io/git" title="Coding"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://user.qzone.qq.com/275345465" title="QQ"></a>
+                            
+                                <a class="fa 微信" target="_blank" href="https://wx.qq.com/hzz520134134" title="微信"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-react-入门→虚拟DOM" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/11/01/react-入门→虚拟DOM/" class="article-date">
+      <time datetime="2016-11-01T01:35:06.000Z" itemprop="datePublished">2016-11-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React 入门→虚拟DOM
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>最近去面试好多家公司都在问你会React吗？刚开始都不知道这是什么鬼；回来脑补了一下：什么是React呢？原来React是Facebook开发的一款JS库; 百度上也有好多大神的介绍；就有一篇 <a href="http://www.jianshu.com/p/ae482813b791" target="_blank" rel="external">React</a>写的不错。</p>
+<a id="more"></a>
+<p>有两种方法可以引入Reacr：</p>
+<ol>
+<li>网上引入：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"https://npmcdn.com/react@15.3.1/dist/react.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"https://npmcdn.com/react-dom@15.3.1/dist/react-dom.min.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>下载到本地：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install react --save</div><div class="line">$ npm install react-dom --save</div></pre></td></tr></table></figure>
+<p>然后在：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//首先在终端安装：</span></div><div class="line">$ npm install -g browserify</div><div class="line"><span class="comment">//然后可以这样引入：</span></div><div class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</div><div class="line"><span class="keyword">var</span> ReactDOM = <span class="built_in">require</span>(<span class="string">'react-dom'</span>);</div><div class="line"></div><div class="line"><span class="comment">//或者用ES6的写法：</span></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDom <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div></pre></td></tr></table></figure>
+<p>在开始写代码时我们得在说下用ES6编写程序，得看看现有环境是否支持；不支持得用转码器；而<a href="https://babeljs.io/" target="_blank" rel="external">Bable</a>是一个广泛使用的转码器，可以将ES6代码转为ES5代码，从而在现有环境执行。这意味着，你可以现在就用ES6编写程序，而不用担心现有环境是否支持;<br>栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var f = () =&gt; 5;</div><div class="line">// 转码后：</div><div class="line">var f = function () &#123; return 5 &#125;;</div></pre></td></tr></table></figure>
+<p>详细了解可以看阮一峰写的：<br><a href="http://www.ruanyifeng.com/blog/2016/01/babel.html" target="_blank" rel="external">Babel 入门教程</a></p>
+<p>转码有了再来说说react用到的JSX语法糖，也是大神写的：<br><a href="http://www.jianshu.com/p/7e872afeae42" target="_blank" rel="external">React基础——JSX语法</a></p>
+<p>react有些规范比如：渲染HTML标签，声明变量采用<strong>首字母小写</strong>，渲染React组件，声明变量采用<strong>首字母大写</strong>。<br>首先Html大概这样:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>react<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"foot"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>然后我们来看一段简单代码:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">"react-dom"</span>;</div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">"./scripts/libs/App.js"</span>;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">App</span>/&gt;</span></span>,</div><div class="line">  <span class="built_in">document</span>.querySelector( <span class="string">'#foot'</span> )</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>上面是引入一个子组件App.js，然后插入到<code>&lt;div id=&quot;foot&quot;&gt;&lt;/div&gt;</code>里面</p>
+<p>再来看一个简单组件App代码:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">"react-dom"</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line"><span class="comment">//export default 暴露一个 类名叫 App 的实例 extends 继承 React.Component 的方法</span></div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>( props )&#123;<span class="comment">//构造函数的方法，初始化count的值</span></div><div class="line">    <span class="keyword">super</span>( props );</div><div class="line">    <span class="keyword">this</span>.state = &#123; count: <span class="number">0</span>, data: [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ] &#125;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  update()&#123;<span class="comment">//创建一个方法，来使用setState()方法改变当前状态的值</span></div><div class="line">    <span class="keyword">let</span> state = <span class="keyword">this</span>.state;</div><div class="line"></div><div class="line">    state.data.splice( <span class="number">1</span>, <span class="number">1</span> );<span class="comment">//删除data数组2</span></div><div class="line"></div><div class="line">    <span class="keyword">this</span>.setState( state );<span class="comment">//删完后再还给data</span></div><div class="line"></div><div class="line">    <span class="keyword">this</span>.setState(&#123;</div><div class="line">      count: ++ <span class="keyword">this</span>.state.count<span class="comment">//改变count的值</span></div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span>(</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>//react组件必须有且只有一个父级元素</span></div><div class="line">        <span class="tag">&lt;<span class="name">h1</span> <span class="attr">onClick</span>=<span class="string">&#123;</span> <span class="attr">this.update.bind</span>( <span class="attr">this</span> ) &#125;&gt;</span>点我<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>//注册点击事件绑定h1</div><div class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123; this.state.count &#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">          &#123; this.state.data.map( item =&gt; <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123; item &#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span> ) &#125;//遍历data创建3个li</div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面代码运行起来count值会累加上去，li会减到1个;</p>
+<h2 id="这里主要讲的也是react的实现→虚拟DOM"><a href="#这里主要讲的也是react的实现→虚拟DOM" class="headerlink" title="这里主要讲的也是react的实现→虚拟DOM"></a>这里主要讲的也是react的实现→虚拟DOM</h2><p>react的虚拟DOM（virtual DOM)就是数据发生变化就会生成新的虚拟DOM树，存在于内存之中的一种数据结构，然后React对着虚拟DOM进行操作，然后再将实际发生变动的部分反应给真实DOM渲染，然而每次数据放生变化时虚拟DOM就会和之前创建的虚拟DOM进行比较，如有地方发生改变就会在生成一个最新的虚拟DOM，然后把最后结果给真实DOM渲染出来；怎么理解呢，就是上面的栗子，点击时，3个li会变2个,在点击时会在变成一个；</p>
+<p>明面上就是：</p>
+<p><img src="http://uxhzz.com/images/DOM解说-1.png" alt=""><br>对应节点变化：<br><img src="http://uxhzz.com/images/DOM解说-2.png" alt=""><br><strong>实际React每次删除的都是最后一个li</strong><br>因为我们第一次渲染时是：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;<span class="name">li</span>&gt;</span>      但是当点击“点我”后  <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;<span class="name">li</span>&gt;</span>   然后跟现实DOM   <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;<span class="name">li</span>&gt;</span>      虚拟DOM就会变成    <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;<span class="name">li</span>&gt;</span>   的所有li在对比   <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;<span class="name">li</span>&gt;</span>                                                  <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>发现第一个<code>&lt;li&gt;1&lt;li&gt;</code>没有变化不修改，第二个<code>&lt;li&gt;2&lt;li&gt;</code>变了要变成<code>&lt;li&gt;3&lt;li&gt;</code>,第三个<code>&lt;li&gt;3&lt;li&gt;</code>虚拟DOM是没有的，那么是要删除的;所以最后render()时就会把<code>&lt;li&gt;2&lt;li&gt;</code>变了要变成<code>&lt;li&gt;3&lt;li&gt;</code>,把<code>&lt;li&gt;3&lt;li&gt;</code>删除;</p>
+<p>怎么证明呢？<br>其实很简单，就是打开控制台，选中Elements的<code>&lt;li&gt;1&lt;li&gt;</code>节点,这时你在Comsole这边 <code>$0</code> 所选中就是 <code>&lt;li&gt;1&lt;li&gt;</code>这节点，然后它添加一个 <code>$0.xx = &#39;a&#39;</code>,然后依次选中<code>&lt;li&gt;2&lt;li&gt;</code>和<code>&lt;li&gt;3&lt;li&gt;</code>添加<code>$0.xx = &#39;a&#39;``$0.xx = &#39;c&#39;</code>,最后你点击“点我”去掉一个li剩下<code>&lt;li&gt;1&lt;li&gt;</code>和<code>&lt;li&gt;3&lt;li&gt;</code>时，这时你在选中<code>&lt;li&gt;3&lt;li&gt;</code>查看<code>$0.xx</code>。然后你会<strong>发现<code>$0.xx</code>竟然等于’b’</strong>,说明运行了代码把<code>&lt;li&gt;2&lt;li&gt;</code>改成<code>&lt;li&gt;3&lt;li&gt;</code>,把<code>&lt;li&gt;3&lt;li&gt;</code>删除了;<br><img src="http://uxhzz.com/images/DOM解说-3.png" alt=""></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/blog/2016/11/01/react-入门→虚拟DOM/">React 入门→虚拟DOM</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">locozan</a></p>
+        <p><span>Created:</span>2016-11-01, 09:35:06</p>
+        <p><span>Updated:</span>2016-11-04, 10:02:13</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/blog/2016/11/01/react-入门→虚拟DOM/" title="React 入门→虚拟DOM">/blog/2016/11/01/react-入门→虚拟DOM/</a>
+            <span class="copy-path" data-clipboard-text="From /blog/2016/11/01/react-入门→虚拟DOM/　　By locozan" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/blog/2016/11/04/react生命周期简介/">
+                    React 生命周期简介
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/blog/2016/10/31/系统创建可执行的全局命令/">
+                    系统创建可执行的全局命令
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#这里主要讲的也是react的实现→虚拟DOM"><span class="toc-number">1.</span> <span class="toc-text">这里主要讲的也是react的实现→虚拟DOM</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"React 入门→虚拟DOM　| 博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/01/react-入门→虚拟DOM/" data-title="React 入门→虚拟DOM" data-url="/blog/2016/11/01/react-入门→虚拟DOM/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"null"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/blog/2016/11/04/react生命周期简介/" title="Pre: React 生命周期简介">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/blog/2016/10/31/系统创建可执行的全局命令/" title="Next: 系统创建可执行的全局命令">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/11/实现移动端的下拉刷新/">实现移动端的下拉刷新</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/06/高仿PS选区的流水虚线框/">高仿PS选区的流水虚线框</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/26/文章高亮/">文章高亮</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/24/找出文章重复字/">找出文章的重复字</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/18/html5css3响应式笔记/">纯html5css3响应式笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/09/React实现人机对话/">React实现模拟人机对话</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/">html5的离线存储和各种html5的head头标签</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/06/react-router入门学习笔记/">react-router入门学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/05/属性getter和setter/">属性的get和set</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/04/react生命周期简介/">React 生命周期简介</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/01/react-入门→虚拟DOM/">React 入门→虚拟DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/10/31/系统创建可执行的全局命令/">系统创建可执行的全局命令</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/09/22/有趣的流氓-getBoundingClientRect/">有趣的流氓:getBoundingClientRect()</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 locozan
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/blog/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(./background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

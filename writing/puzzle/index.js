@@ -5,6 +5,11 @@ void function () {
     pageButtonHeight: 80,//页按键高
     shuffleCount: 1000
   };
+  const isMobile = ()=> /mobile/gi.test( navigator.userAgent );
+    touchStart = isMobile() ? 'touchstart' : 'mousedown';
+    touchMove = isMobile() ? 'touchmove' : 'mousemove';
+    touchEnd = isMobile() ? 'touchend' : 'mouseup';
+
   function addLoadEvent(func) {
     window.onload = function () {
       func();
@@ -53,15 +58,15 @@ void function () {
   var pickMap = document.getElementById("pickMap");
   var Original = document.getElementById("Original");
   var arr = [
-    "url(http://ucren.com/static/locozan/writing/puzzle/imges/girl-001.jpg)",
-    "url(http://ucren.com/static/locozan/writing/puzzle/imges/girl-002.jpg)",
-    "url(http://ucren.com/static/locozan/writing/puzzle/imges/girl-003.jpg)",
-    "url(http://ucren.com/static/locozan/writing/puzzle/imges/girl-004.jpg)",
-    "url(http://ucren.com/static/locozan/writing/puzzle/imges/girl-005.jpg)",
-    "url(http://ucren.com/static/locozan/writing/puzzle/imges/girl-006.jpg)",
-    "url(http://ucren.com/static/locozan/writing/puzzle/imges/girl-007.jpg)",
-    "url(http://ucren.com/static/locozan/writing/puzzle/imges/girl-008.jpg)",
-    "url(http://ucren.com/static/locozan/writing/puzzle/imges/girl-009.jpg)"
+    "url(/writing/puzzle/imges/girl-001.jpg)",
+    "url(/writing/puzzle/imges/girl-002.jpg)",
+    "url(/writing/puzzle/imges/girl-003.jpg)",
+    "url(/writing/puzzle/imges/girl-004.jpg)",
+    "url(/writing/puzzle/imges/girl-005.jpg)",
+    "url(/writing/puzzle/imges/girl-006.jpg)",
+    "url(/writing/puzzle/imges/girl-007.jpg)",
+    "url(/writing/puzzle/imges/girl-008.jpg)",
+    "url(/writing/puzzle/imges/girl-009.jpg)"
   ];
   var i = 0;
     pickMap.addEventListener("click", function (event) {
@@ -76,7 +81,7 @@ void function () {
     mode.addEventListener("change", function () {
       level = Number(this.value);
     }, false);
-  var imageSrc = "url(http://ucren.com/static/locozan/writing/puzzle/imges/girl-001.jpg)";
+  var imageSrc = "url(/writing/puzzle/imges/girl-001.jpg)";
   var sign = function (x, y) {
     return y + "," + x;
   };
@@ -179,7 +184,7 @@ void function () {
     }
   };
   //点击事件
-  document.addEventListener("mousedown", function (event) {
+  document.addEventListener(touchStart, function (event) {
     var x, y, target, dataSign, found, aroundCells, cell, el;
     target = event.target;
     dataSign = target.dataset.sign;

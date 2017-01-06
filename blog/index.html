@@ -20,19 +20,19 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="博客">
-<meta property="og:url" content="http://www.uxhzz.com/index.html">
+<meta property="og:url" content="/index.html">
 <meta property="og:site_name" content="博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客">
 
-<link rel="apple-touch-icon" href= "/blog//apple-touch-icon.png">
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
     <link rel="alternate" href="/atom.xml" title="博客" type="application/atom+xml">
 
 
 
-    <link rel="shortcut icon" href="/blog//favicon.png">
+    <link rel="shortcut icon" href="/favicon.png">
 
 
 
@@ -71,7 +71,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: undefined
+        search: true
     }
 </script>
 
@@ -80,7 +80,7 @@
 
 
 
-    <script> yiliaConfig.rootUrl = /blog/; </script>
+    <script> yiliaConfig.rootUrl = "\/";</script>
 
 
 
@@ -95,7 +95,7 @@
 <div class="intrude-less">
     <header id="header" class="inner">
         <a href="/blog/" class="profilepic">
-            <img src="/blog/./img/pic.jpg" class="animated zoomIn">
+            <img src="/blog/img/pic.jpg" class="animated zoomIn">
         </a>
         <hgroup>
           <h1 class="header-author"><a href="/blog/">locozan</a></h1>
@@ -103,6 +103,13 @@
 
         
 
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
         
 
 
@@ -135,13 +142,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -154,13 +161,11 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/blog//blog/">主页</a></li>
+                            <li><a href="/blog/">主页</a></li>
                         
-                            <li><a href="/blog//blog/archives/">所有文章</a></li>
+                            <li><a href="/blog/archives/">所有文章</a></li>
                         
-                            <li><a href="/blog//blog/tags/">标签云</a></li>
-                        
-                            <li><a href="/blog//blog/about/">关于我</a></li>
+                            <li><a href="/blog/about/">关于我</a></li>
                         
                         </ul>
                     </nav>
@@ -173,7 +178,7 @@
                             
                                 <a class="fa 知乎" href="https://zhihu.com/people/locozan" title="知乎"></a>
                             
-                                <a class="fa 网易云音乐" href="/blog/netease" title="网易云音乐"></a>
+                                <a class="fa Coding" href="https://coding.net/u/uxhzz/p/uxhzz.coding.io/git" title="Coding"></a>
                             
                                 <a class="fa QQ" href="http://user.qzone.qq.com/275345465" title="QQ"></a>
                             
@@ -195,7 +200,7 @@
                 <section class="switch-part switch-part3">
                     <div id="js-friends">
                     
-                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                      <a class="main-nav-link switch-friends-link" href="https://git.coding.net/uxhzz/uxhzz.coding.io.git">Hexo</a>
                     
                       <a class="main-nav-link switch-friends-link" href="https://pages.github.com/locozan">GitHub</a>
                     
@@ -226,7 +231,7 @@
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/blog/" class="profilepic">
-                <img src="/blog/./img/pic.jpg" class="animated zoomIn">
+                <img src="/blog/img/pic.jpg" class="animated zoomIn">
             </a>
             <hgroup>
               <h1 class="header-author"><a href="/blog/" title="回到主页">locozan</a></h1>
@@ -238,8 +243,6 @@
                     <li><a href="/blog/">主页</a></li>
                 
                     <li><a href="/blog/archives/">所有文章</a></li>
-                
-                    <li><a href="/blog/tags/">标签云</a></li>
                 
                     <li><a href="/blog/about/">关于我</a></li>
                 
@@ -255,7 +258,7 @@
                             
                                 <a class="fa 知乎" target="_blank" href="https://zhihu.com/people/locozan" title="知乎"></a>
                             
-                                <a class="fa 网易云音乐" target="_blank" href="/blog/netease" title="网易云音乐"></a>
+                                <a class="fa Coding" target="_blank" href="https://coding.net/u/uxhzz/p/uxhzz.coding.io/git" title="Coding"></a>
                             
                                 <a class="fa QQ" target="_blank" href="http://user.qzone.qq.com/275345465" title="QQ"></a>
                             
@@ -265,17 +268,26 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap">
   
-    <article id="post-有趣的流氓-getBoundingClientRect" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-实现移动端的下拉刷新" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/blog/2016/09/22/有趣的流氓-getBoundingClientRect/" class="article-date">
-      <time datetime="2016-09-22T04:52:12.000Z" itemprop="datePublished">2016-09-22</time>
+      <a href="/blog/2016/12/11/实现移动端的下拉刷新/" class="article-date">
+      <time datetime="2016-12-11T05:35:06.000Z" itemprop="datePublished">2016-12-11</time>
 </a>
 
+ 
+    <a href="/blog/2016/12/11/实现移动端的下拉刷新/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/12/11/实现移动端的下拉刷新/" ></span>
+        
+        
+    </a>
 
     </div>
   
@@ -286,7 +298,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016/09/22/有趣的流氓-getBoundingClientRect/">有趣的流氓:getBoundingClientRect()</a>
+      <a class="article-title" href="/blog/2016/12/11/实现移动端的下拉刷新/">实现移动端的下拉刷新</a>
     </h1>
   
 
@@ -296,7 +308,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>一次意外的使用发现<strong>getBoundingClientRect()</strong>的另一个强大功能，而不是简单地取坐标；</p>
+              <p>周日难得休息，玩内涵看到这样的一个下拉刷新挺有意思的：</p>
+<p><img src="/images/dropDowncurve/curve.gif" alt=""></p>
+<p>就随手仿码了下，而且代码很简单，实现的功能却很实用。</p>
           
       
     </div>
@@ -308,7 +322,7 @@
       
       
         <p class="article-more-link">
-          <a href="/blog/2016/09/22/有趣的流氓-getBoundingClientRect/#more">阅读全文 >></a>
+          <a href="/blog/2016/12/11/实现移动端的下拉刷新/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -327,13 +341,22 @@
 
 
   
-    <article id="post-hexo-文章-README-me" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-高仿PS选区的流水虚线框" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/blog/2016/09/21/hexo-文章-README-me/" class="article-date">
-      <time datetime="2016-09-21T12:03:56.000Z" itemprop="datePublished">2016-09-21</time>
+      <a href="/blog/2016/12/06/高仿PS选区的流水虚线框/" class="article-date">
+      <time datetime="2016-12-05T16:35:06.000Z" itemprop="datePublished">2016-12-06</time>
 </a>
 
+ 
+    <a href="/blog/2016/12/06/高仿PS选区的流水虚线框/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/12/06/高仿PS选区的流水虚线框/" ></span>
+        
+        
+    </a>
 
     </div>
   
@@ -344,7 +367,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016/09/21/hexo-文章-README-me/">hexo.文章 README.me</a>
+      <a class="article-title" href="/blog/2016/12/06/高仿PS选区的流水虚线框/">高仿PS选区的流水虚线框</a>
     </h1>
   
 
@@ -354,7 +377,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p><img src="https://help.github.com/assets/images/site/set-up-git.gif" alt="GitHub set up"><br>常用的hexo的指令 跟 文章书写格式指令</p>
+              <p>今天无意中看到以下的这样一张动态虚线框的图：<br><img src="/images/dashed-img/liushuikuang.gif" alt=""><br>感觉这动态虚线挺有意思的，就研究实现了下：<br><a href="/images/dashed-img/index.html">demo</a></p>
           
       
     </div>
@@ -366,7 +389,7 @@
       
       
         <p class="article-more-link">
-          <a href="/blog/2016/09/21/hexo-文章-README-me/#more">阅读全文 >></a>
+          <a href="/blog/2016/12/06/高仿PS选区的流水虚线框/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -385,6 +408,548 @@
 
 
   
+    <article id="post-文章高亮" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/11/26/文章高亮/" class="article-date">
+      <time datetime="2016-11-25T17:35:06.000Z" itemprop="datePublished">2016-11-26</time>
+</a>
+
+ 
+    <a href="/blog/2016/11/26/文章高亮/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/11/26/文章高亮/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/11/26/文章高亮/">文章高亮</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>前两天兴兴的写了个 <a href="/blog/2016/11/24/%E6%89%BE%E5%87%BA%E6%96%87%E7%AB%A0%E9%87%8D%E5%A4%8D%E5%AD%97/">文章的重复字</a> 功能，然后觉得挺有意思的就在继续的加深下去，在找出了文章的重复字后，点击任意的重复字使其在文章进行 <strong>高亮</strong> 出来。但是简单的高亮还不行；会破坏 HTML 的结构；想不破会就得做一些处理；</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/blog/2016/11/26/文章高亮/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-找出文章重复字" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/11/24/找出文章重复字/" class="article-date">
+      <time datetime="2016-11-23T18:35:06.000Z" itemprop="datePublished">2016-11-24</time>
+</a>
+
+ 
+    <a href="/blog/2016/11/24/找出文章重复字/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/11/24/找出文章重复字/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/11/24/找出文章重复字/">找出文章的重复字</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p><strong>需求</strong>：你任意给出一篇文章，而代码实现把文章中出现重复的单词组给一一找出来，这样做的好处就是可以看出你这篇文章的质量，有没有滥用单词组，也可以找出文中重复的关键字。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/blog/2016/11/24/找出文章重复字/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-html5css3响应式笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/11/18/html5css3响应式笔记/" class="article-date">
+      <time datetime="2016-11-17T17:35:06.000Z" itemprop="datePublished">2016-11-18</time>
+</a>
+
+ 
+    <a href="/blog/2016/11/18/html5css3响应式笔记/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/11/18/html5css3响应式笔记/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/11/18/html5css3响应式笔记/">纯html5css3响应式笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>前天跟一个设计的朋友聊天，说到响应式布局的合理性、用户体验，然后自己检讨了一下，自从开始学 html5 css3 到 js 都没做个一个像样点的纯 html、css 布局类的东西，刚好最近几天有时间，就码了一个 <a href="/writing/music-player-css/dist/index.html">纯html、css的音乐播放器</a>；</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/blog/2016/11/18/html5css3响应式笔记/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-React实现人机对话" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/11/09/React实现人机对话/" class="article-date">
+      <time datetime="2016-11-09T08:35:06.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+
+ 
+    <a href="/blog/2016/11/09/React实现人机对话/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/11/09/React实现人机对话/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/11/09/React实现人机对话/">React实现模拟人机对话</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>起先我们来提下要求把，就是我发出一条聊天记录，手机回我一条信息;<br>实现起来其实很简单，主要还是在编写前得设计好结构；还有你的思路要清晰;<br>然我们在看下设计图把：</p>
+<p><a href="/writing/dialog/dist/"> 效果在我的作品里哦！点击查看 </a></p>
+<p><img src="http://uxhzz.com/images/ChatLog.png" alt=""></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/blog/2016/11/09/React实现人机对话/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-html5的离线存储和各种html5的head头标签" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/" class="article-date">
+      <time datetime="2016-11-08T04:35:06.000Z" itemprop="datePublished">2016-11-08</time>
+</a>
+
+ 
+    <a href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/11/08/html5的离线存储和各种html5的head头标签/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/">html5的离线存储和各种html5的head头标签</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>html5的离线存储和html5新增的你所不知的head头标签</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-react-router入门学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/11/06/react-router入门学习笔记/" class="article-date">
+      <time datetime="2016-11-06T13:35:06.000Z" itemprop="datePublished">2016-11-06</time>
+</a>
+
+ 
+    <a href="/blog/2016/11/06/react-router入门学习笔记/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/11/06/react-router入门学习笔记/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/11/06/react-router入门学习笔记/">react-router入门学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>react-router是react的一个强大的路由库，可以是UI和路由同步,路由配置是一组指令，用来告诉 router 如何匹配 URL以及匹配后如何执行代码,简单的API却有非常强大的功能：延迟加载、动态路由匹配、路径转换权限处理。让你的url变得更加直观。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/blog/2016/11/06/react-router入门学习笔记/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-属性getter和setter" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/11/05/属性getter和setter/" class="article-date">
+      <time datetime="2016-11-04T16:35:06.000Z" itemprop="datePublished">2016-11-05</time>
+</a>
+
+ 
+    <a href="/blog/2016/11/05/属性getter和setter/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/11/05/属性getter和setter/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/11/05/属性getter和setter/">属性的get和set</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h4 id="犀牛书上getter-是拦截属性的读取操作的方法，setter是拦截属性赋值操作的方法。getter负责查询值且不带任何参数，setter则负责设置键值且值是以参数的形式传递，在他的函数体中，一切的return都是无效的。"><a href="#犀牛书上getter-是拦截属性的读取操作的方法，setter是拦截属性赋值操作的方法。getter负责查询值且不带任何参数，setter则负责设置键值且值是以参数的形式传递，在他的函数体中，一切的return都是无效的。" class="headerlink" title="犀牛书上getter 是拦截属性的读取操作的方法，setter是拦截属性赋值操作的方法。getter负责查询值且不带任何参数，setter则负责设置键值且值是以参数的形式传递，在他的函数体中，一切的return都是无效的。"></a>犀牛书上getter 是拦截属性的读取操作的方法，setter是拦截属性赋值操作的方法。getter负责查询值且不带任何参数，setter则负责设置键值且值是以参数的形式传递，在他的函数体中，一切的return都是无效的。</h4>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/blog/2016/11/05/属性getter和setter/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-react生命周期简介" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/11/04/react生命周期简介/" class="article-date">
+      <time datetime="2016-11-04T01:35:06.000Z" itemprop="datePublished">2016-11-04</time>
+</a>
+
+ 
+    <a href="/blog/2016/11/04/react生命周期简介/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/11/04/react生命周期简介/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/11/04/react生命周期简介/">React 生命周期简介</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="react的生命周期"><a href="#react的生命周期" class="headerlink" title="react的生命周期"></a>react的生命周期</h1><p>今天来聊聊react的一些常用的API。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/blog/2016/11/04/react生命周期简介/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
@@ -395,14 +960,14 @@
                 2016 locozan
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -411,7 +976,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -433,20 +998,45 @@
             }
             else {
                 var backgroundnum = 1;
-                var backgroundimg = "url(/blog/./background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                var backgroundimg = "url(./background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
                 $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
             }
         })
     </script>
 
 
+    
+        <script>
+            if ($(".left-col").is(":visible")) {
+                var duoshuoQuery = {short_name:"null"};
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'http://static.duoshuo.com/embed.js';
+                    s.async = true; s.charset = 'UTF-8';
+                    (d.head || d.body).appendChild(s);
+                })();
+
+                $(document).ready(function(){
+                    var $duoshuoCount = $(".ds-thread-count");
+                    $duoshuoCount.bind("DOMNodeInserted", function(e) {
+                        var num = $(this).text().replace(/[^0-9]/ig,"");
+                        $(this).siblings(".count-comment").text(num);
+                        $(this).remove();
+                    })
+                })
+            }
+        </script>
+    
+
+     
+
 
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window

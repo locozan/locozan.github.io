@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="locozan" />
+
+
+
+<meta name="description" content="前两天兴兴的写了个 文章的重复字 功能，然后觉得挺有意思的就在继续的加深下去，在找出了文章的重复字后，点击任意的重复字使其在文章进行 高亮 出来。但是简单的高亮还不行；会破坏 HTML 的结构；想不破会就得做一些处理；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文章高亮">
+<meta property="og:url" content="/2016/11/26/文章高亮/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="前两天兴兴的写了个 文章的重复字 功能，然后觉得挺有意思的就在继续的加深下去，在找出了文章的重复字后，点击任意的重复字使其在文章进行 高亮 出来。但是简单的高亮还不行；会破坏 HTML 的结构；想不破会就得做一些处理；">
+<meta property="og:updated_time" content="2016-12-05T19:18:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="文章高亮">
+<meta name="twitter:description" content="前两天兴兴的写了个 文章的重复字 功能，然后觉得挺有意思的就在继续的加深下去，在找出了文章的重复字后，点击任意的重复字使其在文章进行 高亮 出来。但是简单的高亮还不行；会破坏 HTML 的结构；想不破会就得做一些处理；">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/blog/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>文章高亮 | 博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/blog/" class="profilepic">
+            <img src="/blog/img/pic.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/blog/">locozan</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/blog/">主页</a></li>
+                        
+                            <li><a href="/blog/archives/">所有文章</a></li>
+                        
+                            <li><a href="/blog/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="https://275345465@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/locozan" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://zhihu.com/people/locozan" title="知乎"></a>
+                            
+                                <a class="fa Coding" href="https://coding.net/u/uxhzz/p/uxhzz.coding.io/git" title="Coding"></a>
+                            
+                                <a class="fa QQ" href="http://user.qzone.qq.com/275345465" title="QQ"></a>
+                            
+                                <a class="fa 微信" href="https://wx.qq.com/hzz520134134" title="微信"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://git.coding.net/uxhzz/uxhzz.coding.io.git">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/locozan">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">locozan</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/blog/" class="profilepic">
+                <img src="/blog/img/pic.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/blog/" title="回到主页">locozan</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/blog/">主页</a></li>
+                
+                    <li><a href="/blog/archives/">所有文章</a></li>
+                
+                    <li><a href="/blog/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="https://275345465@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/locozan" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://zhihu.com/people/locozan" title="知乎"></a>
+                            
+                                <a class="fa Coding" target="_blank" href="https://coding.net/u/uxhzz/p/uxhzz.coding.io/git" title="Coding"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://user.qzone.qq.com/275345465" title="QQ"></a>
+                            
+                                <a class="fa 微信" target="_blank" href="https://wx.qq.com/hzz520134134" title="微信"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-文章高亮" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/11/26/文章高亮/" class="article-date">
+      <time datetime="2016-11-25T17:35:06.000Z" itemprop="datePublished">2016-11-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      文章高亮
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>前两天兴兴的写了个 <a href="/blog/2016/11/24/%E6%89%BE%E5%87%BA%E6%96%87%E7%AB%A0%E9%87%8D%E5%A4%8D%E5%AD%97/">文章的重复字</a> 功能，然后觉得挺有意思的就在继续的加深下去，在找出了文章的重复字后，点击任意的重复字使其在文章进行 <strong>高亮</strong> 出来。但是简单的高亮还不行；会破坏 HTML 的结构；想不破会就得做一些处理；</p>
+<a id="more"></a>
+<h2 id="1-正则匹配方法"><a href="#1-正则匹配方法" class="headerlink" title="1.正则匹配方法"></a>1.正则匹配方法</h2><p>实现高亮这一效果其实方法很多；这里我们使用的方法是 <strong> 正则匹配替换 </strong>， 但是在以正则匹配成功后点击高亮时，你会发现当匹配到标题里的重复字时，文章的 HTML 结构会坏掉；</p>
+<p>为什么会破坏结构呢？  这里我们在控制台做个小实例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> title = <span class="string">'&lt;h2 id="用-rem-单位代替-px"&gt;&lt;a href="#用-rem-单位代替-px" class="headerlink" title="用 rem 单位代替 px"&gt;&lt;/a&gt;用 rem 单位代替 px&lt;/h2&gt;'</span></div><div class="line"></div><div class="line"><span class="comment">//以上是我自己博客里的一篇 [纯html5css3响应式笔记](/blog/2016/11/18/html5css3%E5%93%8D%E5%BA%94%E5%BC%8F%E7%AC%94%E8%AE%B0/) 里的一个小标题的标签结构；然后我们声明一个正则：</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> regx = <span class="keyword">new</span> <span class="built_in">RegExp</span>( <span class="string">`(<span class="subst">$&#123; '单位代替' &#125;</span>)`</span>, <span class="string">'g'</span> );</div><div class="line"></div><div class="line"><span class="comment">//当我们以正则替换： </span></div><div class="line"></div><div class="line">a.replace( regx, <span class="string">`&lt;span style="background: red;"&gt;单位代替&lt;/span&gt;`</span> )</div></pre></td></tr></table></figure>
+<p>这时你就会发现匹配后返回的结果会把 HTML 结构里所有出现 <strong>单位代替</strong> 这个单词替换成我们高亮内容；这样就破坏了这段代码；而正常我们要过滤标签的属性值，只要匹配标签里的内容；<br>怎么处理这个呢？这里想到了一个方法：先把所有的标签替换保存起来，然后我们去真正的替换我们要的内容，然后在吧之前保存的内容还回去；</p>
+<p>代码实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">storeResults.addEventListener( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>)</span>&#123;<span class="comment">//在你存放结果写个事件代理</span></div><div class="line">  <span class="keyword">var</span> target = event.target;</div><div class="line"></div><div class="line">  searchValue = target.innerHTML;<span class="comment">//获取你点击的内容</span></div><div class="line"></div><div class="line">  <span class="keyword">var</span> s = str; <span class="comment">// 把你的 HTML 临时保存一下</span></div><div class="line">  <span class="keyword">var</span> regx = <span class="keyword">new</span> <span class="built_in">RegExp</span>( <span class="string">`(<span class="subst">$&#123; searchValue &#125;</span>)`</span>, <span class="string">'g'</span> ); <span class="comment">// 以获取的内容创建正则</span></div><div class="line">  <span class="keyword">var</span> placeholders = []; <span class="comment">// 临时空间，存储你替换的标签</span></div><div class="line"></div><div class="line">  s = s.replace( <span class="regexp">/&lt;.+?&gt;/g</span>, s =&gt; &#123; <span class="comment">// 临时把所有标签替换储存起来</span></div><div class="line">    placeholders.push( s );</div><div class="line">    <span class="keyword">return</span> <span class="string">`&lt;<span class="subst">$&#123; placeholders.length - 1 &#125;</span>&gt;`</span>;</div><div class="line">  &#125; );</div><div class="line"></div><div class="line">  s = s.replace( regx, <span class="string">`&lt;span style="background: red;"&gt;$1&lt;/span&gt;`</span> );<span class="comment">//匹配存储后剩下的内容</span></div><div class="line"></div><div class="line">  s = s.replace( <span class="regexp">/&lt;(\d+)&gt;/g</span>, ( s, n ) =&gt; placeholders[ <span class="built_in">Number</span>( n ) ] );<span class="comment">//匹配完了再把之前存的标签在还回去</span></div><div class="line"></div><div class="line">  <span class="built_in">document</span>.querySelector( <span class="string">'.article-entry'</span> ).innerHTML = s;<span class="comment">//把结果显出来</span></div><div class="line">&#125;, <span class="literal">false</span> );</div></pre></td></tr></table></figure>
+<p>这样就可以不破坏原来的 HTML 结构且插标签了；</p>
+<h2 id="2-利用-DOM-节点"><a href="#2-利用-DOM-节点" class="headerlink" title="2.利用 DOM 节点"></a>2.利用 DOM 节点</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">storeResults.addEventListener( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> target = event.target;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> container = <span class="built_in">document</span>.querySelector( <span class="string">'.article-entry'</span> );<span class="comment">//获得文章div</span></div><div class="line">    <span class="keyword">var</span> searchValue = target.innerHTML;</div><div class="line">    <span class="keyword">var</span> regx = <span class="keyword">new</span> <span class="built_in">RegExp</span>( <span class="string">`(<span class="subst">$&#123; searchValue &#125;</span>)`</span>, <span class="string">'g'</span> );</div><div class="line"></div><div class="line">    <span class="keyword">var</span> replace = <span class="function"><span class="keyword">function</span>(<span class="params"> el </span>)</span>&#123;</div><div class="line">      <span class="keyword">var</span> childs = el.childNodes; <span class="comment">//获得文章节点集合</span></div><div class="line"></div><div class="line">      <span class="keyword">for</span>( <span class="keyword">var</span> child <span class="keyword">of</span> childs )&#123; <span class="comment">// 循环遍历节点</span></div><div class="line">        <span class="keyword">if</span>( child.nodeType === Node.TEXT_NODE )&#123; <span class="comment">//判断是不是文字节点</span></div><div class="line">          RemoveReplace( child, child.nodeValue.replace( regx, <span class="string">`&lt;span style="background: red;"&gt;$1&lt;/span&gt;`</span> ) );<span class="comment">//是就匹配替换掉</span></div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>( child.nodeType === Node.ELEMENT_NODE )&#123; <span class="comment">//判断是不是元素节点</span></div><div class="line">          replace( child );<span class="comment">//是就递归调用</span></div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;;</div><div class="line">    container.innerHTML = str;<span class="comment">//str是一开始获取定义的 HTML 结构</span></div><div class="line"></div><div class="line">    replace( container );</div><div class="line">  &#125;, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<p>以上代码中的 RemoveReplace() 是我的一个封装函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params"> html </span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> divTemp = <span class="built_in">document</span>.createElement( <span class="string">'div'</span> );</div><div class="line">    divTemp.innerHTML = <span class="built_in">Array</span>.isArray( html ) ? html.join(<span class="string">''</span>) : html;</div><div class="line">    divTemp = divTemp.childNodes;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> divTemp;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">RemoveReplace</span>(<span class="params"> insertNode, html </span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> divTemp = change( html );</div><div class="line"></div><div class="line">  <span class="keyword">var</span> l = insertNode.nextSibling;</div><div class="line">  <span class="keyword">while</span>( divTemp.length )</div><div class="line">    insertNode.parentNode.insertBefore( divTemp[ <span class="number">0</span> ], l );</div><div class="line"></div><div class="line">  insertNode.parentNode.removeChild( insertNode );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这代码是用于删除替换节点；</p>
+<p>以上是两种文章高亮的方法，当然方法也不少，比如用<code>indexOf</code>去获取位置在匹配替换，也可以用浏览器的选中高亮方法；喜欢的朋友可以自己研究研究。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/blog/2016/11/26/文章高亮/">文章高亮</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">locozan</a></p>
+        <p><span>Created:</span>2016-11-26, 01:35:06</p>
+        <p><span>Updated:</span>2016-12-06, 03:18:33</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/blog/2016/11/26/文章高亮/" title="文章高亮">/blog/2016/11/26/文章高亮/</a>
+            <span class="copy-path" data-clipboard-text="From /blog/2016/11/26/文章高亮/　　By locozan" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/blog/2016/12/06/高仿PS选区的流水虚线框/">
+                    高仿PS选区的流水虚线框
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/blog/2016/11/24/找出文章重复字/">
+                    找出文章的重复字
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-正则匹配方法"><span class="toc-number">1.</span> <span class="toc-text">1.正则匹配方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-利用-DOM-节点"><span class="toc-number">2.</span> <span class="toc-text">2.利用 DOM 节点</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"文章高亮　| 博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/26/文章高亮/" data-title="文章高亮" data-url="/blog/2016/11/26/文章高亮/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"null"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/blog/2016/12/06/高仿PS选区的流水虚线框/" title="Pre: 高仿PS选区的流水虚线框">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/blog/2016/11/24/找出文章重复字/" title="Next: 找出文章的重复字">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/11/实现移动端的下拉刷新/">实现移动端的下拉刷新</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/06/高仿PS选区的流水虚线框/">高仿PS选区的流水虚线框</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/26/文章高亮/">文章高亮</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/24/找出文章重复字/">找出文章的重复字</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/18/html5css3响应式笔记/">纯html5css3响应式笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/09/React实现人机对话/">React实现模拟人机对话</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/">html5的离线存储和各种html5的head头标签</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/06/react-router入门学习笔记/">react-router入门学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/05/属性getter和setter/">属性的get和set</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/04/react生命周期简介/">React 生命周期简介</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/01/react-入门→虚拟DOM/">React 入门→虚拟DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/10/31/系统创建可执行的全局命令/">系统创建可执行的全局命令</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/09/22/有趣的流氓-getBoundingClientRect/">有趣的流氓:getBoundingClientRect()</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 locozan
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/blog/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(./background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

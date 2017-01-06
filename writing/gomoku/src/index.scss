@@ -1,0 +1,44 @@
+.container{
+  display: table;
+  width: 557px;
+  height: 557px;
+  padding: 20px;
+  margin: 10px auto;
+  border: 2px solid #443e3e;
+  background: url(./images/gomoku.png) round;
+  cursor: pointer;
+}
+.main{
+  display:table-cell;
+  position: relative;
+  vertical-align:middle;
+}
+
+.grid:hover{
+  background: url(./images/code.png);
+}
+
+.white{
+  width: 30px;
+  height: 30px;
+  background-color: #FFF !important;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+}
+.black{
+  width: 30px;
+  height: 30px;
+  background-color: #000 !important;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+}

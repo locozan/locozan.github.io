@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>手机页面上下拉刷新加载</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <style>
+    *{
+      padding: 0px;
+      margin: 0px;
+    }
+    body{
+      padding: 0px;
+      margin: 0px;
+    }
+    .contait{
+      position: relative;
+      float: left;
+      width: 99.5%;
+      height: 100px;
+      background-color: #FFF;
+      border: 1px solid #6465F9;
+      margin:0 auto;
+    }
+    .cont{
+      width: 99.5%;
+      height: 2500px;
+      position: relative;
+      float: left;
+    }
+    #main{
+      width: 99.5%;
+      /*height: 2500px;*/
+      position: relative;
+      margin: 0 auto;
+      background-color: rgba(220,220,200,.5);
+    }
+    .pin{
+      padding: 15px 0px 0px 15px;
+      float: left;
+    }
+    .box{
+      padding: 10px;
+      border: 1px solid #CCC;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #CCC;
+    }
+    .box img{
+      width: 145px;
+      height: auto;
+    }
+    .boxLoading:before {
+      content: '';
+      width: 50px;
+      height: 5px;
+      background: #000;
+      opacity: 0.1;
+      position: absolute;
+      border-radius: 50%;
+      animation: shadow .5s linear infinite;
+      top: 80px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      margin: auto;
+    }
+    .boxLoading:after {
+      content: '';
+      width: 50px;
+      height: 50px;
+      background: #1A6844;
+      animation: animate .5s linear infinite;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      margin: auto;
+      border-radius: 3px;
+    }
+    input{
+      width: 150px;
+      height: 60px;
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      margin: auto;
+    }
+    @keyframes animate {
+      17% {
+        border-bottom-right-radius: 3px;
+      }
+      25% {
+        transform: translateY(9px) rotate(22.5deg);
+      }
+      50% {
+        transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+        border-bottom-right-radius: 40px;
+      }
+      75% {
+        transform: translateY(9px) rotate(67.5deg);
+      }
+      100% {
+        transform: translateY(0) rotate(90deg);
+      }
+    }
+    @keyframes shadow {
+      0%,
+      100% {
+        transform: scale(1, 1);
+      }
+      50% {
+        transform: scale(1.2, 1);
+      }
+    }
+    @media (min-device-width : 320px) and (max-device-width : 667px){
+      .lista{
+        display: none;
+      }
+      body .listb{
+        display: block;
+
+      }
+    }
+    .listb{
+      display: none;
+    }
+    #btn{
+      width: 400px;
+    }
+    .lista{
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="contait lista">
+    <input id="btn" type="button" value="请在手机下打开，会有一个下拉刷新动画">
+  </div>
+  <div class="contait listb">
+    <input id="btn2
+    " type="button" value="取消/添加手机下拉刷新">
+  </div>
+  <div class="cont">
+    <div id="main">
+      <div class="pin">
+        <div class="box">
+          <img src="./images/0.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/1.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/2.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/3.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/4.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/5.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/6.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/7.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/8.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/9.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/10.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/11.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/12.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/13.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/14.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/15.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/16.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/17.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/18.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/19.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/20.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/21.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/22.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/23.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/24.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/25.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/26.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/27.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/28.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/29.jpg" alt="">
+        </div>
+      </div>
+      <div class="pin">
+        <div class="box">
+          <img src="./images/30.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  <div>
+</body>
+  <script src="./curve.js"></script>
+  <script src="./slide.js"></script>
+</html>

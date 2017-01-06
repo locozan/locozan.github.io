@@ -9,6 +9,11 @@ function () {
     pos: [42, -31],
     pillarCount: 1 //支柱数量
   };
+  const isMobile = ()=> /mobile/gi.test( navigator.userAgent );
+    touchStart = isMobile() ? 'touchstart' : 'mousedown';
+    touchMove = isMobile() ? 'touchmove' : 'mousemove';
+    touchEnd = isMobile() ? 'touchend' : 'mouseup';
+    
   var gameContainer = document.querySelector('#game-container');
   var birdModel = {
     x: 80, //鸟中心点的x坐标
@@ -112,7 +117,7 @@ function () {
     clearInterval(dropsRender);
     var num = ++index % 2 == 0 ? 0 : configs.pos[0];
     var drops = document.getElementsByClassName('bird')[0];
-    drops.style.backgroundImage = "url(http://ucren.com/static/locozan/writing/flappy-bird/images/niao.png)";
+    drops.style.backgroundImage = "url(/writing/flappy-bird/images/niao.png)";
     drops.style.backgroundPosition = num + "px " + configs.pos[1] + "px";
   };
   setInterval(dropsRender, 200);
@@ -203,7 +208,7 @@ function () {
       }
     } 
   //点击事件
-  document.addEventListener("mousedown", function (event) {
+  document.addEventListener(touchStart, function (event) {
      birdModel.targetY = birdModel.y - 60;
   }, false);
   //键盘事件

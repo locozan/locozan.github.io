@@ -1,0 +1,109 @@
+
+.planePath {
+  /*stroke: #D9DADA;*/
+  stroke-width: .1%;
+  stroke-width: .5%;
+  stroke-dasharray: 1% 2%;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.fil1 {
+  fill: #FFCE31;
+}
+
+.fil2 {
+  fill: #FFF;
+}
+
+.fil4 {
+  fill: #FFCE31;
+}
+
+.fil3 {
+  fill: #FFCE31;
+}
+#plane{
+  /*transform: scale(.9);*/
+}
+.grid{
+  border: 1px solid #2F92F5;
+}
+.grida{
+  border: 1px solid #2F92F5;
+}
+.main{
+  width: 594px;
+  height: 350px;
+  position: absolute;
+  top: -200px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  /*background: rgba( 200,200,200,.3 );*/
+}
+.main div{
+  background: #2F92F5;
+  width: 0px;
+}
+.main div:nth-child(5n+1){
+  border: 0px solid #2F92F5;
+  border-radius: 0%;
+  background: #FFF;
+  width: 0px;
+}
+.main div:nth-child(5n){
+  border: 2px solid #2F92F5;
+  border-radius: 40%;
+  background: #FFF;
+  width: 1px;
+}
+.box{
+  width: 400px;
+  height: 100px;
+  position: absolute;
+  top: 400px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  text-align: center;
+  font-family: monospace;
+}
+.box p:nth-child(1){
+  color: #2F92F5;
+}
+.box p:nth-child(2) a{
+  text-decoration: none;
+  font-size: 13px;
+  color: #2F92F5;
+  cursor: pointer;
+}
+.box p:nth-child(3){
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  border: 1px solid #FFBE1E;
+  width: 100px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: auto; 
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  margin: auto;
+  color: #FFBE1E;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.box p:nth-child(3):hover{
+  background: rgba(255,290,30,.2);
+}
+.box p:nth-child(3) a{
+  text-decoration: none;
+  color: #FFBE1E;
+  cursor: pointer;
+}
+

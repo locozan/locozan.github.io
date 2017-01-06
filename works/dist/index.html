@@ -1,36 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>历来作品</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="http://ucren.com/static/locozan/works/dist/index.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <script type="text/javascript" src="http://ucren.com/static/locozan/jquery/jquery-3.1.0.min.js"></script>
-  <script type="text/javascript" src="http://ucren.com/static/locozan/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="http://ucren.com/static/locozan/works/src/scripts/models/worksModel.js"></script>
-  <link rel="stylesheet" type="text/css" href="http://ucren.com/static/locozan/bootstrap-3.3.7/css/bootstrap.min.css">
-</head>
-<body>
-<header class="content">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 header">
-      <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-primary"><a style="color: #F5FCFF" href="http://www.uxhzz.com">首页</a></button>
-        <!-- <button type="button" class="btn btn-info">文章</button> -->
-        <button type="button" class="btn btn-success"><a style="color: #F5FCFF" href="http://www.uxhzz.com/resume/index.html">个人简历</a></button>
-        <button type="button" class="btn btn-warning"><a style="color: #F5FCFF" href="http://www.uxhzz.com/blog/">我的博客</a></button>
-      </div><!--按钮组-->
-      <div class="btn-group about-me">
-        <button class="btn default dropdown-toggle btn-warning" data-toggle="dropdown">关于我</button>
-        <ul class="dropdown-menu" role="menu">
-          <li><a href="http://www.uxhzz.com/resume/index.html">个人简历</a></li>
-          <li><a href="http://www.uxhzz.com/works/dist/index.html">作品栏</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</header>
-<div id="container"></div>
-</body>
-<script type="text/javascript" src="http://ucren.com/static/locozan/works/dist/bundle.js"></script>
-</html>
+<!DOCTYPE html> <html> <head> <title>历来作品</title> <meta charset="utf-8"> <link rel="stylesheet" type="text/css" href="./index.css"> <meta name="viewport" content="width=device-width,initial-scale=1"> <script type="text/javascript" src="/jquery/jquery-3.1.0.min.js"></script> <script type="text/javascript" src="/bootstrap-3.3.7/js/bootstrap.min.js"></script> <script type="text/javascript" src="../src/scripts/models/worksModel.js"></script> <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7/css/bootstrap.min.css"> </head> <body onload="winload()"> <div id="disp" style="width:100%;position:absolute;background:#FFF;z-index:9999;font-size:20px"> <div class="boxLoading"> <p style="width:300px;margin:85px 0 0 -90px;line-height:0">数据加载中，请耐心等待。。。。</p> </div> </div> <header class="content"> <div class="row"> <div class="col-xs-12 col-sm-12 header"> <div class="btn-group" role="group" aria-label="..."> <button type="button" class="btn btn-primary"><a style="color:#F5FCFF" href="http://www.uxhzz.com">首页</a></button> <!-- <button type="button" class="btn btn-info">文章</button> --> <button type="button" class="btn btn-success"><a style="color:#F5FCFF" href="/resume/index.html">个人简历</a></button> <button type="button" class="btn btn-warning"><a style="color:#F5FCFF" href="/blog/">我的博客</a></button> </div><!--按钮组--> <div class="btn-group about-me"> <button class="btn default dropdown-toggle btn-warning" data-toggle="dropdown">关于我</button> <ul class="dropdown-menu" role="menu"> <li><a href="/resume/index.html">个人简历</a></li> <li><a href="/works/dist/index.html">作品栏</a></li> </ul> </div> </div> </div> </header> <div class="container"></div> </body> <script type="text/javascript">var y = document.documentElement.clientHeight;
+  var disp = document.querySelector( '#disp' );
+      disp.style.height = y + 'px';
+      disp.style.lineHeight = y + 'px';</script> <script type="text/javascript">let container = document.querySelector( '.container' );
+  let encodeHTML = function(source) {
+      return String(source)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+  };
+
+  let render = function(HTML, model) {
+    HTML.innerHTML = model.map(function(item, index) {
+      let title = encodeHTML(item.title)
+      return [
+        '<div class="box" name="'+'box-'+ index +'" data-index="'+ index +'">',
+          '<ul>',
+            '<li>',
+              '<a class="link-a" href="' + item.src + '">',
+              '<img src="'+ item.img +'" width="140" height="auto">',
+              '<h3>'+ title +'</h3>',
+            '</li>',
+          '</ul>',
+        '</div>'
+      ].join('');
+    }).join('');
+  };
+
+  render( container, worksModel );</script> <script type="text/javascript" src="./bundle.js"></script> <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260929313'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260929313' type='text/javascript'%3E%3C/script%3E"));</script> </html>

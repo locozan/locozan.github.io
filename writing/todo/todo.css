@@ -8,6 +8,10 @@ body{
   height: 100%; 
   background: #81C186;
 }
+
+#cnzz_stat_icon_1260929313{
+  display: none;
+}
 #content{
   position: absolute;
   width: 460px;

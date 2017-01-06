@@ -1,0 +1,224 @@
+#container{
+  background-color: rgba(169,168,172,.5);
+}
+.displayer{
+  position: relative;
+  width: 100%;
+  height: 20%;
+  background-color: rgba(204,232,210,.5);
+  .process{
+    width: 100%;
+    height: 50%;
+    background-color: rgba(200,200,200,.3);
+    overflow: auto;
+    p{
+      letter-spacing: 3px;
+      line-height: 25px;
+      text-align: -webkit-right;
+    }
+  }
+  .result{
+    width: 100%;
+    height: 50%;
+    background-color: rgba(100,200,200,.3);
+    overflow: auto;
+    p{
+      font-weight: 900;
+      font-size: 24px;
+      line-height: 65px;
+      text-align: -webkit-right;
+    }
+  }
+}
+.gender{
+  position: relative;
+  width: 100%;
+  height: 10%;
+  background-color: #262626;;
+}
+.keyboard{
+  position: relative;
+  width: 100%;
+  height: 70%;
+  background-color: rgba(144,147,181,.5);
+  box-shadow: 0px 0px 0px 1px #000;
+  div{
+    width: 100%;
+    height: 25%;
+    position: relative;
+    float: left;
+    background-color: #262626;
+  }
+  ul{
+    width: 100%;
+    height: 100%;
+  }
+  li{
+    width: 25%;
+    height: 100%;
+    position: relative;
+    float: left;
+    font-size: 30px;
+    box-shadow: 0px 0px 0px 1px #000;
+  }
+  button:hover{
+    cursor: pointer;
+  }
+  button:active{
+    color: #434448;
+  }
+  .equal{
+    width: 50%;
+    button{
+      background-color: #CF3E00;
+    }
+  }
+}
+button{
+  width: 100%;
+  height: 100%;
+  background: rgba(88, 85, 85, 1);
+  border: none;
+  font-size: 30px;
+  color: rgba(237, 243, 239, 0.85);
+  outline:none;
+}
+.check {
+  position: absolute;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 5%;
+  margin-left: 36px;
+  input {
+    display: block;
+    margin: 36px;
+  }
+  input[type=checkbox]:after {
+    -moz-transition: all 0.25s cubic-bezier(0.75, 0.01, 0.48, 2);
+    -o-transition: all 0.25s cubic-bezier(0.75, 0.01, 0.48, 2);
+    -webkit-transition: all 0.25s cubic-bezier(0.75, 0.01, 0.48, 2);
+    transition: all 0.25s cubic-bezier(0.75, 0.01, 0.48, 2);
+    width: 80%;
+    height: 80%;
+    margin-top: 10%;
+    margin-left: 10%;
+    background-color: #15202a;
+    border-radius: 30px;
+    -moz-transform: translate(60%, 0);
+    -ms-transform: translate(60%, 0);
+    -webkit-transform: translate(60%, 0);
+    transform: translate(60%, 0);
+  }
+  input[type=checkbox]:before {
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    width: 200%;
+    background-color: #2c3f52;
+    box-shadow: 0 0 0 1px #2c3f52;
+    -moz-transform: translate(-25%, 0);
+    -ms-transform: translate(-25%, 0);
+    -webkit-transform: translate(-25%, 0);
+    transform: translate(-25%, 0);
+    border-radius: 30px;
+    height: 100%;
+  }
+  input[type=checkbox]:checked:before {
+    background-color: #85ff7a;
+    box-shadow: 0 0 0 1px #85ff7a;
+  }
+  input[type=checkbox]:checked:after {
+    -moz-transform: translate(-60%, 0);
+    -ms-transform: translate(-60%, 0);
+    -webkit-transform: translate(-60%, 0);
+    transform: translate(-60%, 0);
+  }
+  input[type=checkbox] {
+    position: relative;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+  input[type=checkbox]:before, input[type=checkbox]:after {
+    content: "";
+    position: absolute;
+  }
+}
+.check:before{
+  content: "女";
+  position: absolute;
+  top: 46px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  color: #E59F2A;
+  font-weight: 900;
+}
+.check:after{
+  content: "男";
+  position: absolute;
+  top: 46px;
+  left: auto;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  color: #E59F2A;
+  font-weight: 900;
+}
+.message{
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  margin: auto;
+  line-height: 22px;
+  font-weight: 500;
+}
+.cpm{
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  margin: auto;
+  background-color: rgba(255,255,255,.9);
+  text-align: center;
+  border-radius: 10%;
+  overflow: hidden;
+}
+.cpm-ul{
+  text-indent: 30px;
+  text-align: -webkit-left;
+}
+.cpm-ul li{
+  text-indent: 32px;
+  text-align: -webkit-left;
+  width: 80%;
+  margin: auto;
+}
+.shut{
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: auto;
+  margin: auto;
+  background-color: rgba(131,224,162,.5);
+  cursor: pointer;
+  text-align: center;
+  line-height: 50px;
+}
+

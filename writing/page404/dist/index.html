@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+<body onload="func()">
+<div class="main"></div>
+<div class="box">
+  <p>uh~oh！  出错了</p>
+  <p>很抱歉当前页面找不到，你可以  <a href="/works/dist/index.html">返回方才页面</a></p>
+  <p><a href="/">回到首页</a></p>
+</div>
+<script src="./bundle.js"></script> 
+<svg viewBox="0 -100 1217 735" version="1.1" >
+
+  <path id="planePath" class="planePath" d="M0,242.768137 C166.346476,133.295931 231.23855,116.049308 285.960972,102.456631 C335.961768,90.0332164 402.669853,93.8333197 424.461967,160.481285 C431.847073,183.281905 431.604938,210.321101 421.435285,231.513985 C411.386699,252.853027 390.926324,267.176493 370.708084,264.545652 C350.489845,262.060969 333.540422,239.406507 332.450816,214.851994 C331.361211,190.151322 345.162883,169.689228 362.959777,157.265813 C406.907208,126.572671 458.602947,145.280872 494.196734,184.158852 C515.867782,207.836418 577.612107,244.814347 600.978096,266.00723 C633.303067,295.384952 755.944245,337.03993 819.020311,333.824458 C874.105934,331.04746 931.128634,297.577319 963.574671,268.784229 C1081.73636,163.550599 1104.73915,146.888608 1216,0"/>
+   <g id="plane" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M14.7971643,11.5899742 L10.6525217,5.0981692 L2.66021465,13.9745255 L14.7971643,11.5899742 Z M10.1812563,-3.8551348 L43.8609693,-1.2821632 L13.3727272,3.0016498 L25.5869051,23.0909517 L43.9064704,11.1900355 L63.5842381,-1.265069 L41.738577,-8.0913219 L-1.25243126,-21.11798999 L10.1812563,-3.8551348 Z" id="Shape" fill="#FFCE31"></path>
+    </g>
+  <!-- Define the motion path animation -->
+    <animateMotion 
+                   xlink:href="#plane"
+                   dur="5s" 
+                   repeatCount="1" 
+                   rotate="auto">
+      <mpath xlink:href="#planePath" />
+    </animateMotion 
+</svg>
+</body>
+<script> 
+  window.onload= function func(){
+    setTimeout( function(){
+      document.querySelector( '#plane' ).style.display = 'none';
+    }, 5000 );
+  }; 
+</script>
+</html>

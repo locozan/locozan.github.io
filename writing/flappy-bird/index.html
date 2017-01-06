@@ -3,7 +3,10 @@
 <head>
   <title>飞行鸟</title>
   <meta charset="utf-8">
-  <script type="text/javascript" src="http://ucren.com/static/locozan/nav-bar/nav-bar.min.js"></script>
+  <script type="text/javascript" src="/nav-bar/nav-bar.min.js"></script>
+  <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
+  <link rel="apple-touch-icon-precomposed" href="images/contacts.png">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
   <style>
     *{
       margin: 0;
@@ -15,16 +18,19 @@
       border: 10px solid #575559;
       position: relative;
       margin: 0 auto;
-      background: url(http://ucren.com/static/locozan/writing/flappy-bird/images/anim-001.png) round;
+      background: url(/writing/flappy-bird/images/anim-001.png) round;
       overflow: hidden;
       margin-top: 40px;
     }
 
+    #cnzz_stat_icon_1260929313{
+      display: none;
+    }
     .bird{
       border-radius: 50%;
       position: absolute;
       /*border: 1px solid #17A81E;*/
-      background-image: url(http://ucren.com/static/locozan/writing/flappy-bird/images/niao.png);
+      background-image: url(/writing/flappy-bird/images/niao.png);
       background-position: 0px 0px;
     }
 
@@ -36,7 +42,7 @@
     .pillar .part1, .pillar .part2{
       position: absolute;
       width: 100%;
-      background-image: url(http://ucren.com/static/locozan/writing/flappy-bird/images/pillar-001.png);
+      background-image: url(/writing/flappy-bird/images/pillar-001.png);
 
     }
 
@@ -52,6 +58,7 @@
 </head>
 <body>
 <div id="game-container"></div>
-<script src="http://ucren.com/static/locozan/writing/flappy-bird/bird.js"></script>
+<script src="/writing/flappy-bird/bird.js"></script>
 </body>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260929313'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260929313' type='text/javascript'%3E%3C/script%3E"));</script>
 </html>
