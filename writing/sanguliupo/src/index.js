@@ -18,6 +18,7 @@
   let decide = true;
   let update = true;
   let gender = true;
+  let relfresh = false;
 
 
   // console.log( screenWidth, screenHeight );
@@ -37,6 +38,20 @@
 
   keyboard.addEventListener(touchStart, function( event ){
     let target = event.target;
+        if( relfresh === true ){
+          relation = '';
+          targetName = '';
+          resultP2.innerHTML = '我';
+          processP1.innerHTML = '';
+          processP1Show = '';
+          space = '';
+          record = [];
+          recordrResult = [];
+          decide = true;
+          document.querySelector( '.process-p1' ).innerHTML = '';
+          document.querySelector( '.result-p2' ).innerHTML = '';
+          relfresh = false;
+        }
         if( target.className === 'fuqin' || 
           target.className === 'muqin' || 
           target.className === 'gege' || 
@@ -64,13 +79,14 @@
           decide = true;
         }
         if( target.className === 'de' ){
+          relfresh = false;
           if( targetName === '' ){
             processP1.innerHTML = models['wo'] + models['de'];
             processP1Show = models['wo'] + models['de'];
             space = 'wo' + 'de';
           }else{
             if( processP1.innerHTML.slice(0,-1) === '' ){
-              processP1.innerHTML += models[processP1Show] + models['de'];
+              processP1.innerHTML = models[processP1Show] + models['de'];
               space += processP1Show + 'de';
               // console.log( space );
             }else{
@@ -82,17 +98,27 @@
           }
         }
         if( target.className === '=' && decide === true ){
+          relfresh = true;
           if( space !== '' ){
             if( models[space.slice(0,-2)] === undefined ){
               document.querySelector( '.result-p2' ).innerHTML = '暂无这一代讯息，你可以按【AC】还原';
             }else{
-              document.querySelector( '.process-p1' ).innerHTML = processP1.innerHTML.slice(0,-1) + '=';
-              document.querySelector( '.result-p2' ).innerHTML = models[space.slice(0,-2)];
+              if( relation !== '' ){
+                document.querySelector( '.process-p1' ).innerHTML = processP1.innerHTML + models[relation] + '=';
+                document.querySelector( '.result-p2' ).innerHTML = models[space + relation];
+                relation = '';
+              }else{
+                document.querySelector( '.process-p1' ).innerHTML = processP1.innerHTML.slice(0,-1) + '=';
+                document.querySelector( '.result-p2' ).innerHTML = models[space.slice(0,-2)]; 
+              }
             }
               record.push(document.querySelector( '.process-p1' ).innerHTML); 
               recordrResult.push( document.querySelector( '.result-p2' ).innerHTML )
               decide = false;
-          } 
+          }
+          if( document.querySelector( '.result-p2' ).innerHTML === 'undefined' ){
+            document.querySelector( '.result-p2' ).innerHTML = '暂无这一代讯息，你可以按【AC】还原';
+          }
 
         }
         if( target.className !== '=' ){

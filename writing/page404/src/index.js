@@ -125,9 +125,9 @@ void function( Bounce ){
   gridArr = Array.prototype.slice.call(grid);
   // 区域随机数
   function RandomNumBoth(Min,Max){
-    var Range = Max - Min;
-    var Rand = Math.random();
-    var num = Min + Math.round(Rand * Range); //四舍五入
+    let Range = Max - Min;
+    let Rand = Math.random();
+    let num = Min + Math.round(Rand * Range); //四舍五入
     return num;
   } 
   
@@ -145,20 +145,18 @@ void function( Bounce ){
     if( !gridArr.length )
       clearInterval(run);
 
-    let random = randomNum( gridArr, 100 )
+    let random = randomNum( gridArr, 30 )
 
     for( let i = 0; i < random.length; i ++ ){
       if( random[i] !== undefined ){
-        let a = Math.random() * 20;
+        let a = Math.random() * 40;
         timeline( function( r ){
-          // console.log( random[i].dataset.dex );
           random[i].style.top = Bounce( r, figure[random[i].dataset.dex], 350 + a - figure[random[i].dataset.dex], 1 ) + 'px';
-          // random[i].style.webkitTransform = `translate(${220}px,${220}px);`
           random[i].style.transform = `rotate( ${ RandomNumBoth(45,550) }deg )`;
             
         }, 2000 );
         setTimeout( function(){
-          random[i].style.left = RandomNumBoth(40,550) + RandomNumBoth(-50,50) + 'px';
+          random[i].style.left = RandomNumBoth(40,550) + RandomNumBoth(-20,20) + 'px';
         }, 1000 );
       }
     }

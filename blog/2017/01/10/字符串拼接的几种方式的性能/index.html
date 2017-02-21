@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="react的生命周期今天来聊聊react的一些常用的API。">
+<meta name="description" content="字符串拼接是所有程序设计语言都需要的操作。当拼接结果较长时，如何选择正确的拼接方式来保证效率。这里做了个小实验。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React 生命周期简介">
-<meta property="og:url" content="http://www.uxhzz.com/2016/11/04/react生命周期简介/index.html">
+<meta property="og:title" content="字符串拼接的几种方式的性能">
+<meta property="og:url" content="http://www.uxhzz.com/2017/01/10/字符串拼接的几种方式的性能/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="react的生命周期今天来聊聊react的一些常用的API。">
-<meta property="og:updated_time" content="2016-12-17T02:32:22.000Z">
+<meta property="og:description" content="字符串拼接是所有程序设计语言都需要的操作。当拼接结果较长时，如何选择正确的拼接方式来保证效率。这里做了个小实验。">
+<meta property="og:updated_time" content="2017-01-10T08:37:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React 生命周期简介">
-<meta name="twitter:description" content="react的生命周期今天来聊聊react的一些常用的API。">
+<meta name="twitter:title" content="字符串拼接的几种方式的性能">
+<meta name="twitter:description" content="字符串拼接是所有程序设计语言都需要的操作。当拼接结果较长时，如何选择正确的拼接方式来保证效率。这里做了个小实验。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>React 生命周期简介 | 博客</title>
+<title>字符串拼接的几种方式的性能 | 博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -269,11 +269,11 @@
     </div>
     <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
-      <div class="body-wrap"><article id="post-react生命周期简介" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-字符串拼接的几种方式的性能" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/blog/2016/11/04/react生命周期简介/" class="article-date">
-      <time datetime="2016-11-04T01:35:06.000Z" itemprop="datePublished">2016-11-04</time>
+      <a href="/blog/2017/01/10/字符串拼接的几种方式的性能/" class="article-date">
+      <time datetime="2017-01-09T16:35:06.000Z" itemprop="datePublished">2017-01-10</time>
 </a>
 
 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      React 生命周期简介
+      字符串拼接的几种方式的性能
     </h1>
   
 
@@ -303,22 +303,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="react的生命周期"><a href="#react的生命周期" class="headerlink" title="react的生命周期"></a>react的生命周期</h1><p>今天来聊聊react的一些常用的API。<br><a id="more"></a><br>this.props: 想数组传递参数;<br>this.state: 读取用户点击组件导致状态变化;<br>this.setState: 修改状态值,每次修改后自动调用this.render方法;<br>getInitialState: 定义初始状态,也就是状态;可以通过this.state属性读取;<br>所以:<br>设置状态: setState<br>替换状态: replaceState<br>设置属性: setProps<br>替换属性: replaceProps<br>强制更新: forceUpdate<br>获取DOM节点: findDOMNode<br>判断组件挂载状态: isMounted</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">挂载:componentWillMount();</div></pre></td></tr></table></figure>
-<p>在渲染前调用，在客户端也在服务端；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">更新:componentDidMount();</div></pre></td></tr></table></figure>
-<p>在第一次渲染后调用；只在客户端，之后组件已经生成了对应的DOM结构；可以通过this.getDOMNode()来进行访问，如果想和其他javaScript框架一起使用，可以在这个框架中调用setTimeout(),setInterval或者发送AJAX请求等操作（防止局部操作阻塞UI）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">更新:componentWillReceiveProps( newProps );</div></pre></td></tr></table></figure>
-<p>在数组接收到一个新的prop时被调用。这个方法在初始化render时不会被调用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">更新:shouldComponentUpdate( newProps, newState );</div></pre></td></tr></table></figure>
-<p>返回一个布尔值，在组件接收到的新props或者state是被调用，在初始化时或者使用forceUpdate时不被调用，可以在你确定不需要更新组件是使用;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">更新:componentWillUpdate();</div></pre></td></tr></table></figure>
-<p>在组件接收到新的props或者state但还没render时被调用，在初始化时不被调用;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">更新:componentDidUpdate();</div></pre></td></tr></table></figure>
-<p>在组件完成更新后，立即调用，在初始化时不被调用;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">移除: componentWillUnmount();</div></pre></td></tr></table></figure>
-<p>在组件从DOM中移除的时候立刻调用;</p>
-<p><strong>而组件的生命周期一半可以分为三个状态</strong><br>Mounting: 已插入真实DOM<br>Updating: 正在被重新渲染<br>Unmounting: 已移除真实DOM</p>
+        <p>字符串拼接是所有程序设计语言都需要的操作。当拼接结果较长时，如何选择正确的拼接方式来保证效率。这里做了个小实验。</p>
+<a id="more"></a>
+<p>从最开始的小白自己摸索，到踏入前端这行开始工作，也有不短的一段时间了，刚开始写 js 代码量比较少基本感觉不到其实 js 在执行时也是有 <strong>时间</strong> 的。而良好的设计编写你的语言代码将会使你代码运行起来显得更快！而怎样去体验这个快慢呢？这里列举几种字符串拼接。因为大量的字符串拼接是一个很消耗一个性能的过程。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="string">'aaa'</span>+<span class="string">'bbb'</span>+<span class="string">'ccc'</span>+<span class="string">'ddd'</span></div><div class="line"><span class="comment">//"aaabbbcccddd"</span></div><div class="line"></div><div class="line">[<span class="string">'aaa'</span>,<span class="string">'bbb'</span>,<span class="string">'ccc'</span>,<span class="string">'ddd'</span>].join(<span class="string">''</span>)</div><div class="line"><span class="comment">//"aaabbbcccddd"</span></div><div class="line"></div><div class="line"><span class="string">'aaa'</span>.concat(<span class="string">'bbb'</span>,<span class="string">'ccc'</span>,<span class="string">'ddd'</span>)</div><div class="line"><span class="comment">//"aaabbbcccddd"</span></div><div class="line"></div><div class="line"><span class="string">`<span class="subst">$&#123;'aaa'&#125;</span><span class="subst">$&#123;'bbb'&#125;</span><span class="subst">$&#123;'ccc'&#125;</span><span class="subst">$&#123;'ddd'&#125;</span>`</span></div><div class="line"><span class="comment">//"aaabbbcccddd"</span></div></pre></td></tr></table></figure>
+<p>上面的四种拼接方式结果都是一样的，但是 1 次的拼接我们无法感觉快慢，但是当 1000000000 次的拼接上面的代码你就会发现他们拼接的时间长短；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.time( <span class="string">'time'</span> )</div><div class="line"><span class="keyword">for</span>( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000000</span>; i++)&#123;</div><div class="line">	<span class="string">'aaa'</span> + <span class="string">'bbb'</span> + <span class="string">'ccc'</span> + <span class="string">'ddd'</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.timeEnd( <span class="string">'time'</span> )</div><div class="line"></div><div class="line"><span class="comment">//VM182:5 time: 1898.140ms</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.time( <span class="string">'time'</span> )</div><div class="line"><span class="keyword">for</span>( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000000</span>; i++)&#123;</div><div class="line">	<span class="string">`<span class="subst">$&#123;'aaa'&#125;</span><span class="subst">$&#123;'bbb'&#125;</span><span class="subst">$&#123;'ccc'&#125;</span><span class="subst">$&#123;'ddd'&#125;</span>`</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.timeEnd( <span class="string">'time'</span> )</div><div class="line"></div><div class="line"><span class="comment">//VM1305:5 time: 1943.945ms</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.time( <span class="string">'time'</span> )</div><div class="line"><span class="keyword">for</span>( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000000</span>; i++)&#123;</div><div class="line">	<span class="string">'aaa'</span>.concat( <span class="string">'bbb'</span> + <span class="string">'ccc'</span> + <span class="string">'ddd'</span>)</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.timeEnd( <span class="string">'time'</span> )</div><div class="line"></div><div class="line"><span class="comment">//VM71:5 time: 32235.306ms</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.time( <span class="string">'time'</span> )</div><div class="line"><span class="keyword">for</span>( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000000</span>; i++)&#123;</div><div class="line">	[<span class="string">'aaa'</span>,<span class="string">'bbb'</span>,<span class="string">'ccc'</span>,<span class="string">'ddd'</span>].join(<span class="string">''</span>)</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.timeEnd( <span class="string">'time'</span> )</div><div class="line"></div><div class="line"><span class="comment">//VM462:5 time: 213552.667ms</span></div></pre></td></tr></table></figure>
+<p>测试结果：<br>当在以 1000000000 次为基数的情况下，字符模板的拼接速度跟比 ‘+’ 号的拼接速度差一点，而用 concat() 跟 join() 就会很耗性能； </p>
 
       
     </div>
@@ -327,13 +321,13 @@
   
     
     <div class="copyright">
-        <p><span>本文標題:</span><a href="/blog/2016/11/04/react生命周期简介/">React 生命周期简介</a></p>
+        <p><span>本文標題:</span><a href="/blog/2017/01/10/字符串拼接的几种方式的性能/">字符串拼接的几种方式的性能</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主頁">locozan</a></p>
-        <p><span>發布時間:</span>2016-11-04, 09:35:06</p>
-        <p><span>最後更新:</span>2016-12-17, 10:32:22</p>
+        <p><span>發布時間:</span>2017-01-10, 00:35:06</p>
+        <p><span>最後更新:</span>2017-01-10, 16:37:50</p>
         <p>
-            <span>原始鏈接:</span><a class="post-url" href="/blog/2016/11/04/react生命周期简介/" title="React 生命周期简介">http://www.uxhzz.com/blog/2016/11/04/react生命周期简介/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://www.uxhzz.com/blog/2016/11/04/react生命周期简介/　　作者: locozan" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
+            <span>原始鏈接:</span><a class="post-url" href="/blog/2017/01/10/字符串拼接的几种方式的性能/" title="字符串拼接的几种方式的性能">http://www.uxhzz.com/blog/2017/01/10/字符串拼接的几种方式的性能/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.uxhzz.com/blog/2017/01/10/字符串拼接的几种方式的性能/　　作者: locozan" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +339,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/blog/2016/11/05/属性getter和setter/">
-                    属性的get和set
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/blog/2016/11/01/react-入门→虚拟DOM/">
-                    React 入门→虚拟DOM
+                <a href="/blog/2017/01/07/强大的reduce/">
+                    以 reduce 计算的平均数、最大最小数!
                 </a>
             </div>
         
@@ -366,7 +354,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目錄</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#react的生命周期"><span class="toc-number">1.</span> <span class="toc-text">react的生命周期</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -402,7 +390,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"React 生命周期简介　| 博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"字符串拼接的几种方式的性能　| 博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -418,7 +406,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/04/react生命周期简介/" data-title="React 生命周期简介" data-url="http://www.uxhzz.com/blog/2016/11/04/react生命周期简介/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/01/10/字符串拼接的几种方式的性能/" data-title="字符串拼接的几种方式的性能" data-url="http://www.uxhzz.com/blog/2017/01/10/字符串拼接的几种方式的性能/"></div>
     <script>
         var duoshuoQuery = {short_name:"null"};
         var loadComment = function(){
@@ -441,15 +429,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/blog/2016/11/05/属性getter和setter/" title="上一篇: 属性的get和set">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主頁"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/blog/2016/11/01/react-入门→虚拟DOM/" title="下一篇: React 入门→虚拟DOM">
+            <a href="/blog/2017/01/07/强大的reduce/" title="下一篇: 以 reduce 计算的平均数、最大最小数!">
                 <i class="fa fa-angle-right"></i>
             </a>
         

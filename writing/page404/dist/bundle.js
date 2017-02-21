@@ -172,16 +172,14 @@
 	  var run = setInterval(function () {
 	    if (!gridArr.length) clearInterval(run);
 
-	    var random = randomNum(gridArr, 100);
+	    var random = randomNum(gridArr, 50);
 
 	    var _loop = function _loop(_i3) {
 	      if (random[_i3] !== undefined) {
 	        (function () {
-	          var a = Math.random() * 20;
+	          var a = Math.random() * 40;
 	          timeline(function (r) {
-	            // console.log( random[i].dataset.dex );
 	            random[_i3].style.top = Bounce(r, figure[random[_i3].dataset.dex], 350 + a - figure[random[_i3].dataset.dex], 1) + 'px';
-	            // random[i].style.webkitTransform = `translate(${220}px,${220}px);`
 	            random[_i3].style.transform = 'rotate( ' + RandomNumBoth(45, 550) + 'deg )';
 	          }, 2000);
 	          setTimeout(function () {

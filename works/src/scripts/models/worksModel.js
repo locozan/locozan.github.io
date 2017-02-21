@@ -1,10 +1,5 @@
 var worksModel = [
 {
-  'title': 'sanguliupo',
-  'img': './images/sanguliupo.png',
-  'src': '/writing/sanguliupo/dist/index.html'
-},
-{
   'title': 'gomoku',
   'img': './images/gomoku.png',
   'src': '/writing/gomoku/dist/index.html'
@@ -68,6 +63,11 @@ var worksModel = [
   'title': 'knob',
   'img': './images/knob.png',
   'src': '/writing/knob/index.html'
+},
+{
+  'title': 'sanguliupo',
+  'img': './images/sanguliupo.png',
+  'src': '/writing/sanguliupo/dist/index.html'
 },
 {
   'title': 'dropDowncurve',

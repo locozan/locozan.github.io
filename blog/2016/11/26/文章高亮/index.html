@@ -18,7 +18,7 @@
 <meta name="description" content="前两天兴兴的写了个 文章的重复字 功能，然后觉得挺有意思的就在继续的加深下去，在找出了文章的重复字后，点击任意的重复字使其在文章进行 高亮 出来。但是简单的高亮还不行；会破坏 HTML 的结构；想不破会就得做一些处理；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文章高亮">
-<meta property="og:url" content="/2016/11/26/文章高亮/index.html">
+<meta property="og:url" content="http://www.uxhzz.com/2016/11/26/文章高亮/index.html">
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="前两天兴兴的写了个 文章的重复字 功能，然后觉得挺有意思的就在继续的加深下去，在找出了文章的重复字后，点击任意的重复字使其在文章进行 高亮 出来。但是简单的高亮还不行；会破坏 HTML 的结构；想不破会就得做一些处理；">
 <meta property="og:updated_time" content="2016-12-05T19:18:33.000Z">
@@ -141,13 +141,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜單</li>
+                        <li>標籤</li>
                         
-                        <li>Friends</li>
+                        <li>友情鏈接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>關於我</li>
                         
                     </ul>
                 </div>
@@ -267,7 +267,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
       <div class="body-wrap"><article id="post-文章高亮" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -303,11 +303,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>前两天兴兴的写了个 <a href="/blog/2016/11/24/%E6%89%BE%E5%87%BA%E6%96%87%E7%AB%A0%E9%87%8D%E5%A4%8D%E5%AD%97/">文章的重复字</a> 功能，然后觉得挺有意思的就在继续的加深下去，在找出了文章的重复字后，点击任意的重复字使其在文章进行 <strong>高亮</strong> 出来。但是简单的高亮还不行；会破坏 HTML 的结构；想不破会就得做一些处理；</p>
+        <p>前两天兴兴的写了个 <a href="http://www.uxhzz.com/blog/2016/11/24/%E6%89%BE%E5%87%BA%E6%96%87%E7%AB%A0%E9%87%8D%E5%A4%8D%E5%AD%97/">文章的重复字</a> 功能，然后觉得挺有意思的就在继续的加深下去，在找出了文章的重复字后，点击任意的重复字使其在文章进行 <strong>高亮</strong> 出来。但是简单的高亮还不行；会破坏 HTML 的结构；想不破会就得做一些处理；</p>
 <a id="more"></a>
 <h2 id="1-正则匹配方法"><a href="#1-正则匹配方法" class="headerlink" title="1.正则匹配方法"></a>1.正则匹配方法</h2><p>实现高亮这一效果其实方法很多；这里我们使用的方法是 <strong> 正则匹配替换 </strong>， 但是在以正则匹配成功后点击高亮时，你会发现当匹配到标题里的重复字时，文章的 HTML 结构会坏掉；</p>
 <p>为什么会破坏结构呢？  这里我们在控制台做个小实例：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> title = <span class="string">'&lt;h2 id="用-rem-单位代替-px"&gt;&lt;a href="#用-rem-单位代替-px" class="headerlink" title="用 rem 单位代替 px"&gt;&lt;/a&gt;用 rem 单位代替 px&lt;/h2&gt;'</span></div><div class="line"></div><div class="line"><span class="comment">//以上是我自己博客里的一篇 [纯html5css3响应式笔记](/blog/2016/11/18/html5css3%E5%93%8D%E5%BA%94%E5%BC%8F%E7%AC%94%E8%AE%B0/) 里的一个小标题的标签结构；然后我们声明一个正则：</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> regx = <span class="keyword">new</span> <span class="built_in">RegExp</span>( <span class="string">`(<span class="subst">$&#123; '单位代替' &#125;</span>)`</span>, <span class="string">'g'</span> );</div><div class="line"></div><div class="line"><span class="comment">//当我们以正则替换： </span></div><div class="line"></div><div class="line">a.replace( regx, <span class="string">`&lt;span style="background: red;"&gt;单位代替&lt;/span&gt;`</span> )</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> title = <span class="string">'&lt;h2 id="用-rem-单位代替-px"&gt;&lt;a href="#用-rem-单位代替-px" class="headerlink" title="用 rem 单位代替 px"&gt;&lt;/a&gt;用 rem 单位代替 px&lt;/h2&gt;'</span></div><div class="line"></div><div class="line"><span class="comment">//以上是我自己博客里的一篇 [纯html5css3响应式笔记](http://www.uxhzz.com/blog/2016/11/18/html5css3%E5%93%8D%E5%BA%94%E5%BC%8F%E7%AC%94%E8%AE%B0/) 里的一个小标题的标签结构；然后我们声明一个正则：</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> regx = <span class="keyword">new</span> <span class="built_in">RegExp</span>( <span class="string">`(<span class="subst">$&#123; '单位代替' &#125;</span>)`</span>, <span class="string">'g'</span> );</div><div class="line"></div><div class="line"><span class="comment">//当我们以正则替换： </span></div><div class="line"></div><div class="line">a.replace( regx, <span class="string">`&lt;span style="background: red;"&gt;单位代替&lt;/span&gt;`</span> )</div></pre></td></tr></table></figure>
 <p>这时你就会发现匹配后返回的结果会把 HTML 结构里所有出现 <strong>单位代替</strong> 这个单词替换成我们高亮内容；这样就破坏了这段代码；而正常我们要过滤标签的属性值，只要匹配标签里的内容；<br>怎么处理这个呢？这里想到了一个方法：先把所有的标签替换保存起来，然后我们去真正的替换我们要的内容，然后在吧之前保存的内容还回去；</p>
 <p>代码实现：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">storeResults.addEventListener( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>)</span>&#123;<span class="comment">//在你存放结果写个事件代理</span></div><div class="line">  <span class="keyword">var</span> target = event.target;</div><div class="line"></div><div class="line">  searchValue = target.innerHTML;<span class="comment">//获取你点击的内容</span></div><div class="line"></div><div class="line">  <span class="keyword">var</span> s = str; <span class="comment">// 把你的 HTML 临时保存一下</span></div><div class="line">  <span class="keyword">var</span> regx = <span class="keyword">new</span> <span class="built_in">RegExp</span>( <span class="string">`(<span class="subst">$&#123; searchValue &#125;</span>)`</span>, <span class="string">'g'</span> ); <span class="comment">// 以获取的内容创建正则</span></div><div class="line">  <span class="keyword">var</span> placeholders = []; <span class="comment">// 临时空间，存储你替换的标签</span></div><div class="line"></div><div class="line">  s = s.replace( <span class="regexp">/&lt;.+?&gt;/g</span>, s =&gt; &#123; <span class="comment">// 临时把所有标签替换储存起来</span></div><div class="line">    placeholders.push( s );</div><div class="line">    <span class="keyword">return</span> <span class="string">`&lt;<span class="subst">$&#123; placeholders.length - 1 &#125;</span>&gt;`</span>;</div><div class="line">  &#125; );</div><div class="line"></div><div class="line">  s = s.replace( regx, <span class="string">`&lt;span style="background: red;"&gt;$1&lt;/span&gt;`</span> );<span class="comment">//匹配存储后剩下的内容</span></div><div class="line"></div><div class="line">  s = s.replace( <span class="regexp">/&lt;(\d+)&gt;/g</span>, ( s, n ) =&gt; placeholders[ <span class="built_in">Number</span>( n ) ] );<span class="comment">//匹配完了再把之前存的标签在还回去</span></div><div class="line"></div><div class="line">  <span class="built_in">document</span>.querySelector( <span class="string">'.article-entry'</span> ).innerHTML = s;<span class="comment">//把结果显出来</span></div><div class="line">&#125;, <span class="literal">false</span> );</div></pre></td></tr></table></figure>
@@ -325,17 +325,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/blog/2016/11/26/文章高亮/">文章高亮</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">locozan</a></p>
-        <p><span>Created:</span>2016-11-26, 01:35:06</p>
-        <p><span>Updated:</span>2016-12-06, 03:18:33</p>
+        <p><span>本文標題:</span><a href="/blog/2016/11/26/文章高亮/">文章高亮</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主頁">locozan</a></p>
+        <p><span>發布時間:</span>2016-11-26, 01:35:06</p>
+        <p><span>最後更新:</span>2016-12-06, 03:18:33</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/blog/2016/11/26/文章高亮/" title="文章高亮">/blog/2016/11/26/文章高亮/</a>
-            <span class="copy-path" data-clipboard-text="From /blog/2016/11/26/文章高亮/　　By locozan" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始鏈接:</span><a class="post-url" href="/blog/2016/11/26/文章高亮/" title="文章高亮">http://www.uxhzz.com/blog/2016/11/26/文章高亮/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.uxhzz.com/blog/2016/11/26/文章高亮/　　作者: locozan" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
         </p>
     </div>
 
@@ -362,7 +362,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">文章目錄</strong>
         
             <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-正则匹配方法"><span class="toc-number">1.</span> <span class="toc-text">1.正则匹配方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-利用-DOM-节点"><span class="toc-number">2.</span> <span class="toc-text">2.利用 DOM 节点</span></a></li></ol>
         
@@ -378,10 +378,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
 
     <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
     </script>
 
 
@@ -416,7 +416,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/26/文章高亮/" data-title="文章高亮" data-url="/blog/2016/11/26/文章高亮/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/26/文章高亮/" data-title="文章高亮" data-url="http://www.uxhzz.com/blog/2016/11/26/文章高亮/"></div>
     <script>
         var duoshuoQuery = {short_name:"null"};
         var loadComment = function(){
@@ -439,21 +439,21 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/blog/2016/12/06/高仿PS选区的流水虚线框/" title="Pre: 高仿PS选区的流水虚线框">
+            <a href="/blog/2016/12/06/高仿PS选区的流水虚线框/" title="上一篇: 高仿PS选区的流水虚线框">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/blog/2016/11/24/找出文章重复字/" title="Next: 找出文章的重复字">
+            <a href="/blog/2016/11/24/找出文章重复字/" title="下一篇: 找出文章的重复字">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/11/实现移动端的下拉刷新/">实现移动端的下拉刷新</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/06/高仿PS选区的流水虚线框/">高仿PS选区的流水虚线框</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/26/文章高亮/">文章高亮</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/24/找出文章重复字/">找出文章的重复字</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/18/html5css3响应式笔记/">纯html5css3响应式笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/09/React实现人机对话/">React实现模拟人机对话</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/">html5的离线存储和各种html5的head头标签</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/06/react-router入门学习笔记/">react-router入门学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/05/属性getter和setter/">属性的get和set</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/04/react生命周期简介/">React 生命周期简介</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/01/react-入门→虚拟DOM/">React 入门→虚拟DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/10/31/系统创建可执行的全局命令/">系统创建可执行的全局命令</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/09/22/有趣的流氓-getBoundingClientRect/">有趣的流氓:getBoundingClientRect()</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2017/01/10/字符串拼接的几种方式的性能/">字符串拼接的几种方式的性能</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2017/01/07/强大的reduce/">以 reduce 计算的平均数、最大最小数!</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/11/实现移动端的下拉刷新/">实现移动端的下拉刷新</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/06/高仿PS选区的流水虚线框/">高仿PS选区的流水虚线框</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/26/文章高亮/">文章高亮</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/24/找出文章重复字/">找出文章的重复字</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/18/html5css3响应式笔记/">纯html5css3响应式笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/09/React实现人机对话/">React实现模拟人机对话</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/">html5的离线存储和各种html5的head头标签</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/06/react-router入门学习笔记/">react-router入门学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/05/属性getter和setter/">属性的get和set</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/04/react生命周期简介/">React 生命周期简介</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/01/react-入门→虚拟DOM/">React 入门→虚拟DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/10/31/系统创建可执行的全局命令/">系统创建可执行的全局命令</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/09/22/有趣的流氓-getBoundingClientRect/">有趣的流氓:getBoundingClientRect()</a></li></ul>
 
 
 
@@ -467,17 +467,17 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016 locozan
+                2016-2017 locozan
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、簡潔且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄博客主題  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到訪數"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -486,7 +486,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本頁閱讀量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -519,9 +519,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看評論"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
