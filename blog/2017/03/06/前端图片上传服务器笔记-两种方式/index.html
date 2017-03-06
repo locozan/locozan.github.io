@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="locozan" />
+
+
+
+<meta name="description" content="前端开发中，经常要提交一些用户信息，而表单形式上传文件是最简单的，上传时经常也要把图片传给后台，在平时工作中采取的方案一般有两种：1：把图片转为 base64 数据，然后后台保存 base64，之后前端读取的时候再解析 base642：把图片当文件上传，存储于后台的静态目录这里主要也是介绍下平时自己使用的这两种方案的实现方式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端上传图片到服务器的两种方式">
+<meta property="og:url" content="http://www.uxhzz.com/2017/03/06/前端图片上传服务器笔记-两种方式/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="前端开发中，经常要提交一些用户信息，而表单形式上传文件是最简单的，上传时经常也要把图片传给后台，在平时工作中采取的方案一般有两种：1：把图片转为 base64 数据，然后后台保存 base64，之后前端读取的时候再解析 base642：把图片当文件上传，存储于后台的静态目录这里主要也是介绍下平时自己使用的这两种方案的实现方式。">
+<meta property="og:updated_time" content="2017-03-06T17:04:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端上传图片到服务器的两种方式">
+<meta name="twitter:description" content="前端开发中，经常要提交一些用户信息，而表单形式上传文件是最简单的，上传时经常也要把图片传给后台，在平时工作中采取的方案一般有两种：1：把图片转为 base64 数据，然后后台保存 base64，之后前端读取的时候再解析 base642：把图片当文件上传，存储于后台的静态目录这里主要也是介绍下平时自己使用的这两种方案的实现方式。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/blog/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>前端上传图片到服务器的两种方式 | 博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/blog/" class="profilepic">
+            <img src="/blog/img/pic.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/blog/">locozan</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/blog/">主页</a></li>
+                        
+                            <li><a href="/blog/archives/">所有文章</a></li>
+                        
+                            <li><a href="/blog/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="https://275345465@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/locozan" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://zhihu.com/people/locozan" title="知乎"></a>
+                            
+                                <a class="fa Coding" href="https://coding.net/u/uxhzz/p/uxhzz.coding.io/git" title="Coding"></a>
+                            
+                                <a class="fa QQ" href="http://user.qzone.qq.com/275345465" title="QQ"></a>
+                            
+                                <a class="fa 微信" href="https://wx.qq.com/hzz520134134" title="微信"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://git.coding.net/uxhzz/uxhzz.coding.io.git">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/locozan">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">locozan</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/blog/" class="profilepic">
+                <img src="/blog/img/pic.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/blog/" title="回到主页">locozan</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/blog/">主页</a></li>
+                
+                    <li><a href="/blog/archives/">所有文章</a></li>
+                
+                    <li><a href="/blog/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="https://275345465@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/locozan" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://zhihu.com/people/locozan" title="知乎"></a>
+                            
+                                <a class="fa Coding" target="_blank" href="https://coding.net/u/uxhzz/p/uxhzz.coding.io/git" title="Coding"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://user.qzone.qq.com/275345465" title="QQ"></a>
+                            
+                                <a class="fa 微信" target="_blank" href="https://wx.qq.com/hzz520134134" title="微信"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-前端图片上传服务器笔记-两种方式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2017/03/06/前端图片上传服务器笔记-两种方式/" class="article-date">
+      <time datetime="2017-03-06T02:35:06.000Z" itemprop="datePublished">2017-03-06</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端上传图片到服务器的两种方式
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>前端开发中，经常要提交一些用户信息，而表单形式上传文件是最简单的，上传时经常也要把图片传给后台，在平时工作中采取的方案一般有两种：<br>1：把图片转为 base64 数据，然后后台保存 base64，之后前端读取的时候再解析 base64<br>2：把图片当文件上传，存储于后台的静态目录<br>这里主要也是介绍下平时自己使用的这两种方案的实现方式。</p>
+<a id="more"></a>
+<h2 id="创建服务器搭建环境"><a href="#创建服务器搭建环境" class="headerlink" title="创建服务器搭建环境"></a>创建服务器搭建环境</h2><p>如何实现浏览器向服务器提交数据并上传图片，然后怎么查看提交的是否成功？当然，这少不了要写点 <a href="https://nodejs.org/zh-cn/" target="_blank" rel="external">Node.js</a> 来创建一个接收我们信息的服务器。<br>首先你电脑得有 Node.js 跟 npm 包。然后我们在开始一步步进行以下操作：  </p>
+<p>1.创建一个文件夹： <strong>file-upload</strong><br>2.在终端 <code>~cd</code> 到 file-upload 文件夹下，输入命令：<code>npm init</code><br>执行以上步骤你就会发现你的 file-upload 文件夹下已经生成了 <code>package.json</code> 文件，然后把该文件的内容换成如下所示：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>: <span class="string">"image-upload"</span>,</div><div class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</div><div class="line">  <span class="attr">"main"</span>: <span class="string">"index.js"</span>,</div><div class="line">  <span class="attr">"scripts"</span>: &#123;</div><div class="line">    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"author"</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span>,</div><div class="line">  <span class="attr">"dependencies"</span>: &#123;</div><div class="line">    <span class="attr">"connect"</span>: <span class="string">"^3.6.0"</span>,</div><div class="line">    <span class="attr">"formidable"</span>: <span class="string">"^1.1.1"</span>,</div><div class="line">    <span class="attr">"fs-extra"</span>: <span class="string">"^2.0.0"</span>,</div><div class="line">    <span class="attr">"serve-static"</span>: <span class="string">"^1.12.1"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"description"</span>: <span class="string">""</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面是我们要用到的中间件跟工具包。<br>然后在终端输入命令：<code>npm install</code> 把配置项里的东西都下载下来，接着在创建几个文件夹存放我们的 html 跟 js 代码。<br>所以 Sublime 编辑器下的目录的结构是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">📂file-upload</div><div class="line">    📂node_modules</div><div class="line">    📂public</div><div class="line">        📂uploads     //存放临时图片</div><div class="line">          index.html  //表单页面</div><div class="line">      index.js        //node的逻辑代码</div><div class="line">      package.json</div></pre></td></tr></table></figure>
+<p>这样我们的基本环境就搭建好了，接下来开始实现我们的代码。</p>
+<h2 id="基本的-html-代码"><a href="#基本的-html-代码" class="headerlink" title="基本的 html 代码"></a>基本的 html 代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"/receive"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>密&amp;#12288;码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>头&amp;#12288;像：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="基本的-Node-js-代码"><a href="#基本的-Node-js-代码" class="headerlink" title="基本的 Node.js 代码"></a>基本的 Node.js 代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> http = <span class="built_in">require</span>( <span class="string">'http'</span> );</div><div class="line"><span class="keyword">let</span> path = <span class="built_in">require</span>( <span class="string">'path'</span> );</div><div class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>( <span class="string">'fs'</span> );</div><div class="line"></div><div class="line"><span class="comment">//用于创建与指定外部端口的连接</span></div><div class="line"><span class="keyword">let</span> connect = <span class="built_in">require</span>( <span class="string">'connect'</span> );</div><div class="line"><span class="comment">//中间件</span></div><div class="line"><span class="keyword">let</span> serveStatic = <span class="built_in">require</span>( <span class="string">'serve-static'</span> );</div><div class="line"><span class="comment">//fs-extra模块是系统fs模块的扩展，提供了更多便利的 API，并继承了fs模块的 API。</span></div><div class="line"><span class="keyword">let</span> fse = <span class="built_in">require</span>( <span class="string">'fs-extra'</span> );</div><div class="line"></div><div class="line"><span class="keyword">const</span> formidable = <span class="built_in">require</span>( <span class="string">'formidable'</span> );</div><div class="line"><span class="keyword">const</span> form = <span class="keyword">new</span> formidable.IncomingForm();</div><div class="line"></div><div class="line"><span class="keyword">let</span> app = connect();</div><div class="line"></div><div class="line"><span class="keyword">let</span> staticApp = serveStatic( path.join( __dirname, <span class="string">'./public/'</span> ), &#123;</div><div class="line">  index: [ <span class="string">'index.html'</span> ]</div><div class="line">&#125; );</div><div class="line"></div><div class="line">app.use( <span class="string">'/receive'</span>, ( request, response ) =&gt; &#123;</div><div class="line">  form.parse( request, ( err, fields, files ) =&gt; &#123;</div><div class="line">      .....这里是即将插入上传图片方式的代码</div><div class="line">  &#125; );</div><div class="line">&#125; );</div><div class="line"></div><div class="line"></div><div class="line">app.use( <span class="string">'/'</span>, staticApp );</div><div class="line"></div><div class="line">http.createServer( app ).listen( <span class="number">8000</span> ); <span class="comment">//设定端口为http://127.0.0.1:8000</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log( <span class="string">'Server started!'</span> );</div></pre></td></tr></table></figure>
+<h2 id="上传图片方法一"><a href="#上传图片方法一" class="headerlink" title="上传图片方法一"></a>上传图片方法一</h2><p>实现的方式是：转 base64 后返回</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// const base64 = fs.readFileSync( files.image.path ).toString( 'base64' );</span></div><div class="line"><span class="comment">// const dataURI = 'data:' + files.image.type + ';base64,' + base64;</span></div><div class="line"><span class="comment">// response.end( '&#123; "link": "' + dataURI + '" &#125;' );</span></div><div class="line"></div><div class="line"><span class="comment">//转 base64 后返回</span></div><div class="line"><span class="keyword">const</span> base64 = fs.readFileSync( files.file.path ).toString( <span class="string">'base64'</span> );</div><div class="line"><span class="keyword">const</span> dataURI = <span class="string">'data:'</span> + files.file.type + <span class="string">';base64,'</span> + base64;</div><div class="line"></div><div class="line">response.end( <span class="string">`</span></div><div class="line">  &lt;!DOCTYPE html&gt;</div><div class="line">  &lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset="utf-8"&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;p&gt;接收到的：&lt;/p&gt;</div><div class="line">    &lt;p&gt;用户名：<span class="subst">$&#123; fields.username &#125;</span>&lt;/p&gt;</div><div class="line">    &lt;p&gt;密&amp;#12288;码：<span class="subst">$&#123; fields.password &#125;</span>&lt;/p&gt;</div><div class="line">    &lt;p&gt;头&amp;#12288;像：&lt;/p&gt;</div><div class="line">    &lt;p&gt;</div><div class="line">      &lt;img src="<span class="subst">$&#123; dataURI &#125;</span>" /&gt;</div><div class="line">    &lt;/p&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">  &lt;/html&gt;</div><div class="line">` );</div></pre></td></tr></table></figure>
+<p>该方案缺点：</p>
+<ol>
+<li>Base64 转换后的数据理论上将要比原来的大1/3，消耗流量，浪费空间。</li>
+<li>转化为 Base64 之后存储为图片或者字符串 会增加了解析转换的开销。</li>
+</ol>
+<h2 id="上传图片方法二"><a href="#上传图片方法二" class="headerlink" title="上传图片方法二"></a>上传图片方法二</h2><p>实现方式是：把图片当文件上传（multipart/form-data），保留到一个前端可以访问的位置上</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> newFileName = <span class="built_in">Math</span>.random().toString( <span class="number">36</span> ).slice( <span class="number">2</span> ) + <span class="string">'.jpg'</span>;</div><div class="line">    </div><div class="line">fse.copy( files.file.path, path.join( __dirname, <span class="string">'./public/uploads/'</span> + newFileName ), () =&gt; &#123;</div><div class="line">  response.end( <span class="string">`</span></div><div class="line">    &lt;!DOCTYPE html&gt;</div><div class="line">    &lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">      &lt;meta charset="utf-8"&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">      &lt;p&gt;接收到的：&lt;/p&gt;</div><div class="line">      &lt;p&gt;用户名：<span class="subst">$&#123; fields.username &#125;</span>&lt;/p&gt;</div><div class="line">      &lt;p&gt;密&amp;#12288;码：<span class="subst">$&#123; fields.password &#125;</span>&lt;/p&gt;</div><div class="line">      &lt;p&gt;头&amp;#12288;像：&lt;/p&gt;</div><div class="line">      &lt;p&gt;</div><div class="line">        &lt;img src="/uploads/<span class="subst">$&#123; newFileName &#125;</span>" /&gt;</div><div class="line">      &lt;/p&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">    &lt;/html&gt;</div><div class="line">  ` );</div><div class="line">&#125; );</div></pre></td></tr></table></figure>
+<p>最后粘贴任意一种方法然后在终端输入命令： <code>node index.js</code> 就会跳出 <code>Server started!</code> ，那么你就可以在浏览器输入地址： <code>http://127.0.0.1:8000</code> 然后输入账号密码，选着一张图片点击提交，就可以看到这些信息发送到后台并被接收后的结果！</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/blog/2017/03/06/前端图片上传服务器笔记-两种方式/">前端上传图片到服务器的两种方式</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">locozan</a></p>
+        <p><span>Created:</span>2017-03-06, 10:35:06</p>
+        <p><span>Updated:</span>2017-03-07, 01:04:33</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/blog/2017/03/06/前端图片上传服务器笔记-两种方式/" title="前端上传图片到服务器的两种方式">http://www.uxhzz.com/blog/2017/03/06/前端图片上传服务器笔记-两种方式/</a>
+            <span class="copy-path" data-clipboard-text="From http://www.uxhzz.com/blog/2017/03/06/前端图片上传服务器笔记-两种方式/　　By locozan" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/blog/2017/01/10/字符串拼接的几种方式的性能/">
+                    字符串拼接的几种方式的性能
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建服务器搭建环境"><span class="toc-number">1.</span> <span class="toc-text">创建服务器搭建环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本的-html-代码"><span class="toc-number">2.</span> <span class="toc-text">基本的 html 代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本的-Node-js-代码"><span class="toc-number">3.</span> <span class="toc-text">基本的 Node.js 代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传图片方法一"><span class="toc-number">4.</span> <span class="toc-text">上传图片方法一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传图片方法二"><span class="toc-number">5.</span> <span class="toc-text">上传图片方法二</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"前端上传图片到服务器的两种方式　| 博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/03/06/前端图片上传服务器笔记-两种方式/" data-title="前端上传图片到服务器的两种方式" data-url="http://www.uxhzz.com/blog/2017/03/06/前端图片上传服务器笔记-两种方式/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"null"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/blog/2017/01/10/字符串拼接的几种方式的性能/" title="Next: 字符串拼接的几种方式的性能">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2017/03/06/前端图片上传服务器笔记-两种方式/">前端上传图片到服务器的两种方式</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2017/01/10/字符串拼接的几种方式的性能/">字符串拼接的几种方式的性能</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2017/01/07/强大的reduce/">以 reduce 计算的平均数、最大最小数!</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/11/实现移动端的下拉刷新/">实现移动端的下拉刷新</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/12/06/高仿PS选区的流水虚线框/">高仿PS选区的流水虚线框</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/26/文章高亮/">文章高亮</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/24/找出文章重复字/">找出文章的重复字</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/18/html5css3响应式笔记/">纯html5css3响应式笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/09/React实现人机对话/">React实现模拟人机对话</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/08/html5的离线存储和各种html5的head头标签/">html5的离线存储和各种html5的head头标签</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/06/react-router入门学习笔记/">react-router入门学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/05/属性getter和setter/">属性的get和set</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/04/react生命周期简介/">React 生命周期简介</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/11/01/react-入门→虚拟DOM/">React 入门→虚拟DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/10/31/系统创建可执行的全局命令/">系统创建可执行的全局命令</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/09/22/有趣的流氓-getBoundingClientRect/">有趣的流氓:getBoundingClientRect()</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 locozan
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/blog/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(./background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

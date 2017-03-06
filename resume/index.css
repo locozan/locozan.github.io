@@ -188,7 +188,7 @@ a{
 }
 .experience-b{
   position: relative;
-  width: 85%;
+  width: 90%;
   height: 10px;
   // background-color: rgba(135,235,235,.9);
   margin-left: 48px;
@@ -220,7 +220,7 @@ a{
   left: 441px;
 }
 .experience-b li:nth-child(4){
-  left: 600px;
+  left: 588px;
 }
 .experience-c{
   position: relative;
