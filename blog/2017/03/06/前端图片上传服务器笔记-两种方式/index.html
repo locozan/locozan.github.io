@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.uxhzz.com/blog">
-  <title>前端上传图片到服务器的两种方式 | ☣️locozan博客</title>
+  <title>前端上传图片到服务器的两种方式 | 👉locozan博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前端开发中，经常要提交一些用户信息，而表单形式上传文件是最简单的，上传时经常也要把图片传给后台，在平时工作中采取的方案一般有两种：1：把图片转为 base64 数据，然后后台保存 base64，之后前端读取的时候再解析 base642：把图片当文件上传，存储于后台的静态目录这里主要也是介绍下平时自己使用的这两种方案的实现方式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端上传图片到服务器的两种方式">
 <meta property="og:url" content="http://www.uxhzz.com/blog/2017/03/06/前端图片上传服务器笔记-两种方式/index.html">
-<meta property="og:site_name" content="☣️locozan博客">
+<meta property="og:site_name" content="👉locozan博客">
 <meta property="og:description" content="前端开发中，经常要提交一些用户信息，而表单形式上传文件是最简单的，上传时经常也要把图片传给后台，在平时工作中采取的方案一般有两种：1：把图片转为 base64 数据，然后后台保存 base64，之后前端读取的时候再解析 base642：把图片当文件上传，存储于后台的静态目录这里主要也是介绍下平时自己使用的这两种方案的实现方式。">
 <meta property="og:updated_time" content="2017-05-20T16:00:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端上传图片到服务器的两种方式">
 <meta name="twitter:description" content="前端开发中，经常要提交一些用户信息，而表单形式上传文件是最简单的，上传时经常也要把图片传给后台，在平时工作中采取的方案一般有两种：1：把图片转为 base64 数据，然后后台保存 base64，之后前端读取的时候再解析 base642：把图片当文件上传，存储于后台的静态目录这里主要也是介绍下平时自己使用的这两种方案的实现方式。">
   
-    <link rel="alternative" href="/atom.xml" title="☣️locozan博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="👉locozan博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -218,12 +218,6 @@
           </a>
         </div>
       
-      <script>
-        <!-- UY BEGIN -->
-        <div id="uyan_frame"></div>
-        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2128043"></script>
-        <!-- UY END -->
-      </script>
     </div>
     <div class="article-info article-info-index">
       
@@ -291,6 +285,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/blog/2017/05/16/两种文本域contenteditable和textarea实现高度自适应笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          两种文本域 contenteditable 和 textarea 实现高度自适应笔记
+        
+      </div>
+    </a>
   
   
     <a href="/blog/2017/01/10/字符串拼接的几种方式的性能/" id="article-nav-older" class="article-nav-link-wrap">
@@ -408,29 +411,29 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
-<pre style="font-size: 12px;" q-show="jsonFail">
-  jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: false
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true
-</pre>
+          <pre style="font-size: 12px;" q-show="jsonFail">
+            jsonContent:
+              meta: false
+              pages: false
+              posts:
+                title: true
+                date: true
+                path: true
+                text: false
+                raw: false
+                content: false
+                slug: false
+                updated: false
+                comments: false
+                link: false
+                permalink: false
+                excerpt: false
+                categories: false
+                tags: true
+          </pre>
           </p>
           <li class="search-li" q-repeat="items" q-show="isShow">
-            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <a q-attr="href:path|urlformat" class="search-title" ><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
             <p class="search-time">
               <i class="icon-calendar icon"></i>
               <span q-text="date|dateformat"></span>
@@ -450,27 +453,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://ijsuc.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>ijsuc</a>
+              <a href="/blog" + "http://ijsuc.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>ijsuc</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+              <a href="/blog" + "http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+              <a href="/blog" + "http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+              <a href="/blog" + "http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+              <a href="/blog" + "http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="/blog" + "http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
             </li>
           
         </ul>
@@ -486,7 +489,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
     	</section>
     
   </div>
-  
 </div>
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.uxhzz.com/blog">
-  <title>Archives: 2017 | 👉locozan博客</title>
+  <title>自定义国际型格式化 react-intl | 👉locozan博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="👉locozan博客">
-<meta property="og:url" content="http://www.uxhzz.com/blog/archives/2017/index.html">
+  <meta name="description" content="前言这个国际化开发，官方和网上都没好的案例，官网也只是简单介绍了使用方法，结果在项目中一直报错，后来终于找到解决方法，所以记录了下来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义国际型格式化 react-intl">
+<meta property="og:url" content="http://www.uxhzz.com/blog/2017/07/10/自定义国际型格式化-react-intl/index.html">
 <meta property="og:site_name" content="👉locozan博客">
+<meta property="og:description" content="前言这个国际化开发，官方和网上都没好的案例，官网也只是简单介绍了使用方法，结果在项目中一直报错，后来终于找到解决方法，所以记录了下来。">
+<meta property="og:updated_time" content="2017-08-02T01:23:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="👉locozan博客">
+<meta name="twitter:title" content="自定义国际型格式化 react-intl">
+<meta name="twitter:description" content="前言这个国际化开发，官方和网上都没好的案例，官网也只是简单介绍了使用方法，结果在项目中一直报错，后来终于找到解决方法，所以记录了下来。">
   
     <link rel="alternative" href="/atom.xml" title="👉locozan博客" type="application/atom+xml">
   
@@ -149,184 +153,154 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-自定义国际型格式化-react-intl" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      自定义国际型格式化 react-intl
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/07/10/自定义国际型格式化-react-intl/" class="archive-article-date">
+
+        
+        <a href="/blog/2017/07/10/自定义国际型格式化-react-intl/" class="archive-article-date">
   	<time datetime="2017-07-10T01:16:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/07/10/自定义国际型格式化-react-intl/">自定义国际型格式化 react-intl</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这个国际化开发，官方和网上都没好的案例，官网也只是简单介绍了使用方法，结果在项目中一直报错，后来终于找到解决方法，所以记录了下来。<br><a id="more"></a></p>
+<h3 id="文案制作"><a href="#文案制作" class="headerlink" title="文案制作"></a>文案制作</h3><p>首先打开终端，进入项目根目录，输入以下指令安装React-intl:</p>
+<p><code>$ npm install react-intl -save</code></p>
+<p>然后我们的中文跟英文的文案可以这样设定：<br>messages_zh.js:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const data = &#123;</div><div class="line">      "mykey1": "我的第一个key",</div><div class="line">      "mykey2": "我的第&#123; number &#125;个key"</div><div class="line">    &#125;</div><div class="line"></div><div class="line">export default data;</div></pre></td></tr></table></figure></p>
+<p>messages_en.js:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const data = &#123;</div><div class="line">      "mykey1": "My first key",</div><div class="line">      "mykey2": "My first &#123;number&#125; key"</div><div class="line">    &#125;</div><div class="line"></div><div class="line">export default data;</div></pre></td></tr></table></figure></p>
+<h3 id="项目引用"><a href="#项目引用" class="headerlink" title="项目引用"></a>项目引用</h3><p>然后在项目的 index.js 中我们直接贴代码说明：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</div><div class="line"><span class="keyword">import</span> &#123;render&#125; <span class="keyword">from</span> <span class="string">"react-dom"</span>;</div><div class="line"><span class="keyword">import</span> &#123; Route, HashRouter &#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;</div><div class="line"><span class="comment">//引入 'react-intl' 的 addLocaleData 和 IntlProvider 两个格式化组件。</span></div><div class="line"><span class="keyword">import</span> &#123;addLocaleData,IntlProvider&#125; <span class="keyword">from</span> <span class="string">'react-intl'</span>;</div><div class="line"><span class="comment">//这里引入本人制作 demo 使用到的一个组件</span></div><div class="line"><span class="keyword">import</span> About <span class="keyword">from</span> <span class="string">"../src/scripts/components/About/index.js"</span>;</div><div class="line"><span class="comment">//引入与navigator.languages[0]所对应的语言</span></div><div class="line"><span class="keyword">import</span> zh <span class="keyword">from</span> <span class="string">'react-intl/locale-data/zh'</span>;</div><div class="line"><span class="keyword">import</span> en <span class="keyword">from</span> <span class="string">'react-intl/locale-data/en'</span>;</div><div class="line"><span class="comment">//引入自定义的映射表；通过与FormattedMessage的id值来当索引映射返回值</span></div><div class="line"><span class="keyword">import</span> zh_CN <span class="keyword">from</span> <span class="string">'../src/data/messages_en.js'</span>;</div><div class="line"><span class="keyword">import</span> en_US <span class="keyword">from</span> <span class="string">'../src/data/messages_zh.js'</span>;</div><div class="line"><span class="comment">//messages是render()时IntlProvider组件所传的props，属性名固定：messages；</span></div><div class="line"><span class="comment">//messages返回值为映射表，比如：'react-intl/locale-data/zh'&amp;&amp;'./locale/zh_CN'；</span></div><div class="line"><span class="keyword">let</span> messages = &#123;&#125;;</div><div class="line">    messages[<span class="string">"en-US"</span>] = en_US;</div><div class="line">    messages[<span class="string">"zh-CN"</span>] = zh_CN;</div><div class="line"><span class="comment">//获取浏览器设置的语言，返回["zh-CN", "zh", "en-US", "en"]，排序与语言设置顺序一致；</span></div><div class="line"><span class="keyword">const</span> languages = navigator.languages;</div><div class="line"><span class="keyword">const</span> currentLang = languages[<span class="number">0</span>];</div><div class="line"><span class="comment">//不信打印出来看看</span></div><div class="line">      <span class="built_in">console</span>.log(<span class="string">"languages: "</span>, languages);</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">"language: "</span>, currentLang);</div><div class="line"><span class="comment">//载入多个语言数据</span></div><div class="line">addLocaleData([...zh, ...en])</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">render((</div><div class="line">  <span class="comment">//IntlProvider为'react-intl'指定的包裹组件名；</span></div><div class="line">  &lt;IntlProvider locale=&#123;currentLang&#125; messages=&#123;messages[currentLang]&#125;&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">HashRouter</span>&gt;</span></span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">"/About"</span> <span class="attr">component</span>=<span class="string">&#123;</span> <span class="attr">About</span> &#125; <span class="attr">name</span>=<span class="string">"John"</span> /&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">HashRouter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">IntlProvider</span>&gt;</span></div><div class="line">), <span class="built_in">document</span>.querySelector( <span class="string">'#root'</span> ))</div></pre></td></tr></table></figure></p>
+<p>现在我们的 index.js 设定好了之后，我们就可以开始使用 react-intl 给我们的方法了；</p>
+<h3 id="FormattedDate-方法"><a href="#FormattedDate-方法" class="headerlink" title="FormattedDate 方法"></a>FormattedDate 方法</h3><p>1.FormattedDate 方法<br>  首先在我的 about 组件中实现代码：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</div><div class="line"><span class="keyword">import</span> &#123;injectIntl, FormattedMessage&#125; <span class="keyword">from</span> <span class="string">'react-intl'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">About</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>( props )&#123;</div><div class="line">    <span class="keyword">super</span>( props );</div><div class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">value</span>: <span class="number">5</span> &#125;;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  render() &#123;</div><div class="line">     <span class="keyword">const</span> &#123;value&#125; = <span class="keyword">this</span>.state;</div><div class="line">    <span class="keyword">return</span>( </div><div class="line">      &lt;div&gt;</div><div class="line">      //直接通过id值来当索引使用</div><div class="line">        &lt;FormattedMessage</div><div class="line">          id="mykey1"</div><div class="line">          defaultMessage=&#123;"我的"&#125;</div><div class="line">        /&gt;</div><div class="line">        &lt;br/&gt;</div><div class="line">      //有变量的使用方法，需要注意的是 mykey2 的值必须是 "My first &#123;number&#125; key" 这样的</div><div class="line">        &lt;Formattedessage</div><div class="line">          id="mykey2"</div><div class="line">          defaultMessage=&#123;"My first &#123;number&#125; key"&#125;</div><div class="line">          values=&#123;&#123; number: value &#125;&#125;</div><div class="line">        /&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125; </div><div class="line"></div><div class="line"></div><div class="line">export default injectIntl( About );</div></pre></td></tr></table></figure></p>
+<p>  这样进入 about 页面就会输出：</p>
+<p>  <code>&lt;span&gt;我的第一个key&lt;/span&gt;</code><br>  <code>&lt;span&gt;我的第5个key&lt;/span&gt;</code><br>  <strong>注意：这里输出的 ‘我的第一个key’ 和 ‘我的第5个key’ 都是由一个 <code>&lt;span&gt;&lt;/span&gt;</code>包起来的，如果要输出没有 span 标签的呢？接下来介绍另一种方法</strong>；</p>
+<h3 id="intl-formatMessage方法"><a href="#intl-formatMessage方法" class="headerlink" title="intl.formatMessage方法"></a>intl.formatMessage方法</h3><p>2.intl.formatMessage<br>  还是贴代码解释吧：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</div><div class="line"><span class="comment">//引入'react-intl' 的 injectIntl；</span></div><div class="line"><span class="keyword">import</span> &#123;injectIntl&#125; <span class="keyword">from</span> <span class="string">'react-intl'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">About</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>( props )&#123;</div><div class="line">    <span class="keyword">super</span>( props );</div><div class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">value</span>: <span class="number">5</span> &#125;;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  render() &#123;</div><div class="line">    <span class="comment">//装以后组件的props里面会增加一个intl,调用这个方法就可以</span></div><div class="line">     <span class="keyword">const</span> &#123;intl&#125; = <span class="keyword">this</span>.props;</div><div class="line">     <span class="keyword">const</span> &#123;value&#125; = <span class="keyword">this</span>.state;</div><div class="line">    <span class="keyword">return</span>( </div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">        //直接通过id值来当索引使用</div><div class="line">        &#123;</div><div class="line">          intl.formatMessage(&#123;</div><div class="line">            id: 'mykey1', </div><div class="line">            default: "我的第一个key"</div><div class="line">          &#125;)</div><div class="line">        &#125;</div><div class="line">        <span class="tag">&lt;<span class="name">br</span>/&gt;</span></div><div class="line">        //有变量的使用方法，需要注意的是 mykey2 的值必须是 "My first &#123;number&#125; key" 这样的</div><div class="line">        &#123;</div><div class="line">          intl.formatMessage(&#123;</div><div class="line">            id: 'mykey2', </div><div class="line">            default: "My first &#123;number&#125; key"</div><div class="line">          &#125;,&#123; number: value &#125;)</div><div class="line">        &#125;</div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  )&#125;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="comment">//把原始的组件用inectIntl包装</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> injectIntl( About );</div></pre></td></tr></table></figure></p>
+<pre><code>这样进入 about 页面就会输出：
 
-        <div class="article-info info-on-right">
-          
-          
+我的第一个key
+我的第5个key
+**注意：这里输出的 &apos;我的第一个key&apos; 和 &apos;我的第5个key&apos; 都是没有由一个 `&lt;span&gt;&lt;/span&gt;`包起来的字符串**
+</code></pre>
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.uxhzz.com/blog/2017/07/10/自定义国际型格式化-react-intl/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/06/16/数组b对照数组a的某一属性排序/" class="archive-article-date">
-  	<time datetime="2017-06-15T18:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/06/16/数组b对照数组a的某一属性排序/">数组b对照数组a的某一属性排序</a>
-    </h1>
+  
+    <a href="/blog/2017/06/16/数组b对照数组a的某一属性排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数组b对照数组a的某一属性排序</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/05/16/两种文本域contenteditable和textarea实现高度自适应笔记/" class="archive-article-date">
-  	<time datetime="2017-05-16T03:14:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/05/16/两种文本域contenteditable和textarea实现高度自适应笔记/">两种文本域 contenteditable 和 textarea 实现高度自适应笔记</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/03/06/前端图片上传服务器笔记-两种方式/" class="archive-article-date">
-  	<time datetime="2017-03-06T02:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/03/06/前端图片上传服务器笔记-两种方式/">前端上传图片到服务器的两种方式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/01/10/字符串拼接的几种方式的性能/" class="archive-article-date">
-  	<time datetime="2017-01-09T16:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/01/10/字符串拼接的几种方式的性能/">字符串拼接的几种方式的性能</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/01/07/强大的reduce/" class="archive-article-date">
-  	<time datetime="2017-01-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/01/07/强大的reduce/">以 reduce 计算的平均数、最大最小数!</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -349,8 +323,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

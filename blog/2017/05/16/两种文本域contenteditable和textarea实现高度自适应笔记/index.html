@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.uxhzz.com/blog">
-  <title>Archives: 2017 | 👉locozan博客</title>
+  <title>两种文本域 contenteditable 和 textarea 实现高度自适应笔记 | 👉locozan博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="👉locozan博客">
-<meta property="og:url" content="http://www.uxhzz.com/blog/archives/2017/index.html">
+  <meta name="description" content="因最近 react 项目需要桌高度自适应的文本域，所以对 contenteditable 和 textarea 做了一些调研，顺便做了下笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="两种文本域 contenteditable 和 textarea 实现高度自适应笔记">
+<meta property="og:url" content="http://www.uxhzz.com/blog/2017/05/16/两种文本域contenteditable和textarea实现高度自适应笔记/index.html">
 <meta property="og:site_name" content="👉locozan博客">
+<meta property="og:description" content="因最近 react 项目需要桌高度自适应的文本域，所以对 contenteditable 和 textarea 做了一些调研，顺便做了下笔记。">
+<meta property="og:updated_time" content="2017-06-16T04:19:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="👉locozan博客">
+<meta name="twitter:title" content="两种文本域 contenteditable 和 textarea 实现高度自适应笔记">
+<meta name="twitter:description" content="因最近 react 项目需要桌高度自适应的文本域，所以对 contenteditable 和 textarea 做了一些调研，顺便做了下笔记。">
   
     <link rel="alternative" href="/atom.xml" title="👉locozan博客" type="application/atom+xml">
   
@@ -149,184 +153,166 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-两种文本域contenteditable和textarea实现高度自适应笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/07/10/自定义国际型格式化-react-intl/" class="archive-article-date">
-  	<time datetime="2017-07-10T01:16:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/07/10/自定义国际型格式化-react-intl/">自定义国际型格式化 react-intl</a>
+    <h1 class="article-title" itemprop="name">
+      两种文本域 contenteditable 和 textarea 实现高度自适应笔记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/06/16/数组b对照数组a的某一属性排序/" class="archive-article-date">
-  	<time datetime="2017-06-15T18:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/06/16/数组b对照数组a的某一属性排序/">数组b对照数组a的某一属性排序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/05/16/两种文本域contenteditable和textarea实现高度自适应笔记/" class="archive-article-date">
+        
+        <a href="/blog/2017/05/16/两种文本域contenteditable和textarea实现高度自适应笔记/" class="archive-article-date">
   	<time datetime="2017-05-16T03:14:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/05/16/两种文本域contenteditable和textarea实现高度自适应笔记/">两种文本域 contenteditable 和 textarea 实现高度自适应笔记</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因最近 react 项目需要桌高度自适应的文本域，所以对 contenteditable 和 textarea 做了一些调研，顺便做了下笔记。</p>
+<a id="more"></a>
+<h2 id="contenteditable方法"><a href="#contenteditable方法" class="headerlink" title="contenteditable方法"></a>contenteditable方法</h2><p><strong>contenteditable</strong> 属性指定元素内容是否可编辑;</p>
+<p>注意： 当元素中没有设置 contenteditable 属性时，元素将从⽗元素继承<br>语法： <code>&lt;element contenteditable=&quot;true|false&quot;&gt;</code></p>
+<p>——- true指定元素是可编辑的<br>——- false指定元素是不可编辑的<br>个人在开发 react 中是利用第三方组件实现的首先在项目中引入：</p>
+<p><code>npm i react-contenteditable --save</code></p>
+<p>然后是在需要的组件里：</p>
+<p><code>import ContentEditable from &quot;react-contenteditable&quot;;</code></p>
+<p><strong>但是控制台提示说：找不到模块”react-contenteditable”; 这个不知道为什么找不到大神们要是知道可以给我留言。</strong><br>而我的解决方法是把<br><code>node_modules/react-contenteditable/lib</code> 里的 <code>react-contenteditable.js</code><br>拿到外部的一个文件夹里，然后引入：</p>
+<p><code>import ContentEditable from &quot;存放react-contenteditable.js的路径&quot;;</code></p>
+<p>在来是在你需要的任意地方插入：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ContentEditable</span> <span class="attr">disabled</span>=<span class="string">&#123;false&#125;/</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这样一个高度自适应的文本域就轻松实现了，然后就是你就可以用 onChange 监听用户输入内容，该组件的源码地址：<a href="https://github.com/lovasoa/react-contenteditable" target="_blank" rel="external">react-contenteditable</a><br><strong>但是</strong>：<br><strong>contenteditable是个富文本框</strong> 就是HTML内容可以直接被粘贴进去<br>而使他变成纯文本这个方法最简单就是 css 添加：-webkit-user-modify: read-write-plaintext-only</p>
+<p>注意：<br>1.使用user-modify: read-write-plaintext-only我们可以禁用粘贴富文本。<br>2.user-modify仅在IE10 +中支持，而contenteditableIE 5.5以后版本支持</p>
+<h2 id="textarea方法"><a href="#textarea方法" class="headerlink" title="textarea方法"></a>textarea方法</h2><p><strong>textarea</strong> 标签定义多行的文本输入控件</p>
+<p>可以通过 cols 和 rows 属性来规定 textarea 的尺寸，不过更好的办法是使用 CSS 的 height 和 width 属性。想了解更多：<a href="http://www.w3school.com.cn/tags/tag_textarea.asp" target="_blank" rel="external">http://www.w3school.com.cn/tags/tag_textarea.asp</a><br>接下来是 react 组件里的任意地方插入：</p>
+<p>  <code>&lt;textarea ref=&quot;textarea&quot; &gt;&lt;/textarea&gt;</code></p>
+<p>对应的生命周期代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">componentDidMount()&#123;</div><div class="line">  <span class="keyword">let</span> textarea = <span class="keyword">this</span>.refs.textarea;</div><div class="line">  textarea.addEventListener(<span class="string">"keydown"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>)</span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      textarea.style.cssText = <span class="string">'height:auto; padding:0'</span>;</div><div class="line">      textarea.style.cssText = <span class="string">'height:'</span> + textarea.scrollHeight + <span class="string">'px'</span>;</div><div class="line">    &#125;,<span class="number">0</span>);</div><div class="line">  &#125;.bind( <span class="keyword">this</span> ),<span class="literal">false</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>利用 this.refs 去获取 当前 textarea 的节点，然后添加事件。 这样一个高度自适应的 textarea 文本输入框就完成了。</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.uxhzz.com/blog/2017/05/16/两种文本域contenteditable和textarea实现高度自适应笔记/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/03/06/前端图片上传服务器笔记-两种方式/" class="archive-article-date">
-  	<time datetime="2017-03-06T02:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-06</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/03/06/前端图片上传服务器笔记-两种方式/">前端上传图片到服务器的两种方式</a>
-    </h1>
+    <a href="/blog/2017/06/16/数组b对照数组a的某一属性排序/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数组b对照数组a的某一属性排序
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/03/06/前端图片上传服务器笔记-两种方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端上传图片到服务器的两种方式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/01/10/字符串拼接的几种方式的性能/" class="archive-article-date">
-  	<time datetime="2017-01-09T16:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/01/10/字符串拼接的几种方式的性能/">字符串拼接的几种方式的性能</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/01/07/强大的reduce/" class="archive-article-date">
-  	<time datetime="2017-01-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/01/07/强大的reduce/">以 reduce 计算的平均数、最大最小数!</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -349,8 +335,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
