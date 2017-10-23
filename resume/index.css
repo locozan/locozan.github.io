@@ -53,7 +53,7 @@ h4{
 .title{
 }
 .head_portrait, .message_add,.experience_container, .project_container{
-  padding: 15px 0px 15px 0px;
+  padding: 15px 0px 20px 0px;
 }
 .pic{
   display: inline-block;
@@ -146,7 +146,7 @@ h4{
   border-bottom-left-radius: 10px;
 }
 .experience_container{
-  height: 350px;
+  height: 355px;
 }
 .content .content_a, .content .content_b{
   position: relative;
@@ -255,7 +255,7 @@ h4{
   .title{
   }
   .head_portrait, .message_add,.experience_container, .project_container{
-    padding: 15px 0px 15px 0px;
+    padding: 15px 0px 20px 0px;
   }
   .pic{
     display: inline-block;
@@ -348,7 +348,7 @@ h4{
     border-bottom-left-radius: 10px;
   }
   .experience_container{
-    height: 350px;
+    height: 355px;
   }
   .content .content_a, .content .content_b{
     position: relative;
